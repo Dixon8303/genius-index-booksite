@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 460" width="900" height="460">
+  <defs>
+    <linearGradient id="bg3" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#141010"/>
+      <stop offset="100%" stop-color="#0f0d0b"/>
+    </linearGradient>
+    <linearGradient id="lineGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#d1a54a" stop-opacity="0.15"/>
+      <stop offset="50%" stop-color="#d1a54a" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#d1a54a" stop-opacity="0.15"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="460" fill="url(#bg3)"/>
+
+  <text x="450" y="66" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="13" letter-spacing="4" fill="#8a8178">THIRTY DAYS</text>
+
+  <line x1="90" y1="230" x2="810" y2="230" stroke="url(#lineGrad)" stroke-width="2"/>
+
+  <g font-family="Georgia, 'Times New Roman', serif" text-anchor="middle">
+    <!-- 5 stages -->
+    <g transform="translate(90,230)">
+      <circle r="34" fill="#1c1712" stroke="#d1a54a" stroke-width="2"/>
+      <text y="7" font-size="18" font-weight="700" fill="#d1a54a">1</text>
+      <text y="66" font-size="17" fill="#efe6d8">Awareness</text>
+      <text y="88" font-size="11" fill="#7a7268">Days 1&#8211;3</text>
+    </g>
+    <g transform="translate(270,230)">
+      <circle r="34" fill="#1c1712" stroke="#d1a54a" stroke-width="2"/>
+      <text y="7" font-size="18" font-weight="700" fill="#d1a54a">2</text>
+      <text y="66" font-size="17" fill="#efe6d8">Assessment</text>
+      <text y="88" font-size="11" fill="#7a7268">Days 4&#8211;7</text>
+    </g>
+    <g transform="translate(450,230)">
+      <circle r="38" fill="url(#lineGrad)" stroke="#d1a54a" stroke-width="2.5"/>
+      <circle r="38" fill="none" stroke="#d1a54a" stroke-width="2.5"/>
+      <text y="8" font-size="20" font-weight="700" fill="#191410">3</text>
+      <text y="70" font-size="18" fill="#f0d38c" font-weight="700">Practice</text>
+      <text y="92" font-size="11" fill="#7a7268">Days 8&#8211;21</text>
+    </g>
+    <g transform="translate(630,230)">
+      <circle r="34" fill="#1c1712" stroke="#d1a54a" stroke-width="2"/>
+      <text y="7" font-size="18" font-weight="700" fill="#d1a54a">4</text>
+      <text y="66" font-size="17" fill="#efe6d8">Integration</text>
+      <text y="88" font-size="11" fill="#7a7268">Days 22&#8211;27</text>
+    </g>
+    <g transform="translate(810,230)">
+      <circle r="34" fill="#1c1712" stroke="#d1a54a" stroke-width="2"/>
+      <text y="7" font-size="18" font-weight="700" fill="#d1a54a">5</text>
+      <text y="66" font-size="17" fill="#efe6d8">Mastery</text>
+      <text y="88" font-size="11" fill="#7a7268">Days 28&#8211;30</text>
+    </g>
+  </g>
+
+  <text x="450" y="400" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="16" font-style="italic" fill="#c9a876">A named gift becomes a lived one.</text>
+</svg>

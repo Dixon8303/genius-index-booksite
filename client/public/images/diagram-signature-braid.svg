@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" width="900" height="500">
+  <defs>
+    <linearGradient id="bg2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#141010"/>
+      <stop offset="100%" stop-color="#0f0d0b"/>
+    </linearGradient>
+    <radialGradient id="circGoldStrong" cx="35%" cy="30%" r="75%">
+      <stop offset="0%" stop-color="#f0d38c"/>
+      <stop offset="100%" stop-color="#b9863a"/>
+    </radialGradient>
+    <radialGradient id="circGoldSoft" cx="35%" cy="30%" r="75%">
+      <stop offset="0%" stop-color="#caa662"/>
+      <stop offset="100%" stop-color="#7a5b31"/>
+    </radialGradient>
+    <filter id="softGlow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="14" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="900" height="500" fill="url(#bg2)"/>
+
+  <g font-family="Georgia, 'Times New Roman', serif" text-anchor="middle">
+    <!-- Signature domain -->
+    <g filter="url(#softGlow)">
+      <circle cx="150" cy="230" r="88" fill="url(#circGoldStrong)"/>
+    </g>
+    <text x="150" y="222" font-size="20" font-weight="700" fill="#191410">Generative</text>
+    <text x="150" y="246" font-size="11" letter-spacing="2" fill="#3a2c14">YOUR SIGNATURE</text>
+
+    <!-- plus -->
+    <text x="290" y="242" font-size="42" fill="#8a8178" font-family="Georgia, serif">+</text>
+
+    <!-- second domain -->
+    <circle cx="430" cy="230" r="74" fill="url(#circGoldSoft)"/>
+    <text x="430" y="224" font-size="18" font-weight="700" fill="#171310">Expressive</text>
+    <text x="430" y="247" font-size="11" letter-spacing="2" fill="#171310" opacity="0.75">SECOND DOMAIN</text>
+
+    <!-- equals -->
+    <text x="555" y="242" font-size="38" fill="#8a8178" font-family="Georgia, serif">=</text>
+
+    <!-- resulting braid -->
+    <rect x="620" y="150" width="230" height="160" rx="8" fill="#1c1712" stroke="#d1a54a" stroke-opacity="0.6" stroke-width="1.5"/>
+    <text x="735" y="196" font-size="11" letter-spacing="3" fill="#d1a54a">A BRAID</text>
+    <text x="735" y="232" font-size="26" font-weight="700" fill="#efe6d8">The Storyteller</text>
+    <text x="735" y="258" font-size="12" fill="#8a8178">Makes the new thing</text>
+    <text x="735" y="276" font-size="12" fill="#8a8178">and transmits it.</text>
+
+    <text x="450" y="410" font-size="16" font-style="italic" fill="#c9a876">Rarity comes from combination, not competition.</text>
+  </g>
+</svg>

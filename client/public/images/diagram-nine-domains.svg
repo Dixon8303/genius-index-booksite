@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" width="900" height="560">
+  <defs>
+    <linearGradient id="bg1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#141010"/>
+      <stop offset="100%" stop-color="#0f0d0b"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="560" fill="url(#bg1)"/>
+
+  <!-- Three family columns -->
+  <g font-family="Georgia, 'Times New Roman', serif">
+    <!-- SOMA -->
+    <g transform="translate(60,60)">
+      <rect width="240" height="440" rx="6" fill="#1c1712" stroke="#d1a54a" stroke-opacity="0.35"/>
+      <rect width="240" height="4" fill="#d1a54a" opacity="0.9"/>
+      <text x="120" y="46" text-anchor="middle" font-size="12" letter-spacing="4" fill="#d1a54a">SOMA</text>
+      <text x="120" y="68" text-anchor="middle" font-size="13" font-style="italic" fill="#8a8178">The Body</text>
+      <g font-family="Georgia, serif">
+        <rect x="24" y="110" width="192" height="90" rx="4" fill="#241d16" stroke="#ffffff" stroke-opacity="0.08"/>
+        <text x="120" y="148" text-anchor="middle" font-size="20" fill="#efe6d8">Kinetic</text>
+        <text x="120" y="172" text-anchor="middle" font-size="11" letter-spacing="1" fill="#8a8178">MOVEMENT</text>
+
+        <rect x="24" y="220" width="192" height="90" rx="4" fill="#241d16" stroke="#ffffff" stroke-opacity="0.08"/>
+        <text x="120" y="258" text-anchor="middle" font-size="20" fill="#efe6d8">Sensory</text>
+        <text x="120" y="282" text-anchor="middle" font-size="11" letter-spacing="1" fill="#8a8178">SIGNAL</text>
+
+        <rect x="24" y="330" width="192" height="90" rx="4" fill="#241d16" stroke="#ffffff" stroke-opacity="0.08"/>
+        <text x="120" y="368" text-anchor="middle" font-size="20" fill="#efe6d8">Adaptive</text>
+        <text x="120" y="392" text-anchor="middle" font-size="11" letter-spacing="1" fill="#8a8178">CAPACITY</text>
+      </g>
+    </g>
+
+    <!-- MIND -->
+    <g transform="translate(330,60)">
+      <rect width="240" height="440" rx="6" fill="#1c1712" stroke="#d1a54a" stroke-opacity="0.55"/>
+      <rect width="240" height="4" fill="#d1a54a"/>
+      <text x="120" y="46" text-anchor="middle" font-size="12" letter-spacing="4" fill="#e6c374">MIND</text>
+      <text x="120" y="68" text-anchor="middle" font-size="13" font-style="italic" fill="#8a8178">Thought</text>
+
+      <rect x="24" y="110" width="192" height="90" rx="4" fill="#241d16" stroke="#ffffff" stroke-opacity="0.08"/>
+      <text x="120" y="148" text-anchor="middle" font-size="20" fill="#efe6d8">Analytic</text>
+      <text x="120" y="172" text-anchor="middle" font-size="11" letter-spacing="1" fill="#8a8178">PATTERN</text>
+
+      <rect x="24" y="220" width="192" height="90" rx="4" fill="#241d16" stroke="#ffffff" stroke-opacity="0.08"/>
+      <text x="120" y="258" text-anchor="middle" font-size="20" fill="#efe6d8">Mnemonic</text>
+      <text x="120" y="282" text-anchor="middle" font-size="11" letter-spacing="1" fill="#8a8178">RETENTION</text>
+
+      <rect x="24" y="330" width="192" height="90" rx="4" fill="#241d16" stroke="#ffffff" stroke-opacity="0.08"/>
+      <text x="120" y="368" text-anchor="middle" font-size="20" fill="#efe6d8">Generative</text>
+      <text x="120" y="392" text-anchor="middle" font-size="11" letter-spacing="1" fill="#8a8178">COMBINATION</text>
+    </g>
+
+    <!-- FIELD -->
+    <g transform="translate(600,60)">
+      <rect width="240" height="440" rx="6" fill="#1c1712" stroke="#d1a54a" stroke-opacity="0.35"/>
+      <rect width="240" height="4" fill="#d1a54a" opacity="0.7"/>
+      <text x="120" y="46" text-anchor="middle" font-size="12" letter-spacing="4" fill="#c9a876">FIELD</text>
+      <text x="120" y="68" text-anchor="middle" font-size="13" font-style="italic" fill="#8a8178">The Between</text>
+
+      <rect x="24" y="110" width="192" height="90" rx="4" fill="#241d16" stroke="#ffffff" stroke-opacity="0.08"/>
+      <text x="120" y="148" text-anchor="middle" font-size="20" fill="#efe6d8">Relational</text>
+      <text x="120" y="172" text-anchor="middle" font-size="11" letter-spacing="1" fill="#8a8178">PEOPLE</text>
+
+      <rect x="24" y="220" width="192" height="90" rx="4" fill="#241d16" stroke="#ffffff" stroke-opacity="0.08"/>
+      <text x="120" y="258" text-anchor="middle" font-size="20" fill="#efe6d8">Expressive</text>
+      <text x="120" y="282" text-anchor="middle" font-size="11" letter-spacing="1" fill="#8a8178">VOICE</text>
+
+      <rect x="24" y="330" width="192" height="90" rx="4" fill="#241d16" stroke="#ffffff" stroke-opacity="0.08"/>
+      <text x="120" y="368" text-anchor="middle" font-size="20" fill="#efe6d8">Perceptive</text>
+      <text x="120" y="392" text-anchor="middle" font-size="11" letter-spacing="1" fill="#8a8178">MEANING</text>
+    </g>
+  </g>
+</svg>
