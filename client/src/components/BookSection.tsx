@@ -4,6 +4,7 @@
  */
 
 import { useEffect, useRef } from "react";
+import ConstellationGraphic from "./ConstellationGraphic";
 
 const FOUR_MOVEMENTS = [
   {
@@ -60,67 +61,87 @@ export default function BookSection() {
     >
       <div className="container">
 
-        {/* Section header */}
-        <div className="max-w-3xl mb-20">
-          <div className="reveal flex items-center gap-3 mb-6">
-            <div className="gold-rule w-12" />
-            <span className="section-label">About the Book</span>
+        {/* Section header + Constellation, side by side */}
+        <div className="grid lg:grid-cols-2 gap-16 items-start mb-20">
+          <div>
+            <div className="reveal flex items-center gap-3 mb-6">
+              <div className="gold-rule w-12" />
+              <span className="section-label">About the Book</span>
+            </div>
+
+            <h2
+              className="reveal"
+              style={{
+                fontFamily: "'Playfair Display', serif",
+                fontWeight: 700,
+                fontSize: "clamp(2rem, 4vw, 3.5rem)",
+                lineHeight: 1.1,
+                color: "oklch(0.92 0.02 80)",
+                marginBottom: "1.5rem",
+                transitionDelay: "100ms",
+              }}
+            >
+              A Mirror Clear Enough to Show You What You're Carrying
+            </h2>
+
+            <p
+              className="reveal"
+              style={{
+                fontFamily: "'Lato', sans-serif",
+                fontSize: "1.05rem",
+                lineHeight: 1.85,
+                color: "oklch(0.65 0.01 285)",
+                marginBottom: "2.5rem",
+                transitionDelay: "200ms",
+              }}
+            >
+              The Genius Index is not a feel-good reframing. It is close to the opposite. The argument is demanding: you have a real, specific, uneven profile of ability. Some domains are genuinely yours and others genuinely are not. Pretending otherwise is exactly what keeps people from their gifts.
+            </p>
+
+            {/* Pull quote */}
+            <div className="reveal" style={{ transitionDelay: "300ms" }}>
+              <blockquote className="pull-quote">
+                "A genius that is never named is never developed. It doesn't get mismeasured — it gets no measurement, no cultivation, no amplification. It simply idles, its owner assuming it's nothing."
+              </blockquote>
+              <p
+                style={{
+                  fontFamily: "'Lato', sans-serif",
+                  fontSize: "0.75rem",
+                  letterSpacing: "0.12em",
+                  textTransform: "uppercase",
+                  color: "oklch(0.50 0.01 285)",
+                  marginTop: "1rem",
+                  paddingLeft: "1.5rem",
+                }}
+              >
+                — D. Antione Dixon, Introduction
+              </p>
+            </div>
           </div>
 
-          <h2
-            className="reveal"
-            style={{
-              fontFamily: "'Playfair Display', serif",
-              fontWeight: 700,
-              fontSize: "clamp(2rem, 4vw, 3.5rem)",
-              lineHeight: 1.1,
-              color: "oklch(0.92 0.02 80)",
-              marginBottom: "1.5rem",
-              transitionDelay: "100ms",
-            }}
-          >
-            A Mirror Clear Enough to Show You What You're Carrying
-          </h2>
-
-          <p
-            className="reveal"
-            style={{
-              fontFamily: "'Lato', sans-serif",
-              fontSize: "1.05rem",
-              lineHeight: 1.85,
-              color: "oklch(0.65 0.01 285)",
-              maxWidth: "600px",
-              transitionDelay: "200ms",
-            }}
-          >
-            The Genius Index is not a feel-good reframing. It is close to the opposite. The argument is demanding: you have a real, specific, uneven profile of ability. Some domains are genuinely yours and others genuinely are not. Pretending otherwise is exactly what keeps people from their gifts.
-          </p>
-        </div>
-
-        {/* Pull quote */}
-        <div
-          className="reveal mb-20"
-          style={{
-            transitionDelay: "300ms",
-            maxWidth: "680px",
-          }}
-        >
-          <blockquote className="pull-quote">
-            "A genius that is never named is never developed. It doesn't get mismeasured — it gets no measurement, no cultivation, no amplification. It simply idles, its owner assuming it's nothing."
-          </blockquote>
-          <p
-            style={{
-              fontFamily: "'Lato', sans-serif",
-              fontSize: "0.75rem",
-              letterSpacing: "0.12em",
-              textTransform: "uppercase",
-              color: "oklch(0.50 0.01 285)",
-              marginTop: "1rem",
-              paddingLeft: "1.5rem",
-            }}
-          >
-            — D. Antione Dixon, Introduction
-          </p>
+          {/* The Constellation: nine domains, thirty-six braids, the Canonical Ten in gold */}
+          <div className="reveal" style={{ transitionDelay: "250ms" }}>
+            <div className="flex items-center justify-center gap-3 mb-4">
+              <div className="gold-rule w-8" />
+              <span className="section-label">The Constellation</span>
+              <div className="gold-rule w-8" />
+            </div>
+            <ConstellationGraphic />
+            <p
+              className="text-center"
+              style={{
+                fontFamily: "'Cormorant Garamond', serif",
+                fontStyle: "italic",
+                fontSize: "0.95rem",
+                lineHeight: 1.6,
+                color: "oklch(0.55 0.01 285)",
+                maxWidth: "420px",
+                margin: "1rem auto 0",
+              }}
+            >
+              Every pairing of two domains is a named braid — thirty-six in all. Ten are drawn in gold: the Canonical Ten, the pairings the book returns to most.
+            </p>
+          </div>
         </div>
 
         {/* Gold rule */}
