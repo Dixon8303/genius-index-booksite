@@ -181,8 +181,9 @@ export default function DomainsSection() {
           </p>
         </div>
 
-        {/* Grid left-aligned, detail panel to its right (stacks on mobile). */}
-        <div className="reveal grid lg:grid-cols-2 gap-12 items-start mb-12" style={{ transitionDelay: "300ms" }}>
+        {/* Grid left-aligned, detail panel to its right, vertically centered
+            against the (taller) grid -- stacks on mobile. */}
+        <div className="reveal grid lg:grid-cols-2 gap-12 items-center mb-12" style={{ transitionDelay: "300ms" }}>
 
         {/* 3x3 Interactive Grid -- always exactly three columns (SOMA / MIND / FIELD
             rows), matching the book's grid. "auto-fit, minmax(200px,1fr)" used to let
