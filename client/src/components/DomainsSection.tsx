@@ -181,18 +181,18 @@ export default function DomainsSection() {
           </p>
         </div>
 
+        {/* Grid left-aligned, detail panel to its right (stacks on mobile). */}
+        <div className="reveal grid lg:grid-cols-2 gap-12 items-start mb-12" style={{ transitionDelay: "300ms" }}>
+
         {/* 3x3 Interactive Grid -- always exactly three columns (SOMA / MIND / FIELD
             rows), matching the book's grid. "auto-fit, minmax(200px,1fr)" used to let
             wide viewports wrap to 4 columns, leaving a lopsided 4+4+1 last row. */}
         <div
-          className="reveal"
           style={{
             display: "grid",
             gridTemplateColumns: "repeat(3, 1fr)",
             gap: "12px",
-            maxWidth: "640px",
-            margin: "0 auto 3rem",
-            transitionDelay: "300ms",
+            maxWidth: "480px",
           }}
         >
           {DOMAINS.map((domain, idx) => (
@@ -278,17 +278,16 @@ export default function DomainsSection() {
           ))}
         </div>
 
-        {/* Hovered Domain Details Card */}
-        {hoveredId && (
+        {/* Detail panel -- to the grid's right on desktop, below it on mobile
+            (grid lg:grid-cols-2 above stacks single-column below "lg"). */}
+        {hoveredId ? (
           <div
             style={{
               background: "oklch(0.13 0.008 285)",
               border: "1px solid oklch(0.72 0.14 75 / 30%)",
               borderRadius: "3px",
               padding: "2.5rem",
-              maxWidth: "700px",
-              margin: "0 auto",
-              animation: "slideUp 300ms cubic-bezier(0.23, 1, 0.32, 1)",
+              animation: "slideIn 300ms cubic-bezier(0.23, 1, 0.32, 1)",
             }}
           >
             {(() => {
@@ -372,7 +371,34 @@ export default function DomainsSection() {
               );
             })()}
           </div>
+        ) : (
+          <div
+            style={{
+              background: "oklch(0.10 0.008 285)",
+              border: "1px dashed oklch(1 0 0 / 12%)",
+              borderRadius: "3px",
+              padding: "2.5rem",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              minHeight: "220px",
+              textAlign: "center",
+            }}
+          >
+            <p
+              style={{
+                fontFamily: "'Cormorant Garamond', serif",
+                fontStyle: "italic",
+                fontSize: "1.1rem",
+                color: "oklch(0.50 0.01 285)",
+              }}
+            >
+              Hover — or tab to — a domain to explore it.
+            </p>
+          </div>
         )}
+
+        </div>
 
         {/* Bottom note */}
         <div
@@ -394,6 +420,16 @@ export default function DomainsSection() {
       </div>
 
       <style>{`
+        @keyframes slideIn {
+          from {
+            opacity: 0;
+            transform: translateX(12px);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
         @keyframes slideUp {
           from {
             opacity: 0;
