@@ -5,8 +5,7 @@
 
 import { useEffect, useRef } from "react";
 
-// Placeholder monogram until a real author photo is supplied.
-const AUTHOR_PORTRAIT_URL = `${import.meta.env.BASE_URL}images/author-portrait-placeholder.svg`;
+const AUTHOR_PORTRAIT_URL = `${import.meta.env.BASE_URL}images/author-portrait.jpg`;
 
 export default function AuthorSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -63,7 +62,8 @@ export default function AuthorSection() {
                   display: "block",
                   position: "relative",
                   zIndex: 1,
-                  filter: "grayscale(20%) contrast(1.05)",
+                  objectFit: "cover",
+                  filter: "contrast(1.05) saturate(1.05)",
                 }}
               />
               {/* Gold overlay accent */}
