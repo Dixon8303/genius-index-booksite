@@ -37,7 +37,11 @@ export default function AuthorSection() {
 
           {/* Portrait */}
           <div className="reveal order-2 lg:order-1" style={{ transitionDelay: "100ms" }}>
-            <div className="relative">
+            {/* maxWidth+margin:auto here, matching the image's own cap below --
+                otherwise this wrapper stretches to the full (wider) grid column,
+                the image stays capped and left-aligned inside it, and the gold
+                frame (sized to the wrapper) ends up way off to the photo's right. */}
+            <div className="relative" style={{ maxWidth: "440px", margin: "0 auto" }}>
               {/* Gold frame accent -- centered around the image, even outset on all sides */}
               <div
                 style={{

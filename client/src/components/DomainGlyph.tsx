@@ -27,7 +27,7 @@ export default function DomainGlyph({
   style,
 }: {
   domain: DomainGlyphId;
-  size?: number;
+  size?: number | string;
   className?: string;
   style?: React.CSSProperties;
 }) {

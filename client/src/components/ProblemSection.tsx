@@ -214,7 +214,7 @@ export default function ProblemSection() {
                     color: "oklch(0.72 0.14 75)",
                   }}
                 >
-                  <DomainGlyph domain={domain} size={28} />
+                  <DomainGlyph domain={domain} size="70%" />
                 </div>
               ))}
             </div>
