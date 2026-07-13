@@ -5,10 +5,11 @@
  */
 
 import { useEffect, useRef } from "react";
+import DomainGlyph, { type DomainGlyphId } from "./DomainGlyph";
 
-// The nine domains' glyphs, in the book's row order (SOMA / MIND / FIELD)
+// The nine domains' book glyphs, in the book's row order (SOMA / MIND / FIELD)
 // -- same 3x3 grid grammar as the logo and DomainsSection.
-const DOMAIN_GLYPHS = ["KI", "SE", "AD", "AN", "ME", "GE", "RE", "EX", "PE"];
+const DOMAIN_GLYPHS: DomainGlyphId[] = ["KIN", "SEN", "ADP", "ANL", "MEM", "GEN", "REL", "EXP", "PER"];
 
 export default function ProblemSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -199,7 +200,7 @@ export default function ProblemSection() {
                 marginBottom: "2rem",
               }}
             >
-              {DOMAIN_GLYPHS.map((glyph, i) => (
+              {DOMAIN_GLYPHS.map((domain, i) => (
                 <div
                   key={i}
                   style={{
@@ -210,19 +211,10 @@ export default function ProblemSection() {
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
+                    color: "oklch(0.72 0.14 75)",
                   }}
                 >
-                  <span
-                    style={{
-                      fontFamily: "'Playfair Display', serif",
-                      fontWeight: 700,
-                      fontSize: "clamp(1rem, 2.2vw, 1.35rem)",
-                      color: "oklch(0.72 0.14 75)",
-                      letterSpacing: "0.02em",
-                    }}
-                  >
-                    {glyph}
-                  </span>
+                  <DomainGlyph domain={domain} size={28} />
                 </div>
               ))}
             </div>

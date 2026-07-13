@@ -181,14 +181,17 @@ export default function DomainsSection() {
           </p>
         </div>
 
-        {/* 3x3 Interactive Grid */}
+        {/* 3x3 Interactive Grid -- always exactly three columns (SOMA / MIND / FIELD
+            rows), matching the book's grid. "auto-fit, minmax(200px,1fr)" used to let
+            wide viewports wrap to 4 columns, leaving a lopsided 4+4+1 last row. */}
         <div
           className="reveal"
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
+            gridTemplateColumns: "repeat(3, 1fr)",
             gap: "12px",
-            marginBottom: "3rem",
+            maxWidth: "640px",
+            margin: "0 auto 3rem",
             transitionDelay: "300ms",
           }}
         >
