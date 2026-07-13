@@ -38,14 +38,14 @@ export default function AuthorSection() {
           {/* Portrait */}
           <div className="reveal order-2 lg:order-1" style={{ transitionDelay: "100ms" }}>
             <div className="relative">
-              {/* Gold frame accent */}
+              {/* Gold frame accent -- centered around the image, even outset on all sides */}
               <div
                 style={{
                   position: "absolute",
                   top: "-12px",
                   left: "-12px",
-                  right: "24px",
-                  bottom: "24px",
+                  right: "-12px",
+                  bottom: "-12px",
                   border: "1px solid oklch(0.72 0.14 75 / 25%)",
                   borderRadius: "3px",
                   zIndex: 0,
