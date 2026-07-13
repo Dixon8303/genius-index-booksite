@@ -4,14 +4,15 @@
  */
 
 import { useEffect, useRef } from "react";
+import DomainGlyph, { type DomainGlyphId } from "./DomainGlyph";
 
-const BRAIDS = [
-  { name: "Translator", domains: "Analytic + Expressive", what: "Sees structure and makes others see it" },
-  { name: "Leader", domains: "Relational + Expressive", what: "Reads people and moves them" },
-  { name: "Storyteller", domains: "Generative + Expressive", what: "Makes the new thing and transmits it" },
-  { name: "Craftsman", domains: "Kinetic + Sensory", what: "The body owns the motion, the sense guides it" },
-  { name: "Diagnostician", domains: "Perceptive + Analytic", what: "Catches the anomaly and explains the system" },
-  { name: "Connector", domains: "Mnemonic + Relational", what: "Never forgets a person and reads them" },
+const BRAIDS: Array<{ name: string; domains: string; glyphs: [DomainGlyphId, DomainGlyphId]; what: string }> = [
+  { name: "Translator", domains: "Analytic + Expressive", glyphs: ["ANL", "EXP"], what: "Sees structure and makes others see it" },
+  { name: "Leader", domains: "Relational + Expressive", glyphs: ["REL", "EXP"], what: "Reads people and moves them" },
+  { name: "Storyteller", domains: "Generative + Expressive", glyphs: ["GEN", "EXP"], what: "Makes the new thing and transmits it" },
+  { name: "Craftsman", domains: "Kinetic + Sensory", glyphs: ["KIN", "SEN"], what: "The body owns the motion, the sense guides it" },
+  { name: "Diagnostician", domains: "Perceptive + Analytic", glyphs: ["PER", "ANL"], what: "Catches the anomaly and explains the system" },
+  { name: "Connector", domains: "Mnemonic + Relational", glyphs: ["MEM", "REL"], what: "Never forgets a person and reads them" },
 ];
 
 const BANDS = [
@@ -361,6 +362,25 @@ export default function FrameworkSection() {
                   >
                     {braid.what}
                   </p>
+
+                  {/* Glyph equation: the braid's two domain glyphs, pinned to the
+                      row's trailing negative space. */}
+                  <div
+                    style={{
+                      marginLeft: "auto",
+                      flexShrink: 0,
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "0.4rem",
+                      color: "oklch(0.72 0.14 75)",
+                      opacity: 0.75,
+                    }}
+                    aria-hidden="true"
+                  >
+                    <DomainGlyph domain={braid.glyphs[0]} size={20} />
+                    <span style={{ fontFamily: "'Playfair Display', serif", fontSize: "0.85rem", color: "oklch(0.55 0.01 285)" }}>+</span>
+                    <DomainGlyph domain={braid.glyphs[1]} size={20} />
+                  </div>
                 </div>
               ))}
             </div>
