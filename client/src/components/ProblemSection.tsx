@@ -6,6 +6,10 @@
 
 import { useEffect, useRef } from "react";
 
+// The nine domains' glyphs, in the book's row order (SOMA / MIND / FIELD)
+// -- same 3x3 grid grammar as the logo and DomainsSection.
+const DOMAIN_GLYPHS = ["KI", "SE", "AD", "AN", "ME", "GE", "RE", "EX", "PE"];
+
 export default function ProblemSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
 
@@ -195,7 +199,7 @@ export default function ProblemSection() {
                 marginBottom: "2rem",
               }}
             >
-              {[0, 1, 2, 3, 4, 5, 6, 7, 8].map(i => (
+              {DOMAIN_GLYPHS.map((glyph, i) => (
                 <div
                   key={i}
                   style={{
@@ -203,9 +207,23 @@ export default function ProblemSection() {
                     background: "oklch(0.15 0.008 285)",
                     border: "1px solid oklch(1 0 0 / 10%)",
                     borderRadius: "3px",
-                    opacity: 0.6,
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
                   }}
-                />
+                >
+                  <span
+                    style={{
+                      fontFamily: "'Playfair Display', serif",
+                      fontWeight: 700,
+                      fontSize: "clamp(1rem, 2.2vw, 1.35rem)",
+                      color: "oklch(0.72 0.14 75)",
+                      letterSpacing: "0.02em",
+                    }}
+                  >
+                    {glyph}
+                  </span>
+                </div>
               ))}
             </div>
 
