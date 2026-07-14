@@ -19,16 +19,6 @@ const BOOK_FORMATS = [
     primary: true,
   },
   {
-    format: "Free Braid Companion",
-    description: "“The Thirty-Six Braids” — a free eleven-page field guide to every pairing. No purchase required.",
-    icon: "🧵",
-    cta: "Download Now",
-    href: COMPANION_URL,
-    download: true,
-    primary: false,
-    badge: "Free",
-  },
-  {
     format: "Online Assessment",
     description: "The fuller online Index adds automatic scoring, sound-based stations, and a saved profile you can retake to track change.",
     icon: "🔬",
@@ -38,6 +28,16 @@ const BOOK_FORMATS = [
     primary: false,
     highlight: true,
     badge: "Recommended",
+  },
+  {
+    format: "Free Braid Companion",
+    description: "“The Thirty-Six Braids” — a free eleven-page field guide to every pairing. No purchase required.",
+    icon: "🧵",
+    cta: "Download Now",
+    href: COMPANION_URL,
+    download: true,
+    primary: false,
+    badge: "Free",
   },
 ];
 
