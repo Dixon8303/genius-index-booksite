@@ -9,11 +9,39 @@ import { ASSESSMENT_URL } from "@/lib/config";
 const BOOK_COVER_URL = `${import.meta.env.BASE_URL}images/book-cover.svg`;
 const COMPANION_URL = `${import.meta.env.BASE_URL}downloads/the-thirty-six-braids-companion.pdf`;
 
+// Hairline SVG marks in the same visual language as the domain glyphs and the
+// constellation graphic (thin currentColor strokes, layered opacity for
+// depth) -- used instead of emoji, which read out of place against the rest
+// of the book's typographic system.
+const FORMAT_ICONS: Record<string, string> = {
+  paperback: `<path d="M4 5.4C4 4.63 4.63 4 5.4 4H11.4a.6.6 0 0 1 .6.6V19a.6.6 0 0 0-.6-.6H5.4A1.4 1.4 0 0 1 4 17V5.4Z"></path><path d="M20 5.4c0-.77-.63-1.4-1.4-1.4H12.6a.6.6 0 0 0-.6.6V19a.6.6 0 0 1 .6-.6h6A1.4 1.4 0 0 0 20 17V5.4Z"></path><path d="M12 4.6V19" stroke-opacity=".4"></path>`,
+  assessment: `<circle cx="12" cy="12" r="8"></circle><path d="M12 3v2.6M12 18.4V21M3 12h2.6M18.4 12H21" stroke-opacity=".55"></path><path d="M6.3 6.3l1.5 1.5M16.2 16.2l1.5 1.5M17.7 6.3l-1.5 1.5M7.8 16.2l-1.5 1.5" stroke-opacity=".3"></path><circle cx="12" cy="12" r="1.3" fill="currentColor" stroke="none"></circle>`,
+  companion: `<path d="M6.5 3.5c2.6 1.1 2.6 3.9 0 5s-2.6 3.9 0 5 2.6 3.9 0 5"></path><path d="M12 3.5c2.6 1.1 2.6 3.9 0 5s-2.6 3.9 0 5 2.6 3.9 0 5" stroke-opacity=".55"></path><path d="M17.5 3.5c2.6 1.1 2.6 3.9 0 5s-2.6 3.9 0 5 2.6 3.9 0 5" stroke-opacity=".3"></path>`,
+};
+
+function FormatIcon({ id }: { id: keyof typeof FORMAT_ICONS }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      width="26"
+      height="26"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.15"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      style={{ display: "block", color: "oklch(0.72 0.14 75)" }}
+      aria-hidden="true"
+      dangerouslySetInnerHTML={{ __html: FORMAT_ICONS[id] }}
+    />
+  );
+}
+
 const BOOK_FORMATS = [
   {
     format: "Paperback",
     description: "The Book Edition includes the full printable self-assessment. Set aside 25 minutes and a pen.",
-    icon: "📖",
+    icon: "paperback",
     cta: "Order Now",
     href: "#",
     primary: true,
@@ -21,22 +49,22 @@ const BOOK_FORMATS = [
   {
     format: "Online Assessment",
     description: "The fuller online Index adds automatic scoring, sound-based stations, and a saved profile you can retake to track change.",
-    icon: "🔬",
+    icon: "assessment",
     cta: "Take the Online Index",
     href: ASSESSMENT_URL,
     external: true,
     primary: false,
-    highlight: true,
     badge: "Recommended",
   },
   {
     format: "Free Braid Companion",
     description: "“The Thirty-Six Braids” — a free eleven-page field guide to every pairing. No purchase required.",
-    icon: "🧵",
+    icon: "companion",
     cta: "Download Now",
     href: COMPANION_URL,
     download: true,
     primary: false,
+    highlight: true,
     badge: "Free",
   },
 ];
@@ -190,7 +218,7 @@ export default function GetBookSection() {
                     : "oklch(1 0 0 / 8%)";
                 }}
               >
-                <div style={{ fontSize: "1.75rem", flexShrink: 0 }}>{format.icon}</div>
+                <div style={{ flexShrink: 0 }}><FormatIcon id={format.icon} /></div>
                 <div style={{ flex: 1 }}>
                   <div className="flex items-center gap-2 mb-1">
                     <h4
