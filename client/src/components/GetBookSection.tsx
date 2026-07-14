@@ -7,23 +7,26 @@ import { useEffect, useRef } from "react";
 import { ASSESSMENT_URL } from "@/lib/config";
 
 const BOOK_COVER_URL = `${import.meta.env.BASE_URL}images/book-cover.svg`;
+const COMPANION_URL = `${import.meta.env.BASE_URL}downloads/the-thirty-six-braids-companion.pdf`;
 
 const BOOK_FORMATS = [
   {
     format: "Paperback",
     description: "The Book Edition includes the full printable self-assessment. Set aside 25 minutes and a pen.",
     icon: "📖",
-    cta: "Order Paperback",
+    cta: "Order Now",
     href: "#",
     primary: true,
   },
   {
-    format: "eBook",
-    description: "Digital edition with the full text, framework, and all nine domain chapters.",
-    icon: "📱",
-    cta: "Get eBook",
-    href: "#",
+    format: "Free Braid Companion",
+    description: "“The Thirty-Six Braids” — a free six-page field guide to every pairing. No purchase required.",
+    icon: "🧵",
+    cta: "Download Now",
+    href: COMPANION_URL,
+    download: true,
     primary: false,
+    badge: "Free",
   },
   {
     format: "Online Assessment",
@@ -34,6 +37,7 @@ const BOOK_FORMATS = [
     external: true,
     primary: false,
     highlight: true,
+    badge: "Recommended",
   },
 ];
 
@@ -199,7 +203,7 @@ export default function GetBookSection() {
                     >
                       {format.format}
                     </h4>
-                    {format.highlight && (
+                    {format.badge && (
                       <span
                         style={{
                           fontFamily: "'Lato', sans-serif",
@@ -213,7 +217,7 @@ export default function GetBookSection() {
                           borderRadius: "2px",
                         }}
                       >
-                        Recommended
+                        {format.badge}
                       </span>
                     )}
                   </div>
@@ -232,11 +236,12 @@ export default function GetBookSection() {
                   href={format.href}
                   target={format.external ? "_blank" : undefined}
                   rel={format.external ? "noopener" : undefined}
+                  download={format.download ? "" : undefined}
                   onClick={e => {
-                    // Paperback/eBook have no purchase page yet -- swallow the
-                    // click rather than navigate to "#". The Online Assessment
-                    // entry has a real href and is left to navigate normally.
-                    if (!format.external) e.preventDefault();
+                    // Paperback has no purchase page yet -- swallow the click
+                    // rather than navigate to "#". Companion download and the
+                    // Online Assessment both have real hrefs and navigate normally.
+                    if (format.href === "#") e.preventDefault();
                   }}
                   className={format.primary ? "btn-gold" : "btn-outline-gold"}
                   style={{
