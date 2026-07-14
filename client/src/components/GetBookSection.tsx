@@ -20,7 +20,7 @@ const BOOK_FORMATS = [
   },
   {
     format: "Free Braid Companion",
-    description: "“The Thirty-Six Braids” — a free six-page field guide to every pairing. No purchase required.",
+    description: "“The Thirty-Six Braids” — a free eleven-page field guide to every pairing. No purchase required.",
     icon: "🧵",
     cta: "Download Now",
     href: COMPANION_URL,
