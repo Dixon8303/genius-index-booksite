@@ -12,7 +12,7 @@ const FAQS = [
   },
   {
     question: "Is genius really in everyone? That sounds like flattery.",
-    answer: "It would be, if 'genius' meant 'great at everything.' It doesn't. The claim is precise: nearly everyone has a profile with real peaks — one or two domains where they operate past the ordinary — and those peaks usually go unnamed because what comes easy is easy to discount. The book insists just as hard on your valleys: some domains are genuinely not yours. A profile with no lows isn't a profile; it's a horoscope.",
+    answer: "It would be, if 'genius' meant 'great at everything.' It doesn't. The claim is precise: nearly everyone has a profile with real peaks — one or two domains where they operate past the ordinary — and those peaks usually go unnamed because what comes easy is easy to discount. The book insists just as hard on your valleys: some domains are genuinely not yours. Flattering you on all nine would be easy; it just wouldn't be true.",
   },
   {
     question: "Isn't this just another personality quiz that tells everyone what they want to hear?",

@@ -52,6 +52,7 @@ export default function BuiltFromSection() {
             <span className="section-label">Built From</span>
           </div>
           <h2
+            aria-label="Six Disciplines, One Framework"
             style={{
               fontFamily: "'Playfair Display', serif",
               fontWeight: 700,
@@ -61,8 +62,10 @@ export default function BuiltFromSection() {
               marginBottom: "1.25rem",
             }}
           >
-            Six Disciplines,<br />
-            One Framework
+            <span aria-hidden="true">
+              Six Disciplines,<br />
+              One Framework
+            </span>
           </h2>
         </div>
 

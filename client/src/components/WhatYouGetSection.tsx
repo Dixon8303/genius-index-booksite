@@ -72,6 +72,7 @@ export default function WhatYouGetSection() {
           </div>
           <h2
             className="reveal"
+            aria-label="A Book You Do, Not Only a Book You Read"
             style={{
               fontFamily: "'Playfair Display', serif",
               fontWeight: 700,
@@ -81,8 +82,10 @@ export default function WhatYouGetSection() {
               transitionDelay: "100ms",
             }}
           >
-            A Book You Do,<br />
-            Not Only a Book You Read
+            <span aria-hidden="true">
+              A Book You Do,<br />
+              Not Only a Book You Read
+            </span>
           </h2>
         </div>
 
