@@ -17,15 +17,20 @@ export default function MomentSection() {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             setIsVisible(true);
-            // Trigger the full animation after a delay
-            setTimeout(() => setAllLit(true), 2000);
+            // Trigger the full animation after a delay -- kept short (was
+            // 2000ms, plus another 1200ms before the headline even started
+            // fading in) because a normally-scrolling visitor on this
+            // 15,000px+ page was demonstrably passing through this section
+            // before the payoff ever appeared, landing on a mostly-blank
+            // frame instead. Still staged, just fast enough to land.
+            setTimeout(() => setAllLit(true), 600);
           } else {
             setIsVisible(false);
             setAllLit(false);
           }
         });
       },
-      { threshold: 0.5 }
+      { threshold: 0.35 }
     );
 
     if (sectionRef.current) {
@@ -121,10 +126,11 @@ export default function MomentSection() {
             style={{
               opacity: allLit ? 1 : 0,
               transform: allLit ? "translateY(0)" : "translateY(20px)",
-              transition: "all 800ms cubic-bezier(0.23, 1, 0.32, 1) 1.2s",
+              transition: "all 800ms cubic-bezier(0.23, 1, 0.32, 1) 0.3s",
             }}
           >
             <h2
+              aria-label="Genius Was Never Rare. Recognition Was."
               style={{
                 fontFamily: "'Playfair Display', serif",
                 fontWeight: 900,
@@ -135,12 +141,14 @@ export default function MomentSection() {
                 letterSpacing: "-0.03em",
               }}
             >
-              Genius Was Never Rare.
-              <br />
-              <em style={{ color: "oklch(0.72 0.14 75)", fontStyle: "italic" }}>
-                Recognition
-              </em>{" "}
-              Was.
+              <span aria-hidden="true">
+                Genius Was Never Rare.
+                <br />
+                <em style={{ color: "oklch(0.72 0.14 75)", fontStyle: "italic" }}>
+                  Recognition
+                </em>{" "}
+                Was.
+              </span>
             </h2>
 
             <div className="gold-rule mx-auto mb-6" style={{ width: "60px" }} />

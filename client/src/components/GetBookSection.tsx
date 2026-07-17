@@ -42,9 +42,10 @@ const BOOK_FORMATS = [
     format: "Paperback",
     description: "The Book Edition includes the full printable self-assessment. Set aside 25 minutes and a pen.",
     icon: "paperback",
-    cta: "Order Now",
-    href: "#",
-    primary: true,
+    cta: "Coming Soon",
+    href: undefined,
+    badge: "Coming Soon",
+    comingSoon: true,
   },
   {
     format: "Online Assessment",
@@ -53,7 +54,7 @@ const BOOK_FORMATS = [
     cta: "Take the Online Index",
     href: ASSESSMENT_URL,
     external: true,
-    primary: false,
+    primary: true,
     badge: "Recommended",
   },
   {
@@ -239,8 +240,8 @@ export default function GetBookSection() {
                           fontSize: "0.55rem",
                           letterSpacing: "0.15em",
                           textTransform: "uppercase",
-                          color: "oklch(0.10 0.008 285)",
-                          background: "oklch(0.72 0.14 75)",
+                          color: format.comingSoon ? "oklch(0.60 0.01 285)" : "oklch(0.10 0.008 285)",
+                          background: format.comingSoon ? "oklch(1 0 0 / 8%)" : "oklch(0.72 0.14 75)",
                           padding: "2px 8px",
                           borderRadius: "2px",
                         }}
@@ -260,28 +261,51 @@ export default function GetBookSection() {
                     {format.description}
                   </p>
                 </div>
-                <a
-                  href={format.href}
-                  target={format.external ? "_blank" : undefined}
-                  rel={format.external ? "noopener" : undefined}
-                  download={format.download ? "" : undefined}
-                  onClick={e => {
-                    // Paperback has no purchase page yet -- swallow the click
-                    // rather than navigate to "#". Companion download and the
-                    // Online Assessment both have real hrefs and navigate normally.
-                    if (format.href === "#") e.preventDefault();
-                  }}
-                  className={format.primary ? "btn-gold" : "btn-outline-gold"}
-                  style={{
-                    flexShrink: 0,
-                    textDecoration: "none",
-                    whiteSpace: "nowrap",
-                    fontSize: "0.65rem",
-                    padding: "0.625rem 1.25rem",
-                  }}
-                >
-                  {format.cta}
-                </a>
+                {format.comingSoon ? (
+                  // Paperback has no purchase link yet. A styled link that goes
+                  // nowhere reads as broken, not as "not yet available" -- so
+                  // this renders as a genuinely non-interactive, visibly muted
+                  // element instead of a clickable dead end.
+                  <span
+                    role="button"
+                    aria-disabled="true"
+                    title="Paperback pre-orders aren't open yet"
+                    style={{
+                      flexShrink: 0,
+                      whiteSpace: "nowrap",
+                      fontSize: "0.65rem",
+                      padding: "0.625rem 1.25rem",
+                      fontFamily: "'Lato', sans-serif",
+                      fontWeight: 700,
+                      letterSpacing: "0.08em",
+                      textTransform: "uppercase",
+                      color: "oklch(0.45 0.01 285)",
+                      background: "transparent",
+                      border: "1px solid oklch(1 0 0 / 12%)",
+                      borderRadius: "2px",
+                      cursor: "not-allowed",
+                    }}
+                  >
+                    {format.cta}
+                  </span>
+                ) : (
+                  <a
+                    href={format.href}
+                    target={format.external ? "_blank" : undefined}
+                    rel={format.external ? "noopener" : undefined}
+                    download={format.download ? "" : undefined}
+                    className={format.primary ? "btn-gold" : "btn-outline-gold"}
+                    style={{
+                      flexShrink: 0,
+                      textDecoration: "none",
+                      whiteSpace: "nowrap",
+                      fontSize: "0.65rem",
+                      padding: "0.625rem 1.25rem",
+                    }}
+                  >
+                    {format.cta}
+                  </a>
+                )}
               </div>
             ))}
           </div>
@@ -327,14 +351,15 @@ export default function GetBookSection() {
               The online version adds the two stations that need sound, automatic scoring across all three streams, and a saved profile you can retake to track change. Both versions give you a real Genius Signature.
             </p>
           </div>
-          <button
+          <a
+            href={ASSESSMENT_URL}
+            target="_blank"
+            rel="noopener"
             className="btn-gold"
-            onClick={() => {
-              window.open(ASSESSMENT_URL, "_blank", "noopener");
-            }}
+            style={{ textDecoration: "none" }}
           >
             Take the Assessment
-          </button>
+          </a>
         </div>
       </div>
     </section>

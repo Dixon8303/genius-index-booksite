@@ -3,6 +3,8 @@
  * Minimal, elegant, with the Genius Grid logo
  */
 
+import type { MouseEvent } from "react";
+
 function GeniusGridLogo({ size = 24 }: { size?: number }) {
   return (
     <svg width={size} height={size} viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -31,7 +33,12 @@ function GeniusGridLogo({ size = 24 }: { size?: number }) {
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
-  const handleNavClick = (href: string) => {
+  // Real anchors (not buttons) so every nav item has a working href -- a
+  // shareable URL, a working browser back button, and a functioning fallback
+  // if JS hasn't hydrated yet -- with the smooth-scroll as an enhancement on
+  // top, not the only way the link works.
+  const handleNavClick = (e: MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
     const el = document.querySelector(href);
     if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
   };
@@ -112,24 +119,23 @@ export default function Footer() {
                   { label: "The Author", href: "#author" },
                   { label: "FAQ", href: "#faq" },
                 ].map(link => (
-                  <button
+                  <a
                     key={link.href}
-                    onClick={() => handleNavClick(link.href)}
+                    href={link.href}
+                    onClick={e => handleNavClick(e, link.href)}
                     style={{
                       fontFamily: "'Lato', sans-serif",
                       fontSize: "0.85rem",
-                      color: "oklch(0.50 0.01 285)",
-                      background: "none",
-                      border: "none",
+                      color: "oklch(0.58 0.01 285)",
                       textAlign: "left",
-                      padding: 0,
+                      textDecoration: "none",
                       transition: "color 200ms ease",
                     }}
                     onMouseEnter={e => (e.currentTarget.style.color = "oklch(0.72 0.14 75)")}
-                    onMouseLeave={e => (e.currentTarget.style.color = "oklch(0.50 0.01 285)")}
+                    onMouseLeave={e => (e.currentTarget.style.color = "oklch(0.58 0.01 285)")}
                   >
                     {link.label}
-                  </button>
+                  </a>
                 ))}
               </div>
             </div>
@@ -150,28 +156,27 @@ export default function Footer() {
               </p>
               <div className="flex flex-col gap-2">
                 {[
-                  { label: "Order Paperback", href: "#get-book" },
-                  { label: "Get eBook", href: "#get-book" },
-                  { label: "Online Assessment", href: "#get-book" },
+                  { label: "Take the Assessment", href: "#get-book" },
+                  { label: "Free Braid Companion", href: "#get-book" },
+                  { label: "Paperback (Coming Soon)", href: "#get-book" },
                 ].map(link => (
-                  <button
+                  <a
                     key={link.label}
-                    onClick={() => handleNavClick(link.href)}
+                    href={link.href}
+                    onClick={e => handleNavClick(e, link.href)}
                     style={{
                       fontFamily: "'Lato', sans-serif",
                       fontSize: "0.85rem",
-                      color: "oklch(0.50 0.01 285)",
-                      background: "none",
-                      border: "none",
+                      color: "oklch(0.58 0.01 285)",
                       textAlign: "left",
-                      padding: 0,
+                      textDecoration: "none",
                       transition: "color 200ms ease",
                     }}
                     onMouseEnter={e => (e.currentTarget.style.color = "oklch(0.72 0.14 75)")}
-                    onMouseLeave={e => (e.currentTarget.style.color = "oklch(0.50 0.01 285)")}
+                    onMouseLeave={e => (e.currentTarget.style.color = "oklch(0.58 0.01 285)")}
                   >
                     {link.label}
-                  </button>
+                  </a>
                 ))}
               </div>
             </div>
@@ -187,7 +192,7 @@ export default function Footer() {
             style={{
               fontFamily: "'Lato', sans-serif",
               fontSize: "0.75rem",
-              color: "oklch(0.38 0.01 285)",
+              color: "oklch(0.58 0.01 285)",
             }}
           >
             © {currentYear} D. Antione Dixon / E.A.T. Media. All rights reserved.
@@ -196,7 +201,7 @@ export default function Footer() {
             style={{
               fontFamily: "'Lato', sans-serif",
               fontSize: "0.72rem",
-              color: "oklch(0.35 0.01 285)",
+              color: "oklch(0.58 0.01 285)",
               maxWidth: "420px",
               lineHeight: 1.6,
             }}

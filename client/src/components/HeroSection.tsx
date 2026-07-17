@@ -5,6 +5,7 @@
  */
 
 import { useEffect, useRef } from "react";
+import type { MouseEvent } from "react";
 
 const BOOK_COVER_URL = `${import.meta.env.BASE_URL}images/book-cover.svg`;
 
@@ -28,7 +29,8 @@ export default function HeroSection() {
     return () => observer.disconnect();
   }, []);
 
-  const handleCTAClick = (href: string) => {
+  const handleCTAClick = (e: MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
     const el = document.querySelector(href);
     if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
   };
@@ -80,9 +82,13 @@ export default function HeroSection() {
               <span className="section-label">D. Antione Dixon</span>
             </div>
 
-            {/* Main headline */}
+            {/* Main headline -- aria-label carries the correctly-spaced text;
+                the visual line-break markup is hidden from assistive tech so
+                it can't collapse into "BelieveAbout Genius Is Wrong." (bare
+                <br/> contributes no whitespace to the accessible text). */}
             <h1
               className="reveal"
+              aria-label="Everything You Believe About Genius Is Wrong."
               style={{
                 fontFamily: "'Playfair Display', serif",
                 fontWeight: 900,
@@ -94,19 +100,21 @@ export default function HeroSection() {
                 transitionDelay: "200ms",
               }}
             >
-              Everything You Believe
-              <br />
-              About{" "}
-              <em
-                style={{
-                  fontStyle: "italic",
-                  color: "oklch(0.72 0.14 75)",
-                }}
-              >
-                Genius
-              </em>
-              <br />
-              Is Wrong.
+              <span aria-hidden="true">
+                Everything You Believe
+                <br />
+                About{" "}
+                <em
+                  style={{
+                    fontStyle: "italic",
+                    color: "oklch(0.72 0.14 75)",
+                  }}
+                >
+                  Genius
+                </em>
+                <br />
+                Is Wrong.
+              </span>
             </h1>
 
             {/* Subtitle */}
@@ -147,18 +155,22 @@ export default function HeroSection() {
               className="reveal flex flex-wrap gap-4"
               style={{ transitionDelay: "500ms" }}
             >
-              <button
+              <a
+                href="#get-book"
                 className="btn-gold"
-                onClick={() => handleCTAClick("#get-book")}
+                style={{ textDecoration: "none" }}
+                onClick={e => handleCTAClick(e, "#get-book")}
               >
                 Find What You Already Carry
-              </button>
-              <button
+              </a>
+              <a
+                href="#book"
                 className="btn-outline-gold"
-                onClick={() => handleCTAClick("#book")}
+                style={{ textDecoration: "none" }}
+                onClick={e => handleCTAClick(e, "#book")}
               >
                 Learn More
-              </button>
+              </a>
             </div>
 
             {/* Social proof line */}

@@ -105,7 +105,7 @@ export default function EcosystemSection() {
             <Tag
               key={item.step}
               className="reveal"
-              {...(item.href ? { href: item.href, target: "_blank", rel: "noopener" } : {})}
+              {...(item.href ? { href: item.href, target: "_blank", rel: "noopener" } : { "aria-disabled": "true" })}
               style={{
                 transitionDelay: `${300 + i * 80}ms`,
                 background: "oklch(0.13 0.008 285)",
@@ -116,7 +116,12 @@ export default function EcosystemSection() {
                 display: "block",
                 textDecoration: "none",
                 cursor: item.href ? "pointer" : "default",
-                transition: "border-color 200ms ease",
+                // Only one of these eight cards is actually live today -- the
+                // rest are roadmap, not product. Same border/shape (still one
+                // ecosystem), reduced opacity + an explicit label so they
+                // don't read as seven more dead links (see: paperback CTA).
+                opacity: item.href ? 1 : 0.6,
+                transition: "border-color 200ms ease, opacity 200ms ease",
               }}
               {...(item.href
                 ? {
@@ -157,18 +162,36 @@ export default function EcosystemSection() {
                 }}
               />
 
-              <h3
-                style={{
-                  fontFamily: "'Playfair Display', serif",
-                  fontWeight: 600,
-                  fontSize: "1.05rem",
-                  color: "oklch(0.88 0.02 80)",
-                  marginBottom: "0.75rem",
-                  lineHeight: 1.3,
-                }}
-              >
-                {item.title}
-              </h3>
+              <div className="flex items-center gap-2 flex-wrap" style={{ marginBottom: "0.75rem" }}>
+                <h3
+                  style={{
+                    fontFamily: "'Playfair Display', serif",
+                    fontWeight: 600,
+                    fontSize: "1.05rem",
+                    color: "oklch(0.88 0.02 80)",
+                    lineHeight: 1.3,
+                  }}
+                >
+                  {item.title}
+                </h3>
+                {!item.href && (
+                  <span
+                    style={{
+                      fontFamily: "'Lato', sans-serif",
+                      fontWeight: 700,
+                      fontSize: "0.55rem",
+                      letterSpacing: "0.12em",
+                      textTransform: "uppercase",
+                      color: "oklch(0.55 0.01 285)",
+                      border: "1px solid oklch(1 0 0 / 15%)",
+                      padding: "2px 6px",
+                      borderRadius: "2px",
+                    }}
+                  >
+                    Coming Soon
+                  </span>
+                )}
+              </div>
 
               <p
                 style={{

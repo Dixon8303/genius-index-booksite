@@ -5,12 +5,14 @@
  */
 
 import { useEffect, useState } from "react";
+import type { MouseEvent } from "react";
 
 const NAV_LINKS = [
   { label: "The Book", href: "#book" },
   { label: "The Framework", href: "#framework" },
   { label: "Nine Domains", href: "#domains" },
   { label: "The Author", href: "#author" },
+  { label: "FAQ", href: "#faq" },
 ];
 
 function GeniusGridLogo({ size = 28 }: { size?: number }) {
@@ -51,7 +53,8 @@ export default function Navigation() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleNavClick = (href: string) => {
+  const handleNavClick = (e: MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
     setMenuOpen(false);
     const el = document.querySelector(href);
     if (el) {
@@ -96,9 +99,10 @@ export default function Navigation() {
           {/* Desktop nav */}
           <div className="hidden md:flex items-center gap-8">
             {NAV_LINKS.map(link => (
-              <button
+              <a
                 key={link.href}
-                onClick={() => handleNavClick(link.href)}
+                href={link.href}
+                onClick={e => handleNavClick(e, link.href)}
                 style={{
                   fontFamily: "'Lato', sans-serif",
                   fontWeight: 400,
@@ -107,23 +111,23 @@ export default function Navigation() {
                   textTransform: "uppercase",
                   color: "oklch(0.70 0.01 285)",
                   transition: "color 200ms ease",
-                  background: "none",
-                  border: "none",
+                  textDecoration: "none",
                   padding: "0.25rem 0",
                 }}
                 onMouseEnter={e => (e.currentTarget.style.color = "oklch(0.72 0.14 75)")}
                 onMouseLeave={e => (e.currentTarget.style.color = "oklch(0.70 0.01 285)")}
               >
                 {link.label}
-              </button>
+              </a>
             ))}
-            <button
-              onClick={() => handleNavClick("#get-book")}
+            <a
+              href="#get-book"
+              onClick={e => handleNavClick(e, "#get-book")}
               className="btn-gold"
-              style={{ padding: "0.5rem 1.5rem", fontSize: "0.7rem" }}
+              style={{ padding: "0.5rem 1.5rem", fontSize: "0.7rem", textDecoration: "none" }}
             >
               Get the Book
-            </button>
+            </a>
           </div>
 
           {/* Mobile menu button */}
@@ -169,9 +173,10 @@ export default function Navigation() {
       >
         <div className="container py-6 flex flex-col gap-4">
           {NAV_LINKS.map(link => (
-            <button
+            <a
               key={link.href}
-              onClick={() => handleNavClick(link.href)}
+              href={link.href}
+              onClick={e => handleNavClick(e, link.href)}
               style={{
                 fontFamily: "'Lato', sans-serif",
                 fontWeight: 400,
@@ -180,21 +185,21 @@ export default function Navigation() {
                 textTransform: "uppercase",
                 color: "oklch(0.70 0.01 285)",
                 textAlign: "left",
-                background: "none",
-                border: "none",
+                textDecoration: "none",
                 padding: "0.5rem 0",
               }}
             >
               {link.label}
-            </button>
+            </a>
           ))}
-          <button
-            onClick={() => handleNavClick("#get-book")}
+          <a
+            href="#get-book"
+            onClick={e => handleNavClick(e, "#get-book")}
             className="btn-gold"
-            style={{ alignSelf: "flex-start" }}
+            style={{ alignSelf: "flex-start", textDecoration: "none" }}
           >
             Get the Book
-          </button>
+          </a>
         </div>
       </div>
     </header>
