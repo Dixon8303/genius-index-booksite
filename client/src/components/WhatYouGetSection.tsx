@@ -9,7 +9,7 @@ const FEATURES = [
   {
     number: "01",
     title: "The Genius Grid Framework",
-    description: "A rigorous taxonomy of nine domains across three families — SOMA, MIND, and FIELD — that maps every form of human ability. Not a vague model. A precise, locatable structure.",
+    description: "The full nine-domain map from earlier in this page, as a chapter you keep — the reference you'll return to as you work through the rest of the book. Not a vague model. A precise, locatable structure.",
   },
   {
     number: "02",

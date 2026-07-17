@@ -224,47 +224,6 @@ export default function EcosystemSection() {
             </Tag>
           );})}
         </div>
-
-        {/* Bottom statement */}
-        <div
-          className="reveal mt-16 text-center"
-          style={{ transitionDelay: "900ms" }}
-        >
-          <div
-            style={{
-              background: "oklch(0.13 0.008 285)",
-              border: "1px solid oklch(0.72 0.14 75 / 20%)",
-              borderRadius: "3px",
-              padding: "3rem",
-              maxWidth: "700px",
-              margin: "0 auto",
-            }}
-          >
-            <p
-              style={{
-                fontFamily: "'Cormorant Garamond', serif",
-                fontStyle: "italic",
-                fontSize: "1.2rem",
-                lineHeight: 1.7,
-                color: "oklch(0.92 0.02 80)",
-                marginBottom: "1rem",
-              }}
-            >
-              "This is not just a book. It's the foundation of a movement."
-            </p>
-            <p
-              style={{
-                fontFamily: "'Lato', sans-serif",
-                fontSize: "0.85rem",
-                letterSpacing: "0.1em",
-                textTransform: "uppercase",
-                color: "oklch(0.72 0.14 75)",
-              }}
-            >
-              — D. Antione Dixon
-            </p>
-          </div>
-        </div>
       </div>
     </section>
   );

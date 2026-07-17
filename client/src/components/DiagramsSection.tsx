@@ -7,7 +7,7 @@ import { useEffect, useRef } from "react";
 
 const IMG_BASE = import.meta.env.BASE_URL;
 const DIAGRAM_URLS = [
-  { name: "The Nine Domains: Three Families", url: `${IMG_BASE}images/diagram-nine-domains.svg`, desc: "The complete taxonomy from The Genius Index: SOMA (Kinetic, Sensory, Adaptive), MIND (Analytic, Mnemonic, Generative), and FIELD (Relational, Expressive, Perceptive)" },
+  { name: "The Nine Domains: Three Families", url: `${IMG_BASE}images/diagram-nine-domains.svg`, desc: "The same nine domains from the chart above, laid out as a single printable reference page for your wall or your notes." },
   { name: "From Signature to Braid", url: `${IMG_BASE}images/diagram-signature-braid.svg`, desc: "How your Genius Signature combines with a second domain to create rarity through combination, not competition" },
   { name: "The Amplification Protocol", url: `${IMG_BASE}images/diagram-amplification-protocol.svg`, desc: "The 30-day development process: Awareness → Assessment → Practice → Integration → Mastery" },
 ];
