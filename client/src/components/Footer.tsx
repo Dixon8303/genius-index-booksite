@@ -4,6 +4,7 @@
  */
 
 import type { MouseEvent } from "react";
+import { WHAT_HISTORY_BURIED_URL, BLACK_GENIUS_FILES_URL } from "@/lib/config";
 
 function GeniusGridLogo({ size = 24 }: { size?: number }) {
   return (
@@ -164,6 +165,47 @@ export default function Footer() {
                     key={link.label}
                     href={link.href}
                     onClick={e => handleNavClick(e, link.href)}
+                    style={{
+                      fontFamily: "'Lato', sans-serif",
+                      fontSize: "0.85rem",
+                      color: "oklch(0.58 0.01 285)",
+                      textAlign: "left",
+                      textDecoration: "none",
+                      transition: "color 200ms ease",
+                    }}
+                    onMouseEnter={e => (e.currentTarget.style.color = "oklch(0.72 0.14 75)")}
+                    onMouseLeave={e => (e.currentTarget.style.color = "oklch(0.58 0.01 285)")}
+                  >
+                    {link.label}
+                  </a>
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <p
+                style={{
+                  fontFamily: "'Lato', sans-serif",
+                  fontWeight: 700,
+                  fontSize: "0.65rem",
+                  letterSpacing: "0.2em",
+                  textTransform: "uppercase",
+                  color: "oklch(0.72 0.14 75)",
+                  marginBottom: "1rem",
+                }}
+              >
+                More From The Author
+              </p>
+              <div className="flex flex-col gap-2">
+                {[
+                  { label: "What History Buried", href: WHAT_HISTORY_BURIED_URL },
+                  { label: "The Black Genius Files", href: BLACK_GENIUS_FILES_URL },
+                ].map(link => (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener"
                     style={{
                       fontFamily: "'Lato', sans-serif",
                       fontSize: "0.85rem",
