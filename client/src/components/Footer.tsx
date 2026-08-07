@@ -4,7 +4,7 @@
  */
 
 import type { MouseEvent } from "react";
-import { WHAT_HISTORY_BURIED_URL, BLACK_GENIUS_FILES_URL } from "@/lib/config";
+import { WHAT_HISTORY_BURIED_URL, BLACK_GENIUS_FILES_URL, EAT_MEDIA_URL } from "@/lib/config";
 
 function GeniusGridLogo({ size = 24 }: { size?: number }) {
   return (
@@ -200,6 +200,7 @@ export default function Footer() {
                 {[
                   { label: "What History Buried", href: WHAT_HISTORY_BURIED_URL },
                   { label: "The Black Genius Files", href: BLACK_GENIUS_FILES_URL },
+                  { label: "E.A.T. Media", href: EAT_MEDIA_URL },
                 ].map(link => (
                   <a
                     key={link.href}
