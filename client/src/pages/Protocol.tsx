@@ -8,6 +8,10 @@ import { Link } from "wouter";
 import GiShell, { LegalFootnote } from "@/components/genius/GiShell";
 import DomainGlyph from "@/components/DomainGlyph";
 import { PROTOCOL_DOMAIN } from "@/lib/genius/content/library";
+import {
+  protocolSummary,
+  taskForDay,
+} from "@/lib/genius/content/protocolDetail";
 import { DOMAINS, DOMAIN_BY_ID, type DomainId } from "@/lib/genius/data/domains";
 import {
   domainsFromPayload,
@@ -61,9 +65,25 @@ export default function Protocol() {
         <h1>The 30-Day Amplification Protocol</h1>
         <p className="dim" style={{ margin: "14px 0" }}>
           Identify to amplify — a named genius grows only under deliberate
-          reps. Thirty days, one domain, one check-in a day, five stages:{" "}
-          {STAGES.map((s) => `${s.name} (${s.from}–${s.to})`).join(" · ")}.
+          reps. Thirty days, one domain, about 15–20 minutes a day. Every day
+          you'll get one plain-language assignment and a one-tap check-in.
         </p>
+        <div className="card">
+          <h3>How the month works</h3>
+          {STAGES.map((s) => (
+            <p key={s.name} className="small dim" style={{ margin: "5px 0" }}>
+              <strong style={{ color: "var(--brass)" }}>
+                Days {s.from}–{s.to} · {s.name}.
+              </strong>{" "}
+              {s.blurb}
+            </p>
+          ))}
+          <p className="small dim" style={{ marginTop: 8 }}>
+            You'll measure yourself once at the start and once at the end —
+            the same test both times. The gap between those two numbers is
+            what the month is for.
+          </p>
+        </div>
         {sigDomains.length === 0 && (
           <div className="card small">
             No result on record yet — the protocol works best pointed at a{" "}
@@ -93,7 +113,7 @@ export default function Protocol() {
               <strong>{d.name}</strong>
               {isSig ? " · your Signature" : ""}
               <span className="small dim" style={{ display: "block", marginTop: 3 }}>
-                Weeks: {PROTOCOL_DOMAIN[d.id].join(" → ")}
+                {protocolSummary(d.id)}
               </span>
             </button>
           );
@@ -109,6 +129,7 @@ export default function Protocol() {
   const stage = stageForDay(day);
   const week = weekForDay(day);
   const weekPlan = PROTOCOL_DOMAIN[run.domainId];
+  const task = taskForDay(run.domainId, day);
   const done = doneCount(run);
   const todayDone = !!run.days[day];
   const streak = currentStreak(run, day);
@@ -174,13 +195,29 @@ export default function Protocol() {
         })}
       </div>
 
-      <div className="card">
-        <h3>This week's work · Week {week + 1}</h3>
-        <p className="small" style={{ color: "var(--paper)" }}>
-          {weekPlan[week]}
+      <div className="card" style={{ borderColor: "var(--brass-deep)" }}>
+        <h3>
+          Today's assignment · Day {day} — {task.title}
+        </h3>
+        <p className="small" style={{ color: "var(--paper)", lineHeight: 1.65 }}>
+          {task.body}
         </p>
-        <p className="small dim" style={{ marginTop: 6 }}>
-          Full arc: {weekPlan.map((w, i) => `W${i + 1} ${w}`).join(" · ")}
+        {task.safety && (
+          <p
+            className="small"
+            style={{
+              marginTop: 10,
+              padding: "8px 10px",
+              border: "1px solid var(--oxblood)",
+              borderRadius: 5,
+              color: "var(--paper-dim)",
+            }}
+          >
+            ⚠ {task.safety}
+          </p>
+        )}
+        <p className="small dim" style={{ marginTop: 10 }}>
+          Week {week + 1} in one line: {weekPlan[week]}
         </p>
       </div>
 
@@ -220,7 +257,8 @@ export default function Protocol() {
           ) : (
             <>
               <p className="small dim" style={{ marginBottom: 8 }}>
-                Did the day's rep. One line on what happened (optional):
+                Done with today's assignment? One line on how it went
+                (optional — it becomes your training log):
               </p>
               <input
                 value={note}
