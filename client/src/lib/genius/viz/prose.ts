@@ -159,7 +159,7 @@ export function bookModules(m: Interpretation, hrefFor: HrefFor): string {
     .join("");
   const protocol = `<div class="callout callout--brass"><span class="ct">Your 30-day development protocol</span>
    ${proto}
-   <p class="modfoot">This is the compressed version — track it day by day in <a href="${hrefFor("_stack")}">the Protocol tracker</a>. ${chList(sigChapters)} runs the full day-by-day in the book.</p></div>`;
+   <p class="modfoot">That's the map — <a href="${hrefFor("_stack")}">the Protocol tracker</a> turns it into one plain-language assignment per day, with a daily check-in. ${chList(sigChapters)} runs the full method in the book.</p></div>`;
 
   const reach = m.reachable.length
     ? `<div class="callout callout--brass">
