@@ -4,14 +4,14 @@
  */
 
 import { useEffect, useRef } from "react";
-import { ASSESSMENT_URL } from "@/lib/config";
+import { ASSESSMENT_URL, DOMAINS_URL, PROTOCOL_URL } from "@/lib/config";
 
 const ECOSYSTEM_ITEMS = [
   { step: 1, title: "Take the Assessment", desc: "Discover your Genius Signature in 25 minutes", href: ASSESSMENT_URL },
   { step: 2, title: "Read the Book", desc: "Understand the framework and your domains" },
-  { step: 3, title: "Explore Your Domains", desc: "Deep dive into your specific genius" },
+  { step: 3, title: "Explore Your Domains", desc: "Deep dive into your specific genius", href: DOMAINS_URL },
   { step: 4, title: "Join the Community", desc: "Connect with others who share your signature" },
-  { step: 5, title: "Master the Framework", desc: "Learn how to amplify and braid your genius" },
+  { step: 5, title: "Master the Framework", desc: "Run the 30-day amplification protocol on your Signature", href: PROTOCOL_URL },
   { step: 6, title: "Access Courses", desc: "Structured learning for each domain" },
   { step: 7, title: "Research & Insights", desc: "Ongoing studies and discoveries" },
   { step: 8, title: "Get Certified", desc: "Become a Genius Index practitioner" },
@@ -105,7 +105,7 @@ export default function EcosystemSection() {
             <Tag
               key={item.step}
               className="reveal"
-              {...(item.href ? { href: item.href, target: "_blank", rel: "noopener" } : { "aria-disabled": "true" })}
+              {...(item.href ? { href: item.href } : { "aria-disabled": "true" })}
               style={{
                 transitionDelay: `${300 + i * 80}ms`,
                 background: "oklch(0.13 0.008 285)",

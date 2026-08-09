@@ -109,7 +109,7 @@ export function buildExportObj(input: BuildExportInput): GI10Export {
     braid: m.primary ? m.primary.name : null,
     braidTier: m.primary ? m.primary.tier : null,
     braidPair: m.braidDoms.map((d) => d.id),
-    adjacent: [...m.adjKeys],
+    adjacent: Array.from(m.adjKeys),
     shape: m.shape,
     reachable: m.reachable.map((b) => b.name),
     flags: {
@@ -219,7 +219,7 @@ export function replayExport(payload: GI10Payload): {
     braid: m.primary ? m.primary.name : null,
     braidTier: m.primary ? m.primary.tier : null,
     braidPair: m.braidDoms.map((d) => d.id),
-    adjacent: [...m.adjKeys],
+    adjacent: Array.from(m.adjKeys),
     shape: m.shape,
     reachable: m.reachable.map((b) => b.name),
     flags: {
