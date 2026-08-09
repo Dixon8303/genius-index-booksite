@@ -53,7 +53,7 @@ const BOOK_FORMATS = [
     icon: "assessment",
     cta: "Take the Online Index",
     href: ASSESSMENT_URL,
-    external: true,
+    external: false,
     primary: true,
     badge: "Recommended",
   },
@@ -353,8 +353,6 @@ export default function GetBookSection() {
           </div>
           <a
             href={ASSESSMENT_URL}
-            target="_blank"
-            rel="noopener"
             className="btn-gold"
             style={{ textDecoration: "none" }}
           >
