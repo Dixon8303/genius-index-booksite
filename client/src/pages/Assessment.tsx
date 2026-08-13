@@ -176,7 +176,6 @@ export default function Assessment() {
   const [run, dispatch] = useReducer(reducer, null);
   const [savedRun] = useState(() => loadRun());
   const [showIntro, setShowIntro] = useState(true);
-  const [consent, setConsent] = useState(true);
   const [code, setCode] = useState("");
   const [finalizing, setFinalizing] = useState(false);
 
@@ -215,10 +214,10 @@ export default function Assessment() {
 
   const start = (resume: RunState | null) => {
     const state = resume ?? freshRun();
-    if (!resume) telemetryStart(code, consent);
+    if (!resume) telemetryStart(code, true);
     dispatch({
       type: "START",
-      state: resume ? state : { ...state, consent, code },
+      state: resume ? state : { ...state, consent: true, code },
     });
     setShowIntro(false);
   };
@@ -378,17 +377,11 @@ export default function Assessment() {
           </p>
         </div>
         <div className="card">
-          <label className="checkline" style={{ display: "flex", gap: 8 }}>
-            <input
-              type="checkbox"
-              checked={consent}
-              onChange={(e) => setConsent(e.target.checked)}
-            />
-            <span className="small dim">
-              Contribute my anonymized answers to the validation study (no
-              name, account, or identifying data — aggregate use only).
-            </span>
-          </label>
+          <p className="small dim">
+            Taking the assessment contributes your anonymized answers to the
+            ongoing validation study — no name, account, or identifying data
+            is ever attached, and the data is used only in aggregate.
+          </p>
           <input
             value={code}
             onChange={(e) => setCode(e.target.value)}
