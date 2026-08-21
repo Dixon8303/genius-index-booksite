@@ -71,7 +71,7 @@ export function buildWheel(
   svg += `<path d="${arc(Rr + 40, 210, 330)}" fill="none" stroke="#4E6156" stroke-width="7" stroke-opacity=".75" stroke-linecap="round"/>`;
   const lbl = (txt: string, deg: number, col: string) => {
     const [x, y] = polar(Rr + 62, deg);
-    return `<text x="${x.toFixed(1)}" y="${(y + 5).toFixed(1)}" text-anchor="middle" font-family="Newsreader,sans-serif" font-size="15" font-weight="700" letter-spacing="3" fill="${col}">${txt}</text>`;
+    return `<text x="${x.toFixed(1)}" y="${(y + 5).toFixed(1)}" text-anchor="middle" font-family="Newsreader,sans-serif" font-size="17" font-weight="700" letter-spacing="3" fill="${col}">${txt}</text>`;
   };
   svg += lbl("SOMA", 30, "#8C3B2E") + lbl("MIND", 150, "#54687C") + lbl("FIELD", 270, "#4E6156");
   const chord = (k: string, br: Braid) => {
@@ -113,7 +113,7 @@ export function buildWheel(
     const mx = (pos[a][0] + pos[b][0]) / 2,
       my = (pos[a][1] + pos[b][1]) / 2;
     const w = primaryBraid.name.length * 7.2 + 16;
-    svg += `<g transform="translate(${mx.toFixed(1)} ${my.toFixed(1)})"><rect x="${(-w / 2).toFixed(1)}" y="-11" width="${w.toFixed(1)}" height="22" rx="5" fill="#E4E6DF" stroke="#995D08" stroke-width="1.3"/><text x="0" y="4.5" text-anchor="middle" font-family="Instrument Serif,serif" font-weight="700" font-size="12.5" fill="#6E4206">${primaryBraid.name}</text></g>`;
+    svg += `<g transform="translate(${mx.toFixed(1)} ${my.toFixed(1)})"><rect x="${(-w / 2).toFixed(1)}" y="-11" width="${w.toFixed(1)}" height="22" rx="5" fill="#E4E6DF" stroke="#995D08" stroke-width="1.3"/><text x="0" y="4.5" text-anchor="middle" font-family="Instrument Serif,serif" font-weight="700" font-size="14" fill="#6E4206">${primaryBraid.name}</text></g>`;
   }
   order.forEach((id) => {
     const d = DOMAIN_BY_ID[id],
@@ -128,8 +128,8 @@ export function buildWheel(
     svg += `<g class="wnode" tabindex="0" role="button" aria-label="${tipName} — ${tipBody}" data-name="${tipName}" data-body="${tipBody}">`;
     svg += `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${(r + 8).toFixed(1)}" fill="transparent"/>`;
     svg += `<circle class="wdot" cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${r.toFixed(1)}" fill="${col}" fill-opacity="${op}" stroke="${col}" stroke-width="${isTop ? 3 : 1.5}"/>`;
-    svg += `<text x="${x.toFixed(1)}" y="${(y + 1).toFixed(1)}" text-anchor="middle" font-family="Instrument Serif,serif" font-weight="700" font-size="13" fill="${col}" style="pointer-events:none">${d.code}</text>`;
-    svg += `<text x="${x.toFixed(1)}" y="${(y + 14).toFixed(1)}" text-anchor="middle" font-family="Newsreader,sans-serif" font-size="9" font-weight="700" fill="${col}" style="pointer-events:none">${sc}</text>`;
+    svg += `<text x="${x.toFixed(1)}" y="${(y + 1).toFixed(1)}" text-anchor="middle" font-family="Instrument Serif,serif" font-weight="700" font-size="15" fill="${col}" style="pointer-events:none">${d.code}</text>`;
+    svg += `<text x="${x.toFixed(1)}" y="${(y + 14).toFixed(1)}" text-anchor="middle" font-family="Newsreader,sans-serif" font-size="10" font-weight="700" fill="${col}" style="pointer-events:none">${sc}</text>`;
     svg += `</g>`;
   });
   svg += `</svg>`;
@@ -243,7 +243,7 @@ export function buildHeroGlyph(braidDoms: Domain[]): string {
       const box = on
         ? `<rect x="${cx - 26}" y="${cy - 26}" width="52" height="52" rx="9" fill="url(#litCell)" stroke="#995D08" stroke-width="1.5"/>`
         : `<rect x="${cx - 26}" y="${cy - 26}" width="52" height="52" rx="9" fill="${col}" fill-opacity="0.05" stroke="${col}" stroke-opacity="0.28" stroke-width="1.3"/>`;
-      const txt = `<text x="${cx}" y="${cy + 5}" text-anchor="middle" font-family="Instrument Serif,serif" font-weight="700" font-size="15" fill="${on ? "#0A0907" : col}" fill-opacity="${on ? 1 : 0.72}">${d.code}</text>`;
+      const txt = `<text x="${cx}" y="${cy + 5}" text-anchor="middle" font-family="Instrument Serif,serif" font-weight="700" font-size="17" fill="${on ? "#0A0907" : col}" fill-opacity="${on ? 1 : 0.72}">${d.code}</text>`;
       return box + txt;
     })
     .join("");

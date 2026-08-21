@@ -194,7 +194,7 @@ export default function Braids() {
       </div>
       <p
         className="small dim"
-        style={{ fontFamily: "var(--font-mono)", letterSpacing: ".04em", textTransform: "uppercase", fontSize: 11 }}
+        style={{ fontFamily: "var(--font-mono)", letterSpacing: ".04em", textTransform: "uppercase", fontSize: 13 }}
       >
         {shown} of 36 braids shown
       </p>

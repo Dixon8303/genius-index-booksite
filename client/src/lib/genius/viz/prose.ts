@@ -150,7 +150,7 @@ export function gindexStripHTML(m: Interpretation): string {
 export function bookModules(m: Interpretation, hrefFor: HrefFor): string {
   const chDom = (id: DomainId) => 7 + DOMAINS.findIndex((d) => d.id === id);
   const domChip = (d: (typeof DOMAINS)[number]) =>
-    `<span class="domchip ${d.meta}" style="font-size:13px;padding:5px 11px 5px 9px"><span class="dot"></span>${d.name}</span>`;
+    `<span class="domchip ${d.meta}" style="font-size:15px;padding:5px 11px 5px 9px"><span class="dot"></span>${d.name}</span>`;
   const sigChapters = m.sig.map((d) => chDom(d.id));
   const chList = (ids: number[]) =>
     (ids.length > 1 ? "Chapters " : "Chapter ") + ids.join(" & ");

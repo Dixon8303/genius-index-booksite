@@ -80,7 +80,7 @@ export default function ResultsSpine({
         transform: "translateY(-50%)",
         zIndex: 30,
         fontFamily: "var(--font-mono)",
-        fontSize: 10.5,
+        fontSize: 12,
         letterSpacing: ".04em",
         textTransform: "uppercase",
         lineHeight: 2,

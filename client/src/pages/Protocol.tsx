@@ -184,7 +184,7 @@ export default function Protocol() {
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                fontSize: 9,
+                fontSize: 10,
                 color: checked ? "#241C12" : "var(--paper-dim)",
                 fontWeight: isToday ? 700 : 400,
               }}
@@ -272,7 +272,7 @@ export default function Protocol() {
                   borderRadius: 5,
                   color: "var(--paper)",
                   fontFamily: "'Newsreader',sans-serif",
-                  fontSize: 14,
+                  fontSize: 16,
                   marginBottom: 10,
                 }}
               />

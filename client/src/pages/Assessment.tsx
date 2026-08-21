@@ -462,7 +462,7 @@ export default function Assessment() {
               borderRadius: 5,
               color: "var(--paper)",
               fontFamily: "'Newsreader',sans-serif",
-              fontSize: 14,
+              fontSize: 16,
             }}
           />
         </div>
