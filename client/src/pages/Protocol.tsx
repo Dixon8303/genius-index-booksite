@@ -180,7 +180,7 @@ export default function Protocol() {
                   : missed
                     ? "oklch(0.2 0.02 285)"
                     : "transparent",
-                boxShadow: checked ? "0 0 6px oklch(0.72 0.14 75 / 50%)" : undefined,
+                boxShadow: checked ? "0 0 6px rgb(194 122 12 / 50%)" : undefined,
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
@@ -271,7 +271,7 @@ export default function Protocol() {
                   border: "1px solid var(--line)",
                   borderRadius: 5,
                   color: "var(--paper)",
-                  fontFamily: "'Lato',sans-serif",
+                  fontFamily: "'Newsreader',sans-serif",
                   fontSize: 14,
                   marginBottom: 10,
                 }}

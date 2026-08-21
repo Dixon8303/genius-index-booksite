@@ -59,14 +59,14 @@ export async function buildShareCardSVG(m: Interpretation): Promise<string> {
       return `<rect x="330" y="${y}" width="520" height="${barH}" rx="9" fill="#00000010"/>
            <rect x="330" y="${y}" width="${w.toFixed(1)}" height="${barH}" rx="9" fill="${col}"/>
            <rect x="330" y="${y}" width="${w.toFixed(1)}" height="${(barH / 2).toFixed(1)}" rx="9" fill="#FFFFFF" fill-opacity="0.14"/>
-           <text x="310" y="${y + barH - 8}" text-anchor="end" font-family="Lato,sans-serif" font-size="22" font-weight="700" fill="#2A2118">${d.name}</text>
-           <text x="${330 + 520 + 16}" y="${y + barH - 8}" text-anchor="start" font-family="Lato,sans-serif" font-size="22" font-weight="700" fill="${col}">${Math.round(dScore(m, d))}</text>`;
+           <text x="310" y="${y + barH - 8}" text-anchor="end" font-family="Newsreader,sans-serif" font-size="22" font-weight="700" fill="#0A0907">${d.name}</text>
+           <text x="${330 + 520 + 16}" y="${y + barH - 8}" text-anchor="start" font-family="Newsreader,sans-serif" font-size="22" font-weight="700" fill="${col}">${Math.round(dScore(m, d))}</text>`;
     })
     .join("");
   const chip = (d: Domain, x: number) => `<g transform="translate(${x} 470)">
-   <rect x="-116" y="-28" width="232" height="58" rx="29" fill="#FBF6EA" stroke="${realmHex(d.meta)}" stroke-width="2"/>
+   <rect x="-116" y="-28" width="232" height="58" rx="29" fill="#E4E6DF" stroke="${realmHex(d.meta)}" stroke-width="2"/>
    <circle cx="-94" cy="0" r="8" fill="${realmHex(d.meta)}"/>
-   <text x="-74" y="8" font-family="Playfair Display,serif" font-weight="600" font-size="26" fill="${realmHex(d.meta)}">${d.name}</text></g>`;
+   <text x="-74" y="8" font-family="Instrument Serif,serif" font-weight="600" font-size="26" fill="${realmHex(d.meta)}">${d.name}</text></g>`;
 
   const collageSrcs = [
     m.primary ? braidImage(m.primary.name) : null,
@@ -92,11 +92,11 @@ export async function buildShareCardSVG(m: Interpretation): Promise<string> {
       const angle = i % 2 === 0 ? -2.4 : 2.4;
       return `<g transform="rotate(${angle} ${midX.toFixed(1)} ${midY.toFixed(1)})">
      <rect x="${x - pad}" y="${(cy - pad + 5).toFixed(1)}" width="${cw + pad * 2}" height="${ch + pad * 2}" rx="9" fill="#00000022"/>
-     <rect x="${x - pad}" y="${(cy - pad).toFixed(1)}" width="${cw + pad * 2}" height="${ch + pad * 2}" rx="9" fill="#FFFDF8" stroke="rgba(122,91,49,.3)" stroke-width="1.5"/>
+     <rect x="${x - pad}" y="${(cy - pad).toFixed(1)}" width="${cw + pad * 2}" height="${ch + pad * 2}" rx="9" fill="#E4E6DF" stroke="rgba(110,66,6,.3)" stroke-width="1.5"/>
      <clipPath id="cclip${i}"><rect x="${x}" y="${cy}" width="${cw}" height="${ch}" rx="3"/></clipPath>
      <image href="${uri}" x="${x}" y="${cy}" width="${cw}" height="${ch}" preserveAspectRatio="xMidYMid slice" clip-path="url(#cclip${i})"/>
-     <rect x="${x}" y="${cy}" width="${cw}" height="${ch}" rx="3" fill="none" stroke="#C39A5B" stroke-width="1.5"/>
-     <rect x="${(midX - 24).toFixed(1)}" y="${(cy - pad - 8).toFixed(1)}" width="48" height="16" fill="rgba(195,154,91,.6)"/>
+     <rect x="${x}" y="${cy}" width="${cw}" height="${ch}" rx="3" fill="none" stroke="#C27A0C" stroke-width="1.5"/>
+     <rect x="${(midX - 24).toFixed(1)}" y="${(cy - pad - 8).toFixed(1)}" width="48" height="16" fill="rgba(194,122,12,.6)"/>
     </g>`;
     })
     .join("");
@@ -104,28 +104,28 @@ export async function buildShareCardSVG(m: Interpretation): Promise<string> {
   return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}">
   <defs>
    <radialGradient id="cardGlow" cx="50%" cy="8%" r="65%">
-    <stop offset="0%" stop-color="#C39A5B" stop-opacity="0.22"/><stop offset="100%" stop-color="#C39A5B" stop-opacity="0"/>
+    <stop offset="0%" stop-color="#C27A0C" stop-opacity="0.22"/><stop offset="100%" stop-color="#C27A0C" stop-opacity="0"/>
    </radialGradient>
    <linearGradient id="edgeBar" x1="0" y1="0" x2="1" y2="0">
-    <stop offset="0%" stop-color="#9A7440"/><stop offset="50%" stop-color="#E3BE7C"/><stop offset="100%" stop-color="#9A7440"/>
+    <stop offset="0%" stop-color="#995D08"/><stop offset="50%" stop-color="#F2B44E"/><stop offset="100%" stop-color="#995D08"/>
    </linearGradient>
   </defs>
-  <rect width="${W}" height="${H}" fill="#EDE4D4"/>
+  <rect width="${W}" height="${H}" fill="#EFF0EB"/>
   <rect width="${W}" height="${H}" fill="url(#cardGlow)"/>
   <rect width="${W}" height="10" fill="url(#edgeBar)"/>
-  <rect x="34" y="34" width="${W - 68}" height="${H - 68}" rx="14" fill="none" stroke="rgba(122,91,49,.35)" stroke-width="2"/>
-  <text x="${W / 2}" y="150" text-anchor="middle" font-family="Lato,sans-serif" font-size="26" font-weight="700" letter-spacing="7" fill="#7A5B31">THE GENIUS INDEX</text>
-  <text x="${W / 2}" y="215" text-anchor="middle" font-family="Lato,sans-serif" font-size="20" letter-spacing="3" fill="#7A5B31">YOUR BRAID</text>
-  <rect x="${W / 2 - 30}" y="232" width="60" height="2" fill="#C39A5B"/>
-  <text x="${W / 2}" y="${215 + fs}" text-anchor="middle" font-family="Playfair Display,serif" font-weight="700" font-size="${fs}" fill="#2A2118">${esc(braidName)}</text>
+  <rect x="34" y="34" width="${W - 68}" height="${H - 68}" rx="14" fill="none" stroke="rgba(110,66,6,.35)" stroke-width="2"/>
+  <text x="${W / 2}" y="150" text-anchor="middle" font-family="Newsreader,sans-serif" font-size="26" font-weight="700" letter-spacing="7" fill="#6E4206">THE GENIUS INDEX</text>
+  <text x="${W / 2}" y="215" text-anchor="middle" font-family="Newsreader,sans-serif" font-size="20" letter-spacing="3" fill="#6E4206">YOUR BRAID</text>
+  <rect x="${W / 2 - 30}" y="232" width="60" height="2" fill="#C27A0C"/>
+  <text x="${W / 2}" y="${215 + fs}" text-anchor="middle" font-family="Instrument Serif,serif" font-weight="700" font-size="${fs}" fill="#0A0907">${esc(braidName)}</text>
   ${chip(primary, W / 2 - 135)}${chip(other, W / 2 + 135)}
-  <text x="${W / 2}" y="590" text-anchor="middle" font-family="Lato,sans-serif" font-size="22" font-weight="700" letter-spacing="2" fill="#6B6258">SHAPE · ${m.shape.toUpperCase()}</text>
+  <text x="${W / 2}" y="590" text-anchor="middle" font-family="Newsreader,sans-serif" font-size="22" font-weight="700" letter-spacing="2" fill="#4F5349">SHAPE · ${m.shape.toUpperCase()}</text>
   ${bars}
   ${collage}
-  <text x="${W / 2}" y="998" text-anchor="middle" font-family="Cormorant Garamond,Georgia,serif" font-style="italic" font-size="24" fill="#6B6258">Everybody carries a genius. Find yours — free.</text>
-  <text x="${W / 2}" y="1034" text-anchor="middle" font-family="Lato,sans-serif" font-weight="700" font-size="25" letter-spacing="0.4" fill="#7A5B31">Take the assessment → ${SHARE_URL_LABEL}</text>
-  <rect x="${W / 2 - 190}" y="1054" width="380" height="1" fill="rgba(122,91,49,.3)"/>
-  <text x="${W / 2}" y="1086" text-anchor="middle" font-family="Cormorant Garamond,Georgia,serif" font-style="italic" font-size="22" fill="#6B6258">↺ Retake it ${esc(retestDate().toLocaleDateString(undefined, { month: "long", day: "numeric" }))} — see what's changed</text>
+  <text x="${W / 2}" y="998" text-anchor="middle" font-family="Instrument Serif,Georgia,serif" font-style="italic" font-size="24" fill="#4F5349">Everybody carries a genius. Find yours — free.</text>
+  <text x="${W / 2}" y="1034" text-anchor="middle" font-family="Newsreader,sans-serif" font-weight="700" font-size="25" letter-spacing="0.4" fill="#6E4206">Take the assessment → ${SHARE_URL_LABEL}</text>
+  <rect x="${W / 2 - 190}" y="1054" width="380" height="1" fill="rgba(110,66,6,.3)"/>
+  <text x="${W / 2}" y="1086" text-anchor="middle" font-family="Instrument Serif,Georgia,serif" font-style="italic" font-size="22" fill="#4F5349">↺ Retake it ${esc(retestDate().toLocaleDateString(undefined, { month: "long", day: "numeric" }))} — see what's changed</text>
   <rect y="${H - 10}" width="${W}" height="10" fill="url(#edgeBar)"/>
  </svg>`;
 }

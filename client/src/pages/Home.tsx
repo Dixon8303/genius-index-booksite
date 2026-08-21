@@ -2,7 +2,7 @@
  * Home — The Genius Index promotional website
  * ELEVATED VERSION: From book landing page to intellectual movement platform
  * Design: Dark Alchemy — obsidian + warm amber gold + cream
- * Fonts: Playfair Display (display) + Lato (body) + Cormorant Garamond (accent)
+ * Fonts: Instrument Serif (display) + Newsreader (body) + Instrument Serif (accent)
  */
 
 import AuthorSection from "@/components/AuthorSection";
@@ -27,7 +27,7 @@ export default function Home() {
   return (
     <div
       className="min-h-screen"
-      style={{ background: "oklch(0.10 0.008 285)", color: "oklch(0.92 0.02 80)" }}
+      style={{ background: "var(--bg)", color: "var(--fg)" }}
     >
       {/* Reading progress indicator */}
       <ScrollProgress />

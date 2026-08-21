@@ -21,7 +21,7 @@ function GeniusGridLogo({ size = 24 }: { size?: number }) {
               y={y}
               width={10}
               height={10}
-              fill={isGold ? "oklch(0.72 0.14 75)" : "oklch(0.25 0.008 285)"}
+              fill={isGold ? "var(--accent)" : "var(--rule)"}
               rx={1}
             />
           );
@@ -47,8 +47,8 @@ export default function Footer() {
   return (
     <footer
       style={{
-        background: "oklch(0.08 0.008 285)",
-        borderTop: "1px solid oklch(1 0 0 / 6%)",
+        background: "var(--print-100)",
+        borderTop: "1px solid rgb(10 9 7 / 6%)",
         padding: "4rem 0 2rem",
       }}
     >
@@ -62,11 +62,11 @@ export default function Footer() {
               <GeniusGridLogo size={24} />
               <span
                 style={{
-                  fontFamily: "'Playfair Display', serif",
+                  fontFamily: "'Instrument Serif', serif",
                   fontWeight: 700,
                   fontSize: "0.9rem",
                   letterSpacing: "0.08em",
-                  color: "oklch(0.88 0.02 80)",
+                  color: "var(--fg)",
                   textTransform: "uppercase",
                 }}
               >
@@ -75,20 +75,20 @@ export default function Footer() {
             </div>
             <p
               style={{
-                fontFamily: "'Cormorant Garamond', serif",
+                fontFamily: "'Instrument Serif', serif",
                 fontStyle: "italic",
                 fontSize: "0.95rem",
                 lineHeight: 1.7,
-                color: "oklch(0.50 0.01 285)",
+                color: "var(--print-500)",
               }}
             >
               A System for Finding the Genius You Already Carry
             </p>
             <p
               style={{
-                fontFamily: "'Lato', sans-serif",
+                fontFamily: "'Newsreader', sans-serif",
                 fontSize: "0.75rem",
-                color: "oklch(0.40 0.01 285)",
+                color: "var(--print-400)",
                 marginTop: "0.75rem",
               }}
             >
@@ -101,12 +101,12 @@ export default function Footer() {
             <div>
               <p
                 style={{
-                  fontFamily: "'Lato', sans-serif",
+                  fontFamily: "'Newsreader', sans-serif",
                   fontWeight: 700,
                   fontSize: "0.65rem",
                   letterSpacing: "0.2em",
                   textTransform: "uppercase",
-                  color: "oklch(0.72 0.14 75)",
+                  color: "var(--accent)",
                   marginBottom: "1rem",
                 }}
               >
@@ -125,15 +125,15 @@ export default function Footer() {
                     href={link.href}
                     onClick={e => handleNavClick(e, link.href)}
                     style={{
-                      fontFamily: "'Lato', sans-serif",
+                      fontFamily: "'Newsreader', sans-serif",
                       fontSize: "0.85rem",
-                      color: "oklch(0.58 0.01 285)",
+                      color: "var(--fg-muted)",
                       textAlign: "left",
                       textDecoration: "none",
                       transition: "color 200ms ease",
                     }}
-                    onMouseEnter={e => (e.currentTarget.style.color = "oklch(0.72 0.14 75)")}
-                    onMouseLeave={e => (e.currentTarget.style.color = "oklch(0.58 0.01 285)")}
+                    onMouseEnter={e => (e.currentTarget.style.color = "var(--accent)")}
+                    onMouseLeave={e => (e.currentTarget.style.color = "var(--fg-muted)")}
                   >
                     {link.label}
                   </a>
@@ -144,12 +144,12 @@ export default function Footer() {
             <div>
               <p
                 style={{
-                  fontFamily: "'Lato', sans-serif",
+                  fontFamily: "'Newsreader', sans-serif",
                   fontWeight: 700,
                   fontSize: "0.65rem",
                   letterSpacing: "0.2em",
                   textTransform: "uppercase",
-                  color: "oklch(0.72 0.14 75)",
+                  color: "var(--accent)",
                   marginBottom: "1rem",
                 }}
               >
@@ -166,15 +166,15 @@ export default function Footer() {
                     href={link.href}
                     onClick={e => handleNavClick(e, link.href)}
                     style={{
-                      fontFamily: "'Lato', sans-serif",
+                      fontFamily: "'Newsreader', sans-serif",
                       fontSize: "0.85rem",
-                      color: "oklch(0.58 0.01 285)",
+                      color: "var(--fg-muted)",
                       textAlign: "left",
                       textDecoration: "none",
                       transition: "color 200ms ease",
                     }}
-                    onMouseEnter={e => (e.currentTarget.style.color = "oklch(0.72 0.14 75)")}
-                    onMouseLeave={e => (e.currentTarget.style.color = "oklch(0.58 0.01 285)")}
+                    onMouseEnter={e => (e.currentTarget.style.color = "var(--accent)")}
+                    onMouseLeave={e => (e.currentTarget.style.color = "var(--fg-muted)")}
                   >
                     {link.label}
                   </a>
@@ -185,12 +185,12 @@ export default function Footer() {
             <div>
               <p
                 style={{
-                  fontFamily: "'Lato', sans-serif",
+                  fontFamily: "'Newsreader', sans-serif",
                   fontWeight: 700,
                   fontSize: "0.65rem",
                   letterSpacing: "0.2em",
                   textTransform: "uppercase",
-                  color: "oklch(0.72 0.14 75)",
+                  color: "var(--accent)",
                   marginBottom: "1rem",
                 }}
               >
@@ -208,15 +208,15 @@ export default function Footer() {
                     target="_blank"
                     rel="noopener"
                     style={{
-                      fontFamily: "'Lato', sans-serif",
+                      fontFamily: "'Newsreader', sans-serif",
                       fontSize: "0.85rem",
-                      color: "oklch(0.58 0.01 285)",
+                      color: "var(--fg-muted)",
                       textAlign: "left",
                       textDecoration: "none",
                       transition: "color 200ms ease",
                     }}
-                    onMouseEnter={e => (e.currentTarget.style.color = "oklch(0.72 0.14 75)")}
-                    onMouseLeave={e => (e.currentTarget.style.color = "oklch(0.58 0.01 285)")}
+                    onMouseEnter={e => (e.currentTarget.style.color = "var(--accent)")}
+                    onMouseLeave={e => (e.currentTarget.style.color = "var(--fg-muted)")}
                   >
                     {link.label}
                   </a>
@@ -233,18 +233,18 @@ export default function Footer() {
         <div className="flex flex-col sm:flex-row gap-4 justify-between items-start sm:items-center">
           <p
             style={{
-              fontFamily: "'Lato', sans-serif",
+              fontFamily: "'Newsreader', sans-serif",
               fontSize: "0.75rem",
-              color: "oklch(0.58 0.01 285)",
+              color: "var(--fg-muted)",
             }}
           >
             © {currentYear} D. Antione Dixon / E.A.T. Media. All rights reserved.
           </p>
           <p
             style={{
-              fontFamily: "'Lato', sans-serif",
+              fontFamily: "'Newsreader', sans-serif",
               fontSize: "0.72rem",
-              color: "oklch(0.58 0.01 285)",
+              color: "var(--fg-muted)",
               maxWidth: "420px",
               lineHeight: 1.6,
             }}

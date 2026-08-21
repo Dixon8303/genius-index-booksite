@@ -172,7 +172,7 @@ export default function Profile() {
 
       {/* Latest result card */}
       <div className="book" style={{ textAlign: "center" }}>
-        <div className="yb" style={{ fontFamily: "'Lato',sans-serif", fontSize: 11, letterSpacing: ".3em", textTransform: "uppercase", color: "var(--gold-ink)" }}>
+        <div className="yb" style={{ fontFamily: "'Newsreader',sans-serif", fontSize: 11, letterSpacing: ".3em", textTransform: "uppercase", color: "var(--gold-ink)" }}>
           Latest result
         </div>
         <RawHtml html={buildHeroGlyph(latestM.braidDoms)} />
@@ -268,7 +268,7 @@ export default function Profile() {
                     background: "#FFFDF8",
                     border: "1px solid #B4832E",
                     borderRadius: 7,
-                    fontFamily: "'Lato',sans-serif",
+                    fontFamily: "'Newsreader',sans-serif",
                     fontSize: 12,
                   }}
                 />
@@ -326,7 +326,7 @@ export default function Profile() {
           .map((r) => (
             <Link key={r.id} href={`/results/${r.id}`} style={{ textDecoration: "none" }}>
               <div className="gaItem" style={{ padding: "12px 14px", cursor: "pointer" }}>
-                <span style={{ fontFamily: "'Playfair Display',serif", fontWeight: 600, color: "var(--book-ink)" }}>
+                <span style={{ fontFamily: "'Instrument Serif',serif", fontWeight: 600, color: "var(--book-ink)" }}>
                   {r.export.braid || "Unnamed pairing"}
                 </span>
                 <span className="small" style={{ color: "var(--book-dim)", marginLeft: 10 }}>

@@ -30,7 +30,7 @@ function FormatIcon({ id }: { id: keyof typeof FORMAT_ICONS }) {
       strokeWidth="1.15"
       strokeLinecap="round"
       strokeLinejoin="round"
-      style={{ display: "block", color: "oklch(0.72 0.14 75)" }}
+      style={{ display: "block", color: "var(--accent)" }}
       aria-hidden="true"
       dangerouslySetInnerHTML={{ __html: FORMAT_ICONS[id] }}
     />
@@ -94,7 +94,7 @@ export default function GetBookSection() {
       id="get-book"
       ref={sectionRef}
       style={{
-        background: "oklch(0.10 0.008 285)",
+        background: "var(--bg)",
         padding: "6rem 0",
         position: "relative",
         overflow: "hidden",
@@ -109,7 +109,7 @@ export default function GetBookSection() {
           transform: "translate(-50%, -50%)",
           width: "800px",
           height: "400px",
-          background: "radial-gradient(ellipse at center, oklch(0.72 0.14 75 / 6%) 0%, transparent 70%)",
+          background: "radial-gradient(ellipse at center, rgb(194 122 12 / 6%) 0%, transparent 70%)",
           pointerEvents: "none",
         }}
       />
@@ -127,17 +127,17 @@ export default function GetBookSection() {
           <h2
             className="reveal"
             style={{
-              fontFamily: "'Playfair Display', serif",
+              fontFamily: "'Instrument Serif', serif",
               fontWeight: 900,
               fontSize: "clamp(2.2rem, 5vw, 4rem)",
               lineHeight: 1.05,
-              color: "oklch(0.92 0.02 80)",
+              color: "var(--fg)",
               marginBottom: "1.25rem",
               transitionDelay: "100ms",
             }}
           >
             Your Eyes Are{" "}
-            <em style={{ color: "oklch(0.72 0.14 75)", fontStyle: "italic" }}>
+            <em style={{ color: "var(--accent)", fontStyle: "italic" }}>
               Unclouded
             </em>{" "}
             Now.
@@ -146,11 +146,11 @@ export default function GetBookSection() {
           <p
             className="reveal"
             style={{
-              fontFamily: "'Cormorant Garamond', serif",
+              fontFamily: "'Instrument Serif', serif",
               fontStyle: "italic",
               fontSize: "1.2rem",
               lineHeight: 1.7,
-              color: "oklch(0.65 0.01 285)",
+              color: "var(--fg-muted)",
               transitionDelay: "200ms",
             }}
           >
@@ -170,7 +170,7 @@ export default function GetBookSection() {
               <div
                 className="animate-gold-pulse absolute inset-0"
                 style={{
-                  background: "radial-gradient(ellipse at center, oklch(0.72 0.14 75 / 15%) 0%, transparent 70%)",
+                  background: "radial-gradient(ellipse at center, rgb(194 122 12 / 15%) 0%, transparent 70%)",
                   transform: "scale(1.4)",
                   filter: "blur(20px)",
                 }}
@@ -200,9 +200,9 @@ export default function GetBookSection() {
                 style={{
                   transitionDelay: `${400 + i * 80}ms`,
                   background: format.highlight
-                    ? "oklch(0.72 0.14 75 / 8%)"
-                    : "oklch(0.15 0.008 285)",
-                  border: `1px solid ${format.highlight ? "oklch(0.72 0.14 75 / 35%)" : "oklch(1 0 0 / 8%)"}`,
+                    ? "rgb(194 122 12 / 8%)"
+                    : "var(--bg-raised)",
+                  border: `1px solid ${format.highlight ? "rgb(194 122 12 / 35%)" : "rgb(10 9 7 / 8%)"}`,
                   borderRadius: "3px",
                   padding: "1.75rem",
                   display: "flex",
@@ -211,12 +211,12 @@ export default function GetBookSection() {
                   transition: "all 200ms ease",
                 }}
                 onMouseEnter={e => {
-                  (e.currentTarget as HTMLElement).style.borderColor = "oklch(0.72 0.14 75 / 40%)";
+                  (e.currentTarget as HTMLElement).style.borderColor = "rgb(194 122 12 / 40%)";
                 }}
                 onMouseLeave={e => {
                   (e.currentTarget as HTMLElement).style.borderColor = format.highlight
-                    ? "oklch(0.72 0.14 75 / 35%)"
-                    : "oklch(1 0 0 / 8%)";
+                    ? "rgb(194 122 12 / 35%)"
+                    : "rgb(10 9 7 / 8%)";
                 }}
               >
                 <div style={{ flexShrink: 0 }}><FormatIcon id={format.icon} /></div>
@@ -224,10 +224,10 @@ export default function GetBookSection() {
                   <div className="flex items-center gap-2 mb-1">
                     <h4
                       style={{
-                        fontFamily: "'Playfair Display', serif",
+                        fontFamily: "'Instrument Serif', serif",
                         fontWeight: 600,
                         fontSize: "1.05rem",
-                        color: "oklch(0.88 0.02 80)",
+                        color: "var(--fg)",
                       }}
                     >
                       {format.format}
@@ -235,13 +235,13 @@ export default function GetBookSection() {
                     {format.badge && (
                       <span
                         style={{
-                          fontFamily: "'Lato', sans-serif",
+                          fontFamily: "'Newsreader', sans-serif",
                           fontWeight: 700,
                           fontSize: "0.55rem",
                           letterSpacing: "0.15em",
                           textTransform: "uppercase",
-                          color: format.comingSoon ? "oklch(0.60 0.01 285)" : "oklch(0.10 0.008 285)",
-                          background: format.comingSoon ? "oklch(1 0 0 / 8%)" : "oklch(0.72 0.14 75)",
+                          color: format.comingSoon ? "var(--fg-muted)" : "var(--bg)",
+                          background: format.comingSoon ? "rgb(10 9 7 / 8%)" : "var(--accent)",
                           padding: "2px 8px",
                           borderRadius: "2px",
                         }}
@@ -252,10 +252,10 @@ export default function GetBookSection() {
                   </div>
                   <p
                     style={{
-                      fontFamily: "'Lato', sans-serif",
+                      fontFamily: "'Newsreader', sans-serif",
                       fontSize: "0.85rem",
                       lineHeight: 1.65,
-                      color: "oklch(0.55 0.01 285)",
+                      color: "var(--fg-muted)",
                     }}
                   >
                     {format.description}
@@ -275,13 +275,13 @@ export default function GetBookSection() {
                       whiteSpace: "nowrap",
                       fontSize: "0.65rem",
                       padding: "0.625rem 1.25rem",
-                      fontFamily: "'Lato', sans-serif",
+                      fontFamily: "'Newsreader', sans-serif",
                       fontWeight: 700,
                       letterSpacing: "0.08em",
                       textTransform: "uppercase",
-                      color: "oklch(0.45 0.01 285)",
+                      color: "var(--print-400)",
                       background: "transparent",
-                      border: "1px solid oklch(1 0 0 / 12%)",
+                      border: "1px solid rgb(10 9 7 / 12%)",
                       borderRadius: "2px",
                       cursor: "not-allowed",
                     }}
@@ -316,8 +316,8 @@ export default function GetBookSection() {
           className="reveal"
           style={{
             transitionDelay: "700ms",
-            background: "oklch(0.15 0.008 285)",
-            border: "1px solid oklch(0.72 0.14 75 / 20%)",
+            background: "var(--bg-raised)",
+            border: "1px solid rgb(194 122 12 / 20%)",
             borderRadius: "3px",
             padding: "2.5rem",
             display: "flex",
@@ -331,10 +331,10 @@ export default function GetBookSection() {
             <span className="section-label block mb-2">Already Have the Book?</span>
             <h3
               style={{
-                fontFamily: "'Playfair Display', serif",
+                fontFamily: "'Instrument Serif', serif",
                 fontWeight: 700,
                 fontSize: "1.5rem",
-                color: "oklch(0.92 0.02 80)",
+                color: "var(--fg)",
                 marginBottom: "0.75rem",
               }}
             >
@@ -342,10 +342,10 @@ export default function GetBookSection() {
             </h3>
             <p
               style={{
-                fontFamily: "'Lato', sans-serif",
+                fontFamily: "'Newsreader', sans-serif",
                 fontSize: "0.9rem",
                 lineHeight: 1.75,
-                color: "oklch(0.60 0.01 285)",
+                color: "var(--fg-muted)",
               }}
             >
               The online version adds the two stations that need sound, automatic scoring across all three streams, and a saved profile you can retake to track change. Both versions give you a real Genius Signature.

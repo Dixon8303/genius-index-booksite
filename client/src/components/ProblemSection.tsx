@@ -35,7 +35,7 @@ export default function ProblemSection() {
     <section
       ref={sectionRef}
       style={{
-        background: "oklch(0.10 0.008 285)",
+        background: "var(--bg)",
         padding: "8rem 2rem",
         position: "relative",
         overflow: "hidden",
@@ -50,7 +50,7 @@ export default function ProblemSection() {
           transform: "translateX(-50%)",
           width: "600px",
           height: "300px",
-          background: "radial-gradient(ellipse at center, oklch(0.72 0.14 75 / 4%) 0%, transparent 70%)",
+          background: "radial-gradient(ellipse at center, rgb(194 122 12 / 4%) 0%, transparent 70%)",
           pointerEvents: "none",
         }}
       />
@@ -71,11 +71,11 @@ export default function ProblemSection() {
             >
               <p
                 style={{
-                  fontFamily: "'Lato', sans-serif",
+                  fontFamily: "'Newsreader', sans-serif",
                   fontSize: "0.75rem",
                   letterSpacing: "0.2em",
                   textTransform: "uppercase",
-                  color: "oklch(0.72 0.14 75)",
+                  color: "var(--accent)",
                   marginBottom: "1.5rem",
                 }}
               >
@@ -83,11 +83,11 @@ export default function ProblemSection() {
               </p>
               <h2
                 style={{
-                  fontFamily: "'Playfair Display', serif",
+                  fontFamily: "'Instrument Serif', serif",
                   fontWeight: 900,
                   fontSize: "clamp(2rem, 5vw, 3.5rem)",
                   lineHeight: 1.1,
-                  color: "oklch(0.92 0.02 80)",
+                  color: "var(--fg)",
                   marginBottom: "1.5rem",
                 }}
               >
@@ -100,9 +100,9 @@ export default function ProblemSection() {
               className="reveal"
               style={{
                 transitionDelay: "200ms",
-                background: "oklch(0.13 0.008 285)",
-                border: "1px solid oklch(1 0 0 / 8%)",
-                borderLeft: "3px solid oklch(0.72 0.14 75)",
+                background: "var(--print-200)",
+                border: "1px solid rgb(10 9 7 / 8%)",
+                borderLeft: "3px solid var(--accent)",
                 borderRadius: "2px",
                 padding: "2rem",
                 marginBottom: "2rem",
@@ -110,11 +110,11 @@ export default function ProblemSection() {
             >
               <p
                 style={{
-                  fontFamily: "'Cormorant Garamond', serif",
+                  fontFamily: "'Instrument Serif', serif",
                   fontStyle: "italic",
                   fontSize: "1.3rem",
                   lineHeight: 1.7,
-                  color: "oklch(0.72 0.14 75)",
+                  color: "var(--accent)",
                   margin: 0,
                 }}
               >
@@ -140,10 +140,10 @@ export default function ProblemSection() {
                 >
                   <div
                     style={{
-                      fontFamily: "'Playfair Display', serif",
+                      fontFamily: "'Instrument Serif', serif",
                       fontWeight: 900,
                       fontSize: "1.8rem",
-                      color: "oklch(0.72 0.14 75 / 20%)",
+                      color: "rgb(194 122 12 / 20%)",
                       lineHeight: 1,
                       minWidth: "50px",
                     }}
@@ -153,10 +153,10 @@ export default function ProblemSection() {
                   <div>
                     <h3
                       style={{
-                        fontFamily: "'Playfair Display', serif",
+                        fontFamily: "'Instrument Serif', serif",
                         fontWeight: 600,
                         fontSize: "1rem",
-                        color: "oklch(0.88 0.02 80)",
+                        color: "var(--fg)",
                         marginBottom: "0.5rem",
                         lineHeight: 1.2,
                       }}
@@ -165,10 +165,10 @@ export default function ProblemSection() {
                     </h3>
                     <p
                       style={{
-                        fontFamily: "'Lato', sans-serif",
+                        fontFamily: "'Newsreader', sans-serif",
                         fontSize: "0.85rem",
                         lineHeight: 1.6,
-                        color: "oklch(0.55 0.01 285)",
+                        color: "var(--fg-muted)",
                         margin: 0,
                       }}
                     >
@@ -205,13 +205,13 @@ export default function ProblemSection() {
                   key={i}
                   style={{
                     aspectRatio: "1",
-                    background: "oklch(0.15 0.008 285)",
-                    border: "1px solid oklch(1 0 0 / 10%)",
+                    background: "var(--bg-raised)",
+                    border: "1px solid rgb(10 9 7 / 10%)",
                     borderRadius: "3px",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    color: "oklch(0.72 0.14 75)",
+                    color: "var(--accent)",
                   }}
                 >
                   <DomainGlyph domain={domain} size="70%" />
@@ -222,20 +222,20 @@ export default function ProblemSection() {
             {/* Insight box */}
             <div
               style={{
-                background: "oklch(0.15 0.008 285)",
-                border: "1px solid oklch(0.72 0.14 75 / 20%)",
+                background: "var(--bg-raised)",
+                border: "1px solid rgb(194 122 12 / 20%)",
                 borderRadius: "3px",
                 padding: "2rem",
               }}
             >
               <p
                 style={{
-                  fontFamily: "'Lato', sans-serif",
+                  fontFamily: "'Newsreader', sans-serif",
                   fontWeight: 700,
                   fontSize: "0.65rem",
                   letterSpacing: "0.2em",
                   textTransform: "uppercase",
-                  color: "oklch(0.72 0.14 75)",
+                  color: "var(--accent)",
                   marginBottom: "1rem",
                 }}
               >
@@ -243,11 +243,11 @@ export default function ProblemSection() {
               </p>
               <p
                 style={{
-                  fontFamily: "'Cormorant Garamond', serif",
+                  fontFamily: "'Instrument Serif', serif",
                   fontStyle: "italic",
                   fontSize: "1.1rem",
                   lineHeight: 1.6,
-                  color: "oklch(0.92 0.02 80)",
+                  color: "var(--fg)",
                   margin: 0,
                 }}
               >
@@ -258,18 +258,18 @@ export default function ProblemSection() {
             {/* Solution hint */}
             <div
               style={{
-                background: "oklch(0.72 0.14 75 / 8%)",
-                border: "1px solid oklch(0.72 0.14 75 / 20%)",
+                background: "rgb(194 122 12 / 8%)",
+                border: "1px solid rgb(194 122 12 / 20%)",
                 borderRadius: "3px",
                 padding: "1.5rem",
               }}
             >
               <p
                 style={{
-                  fontFamily: "'Lato', sans-serif",
+                  fontFamily: "'Newsreader', sans-serif",
                   fontSize: "0.85rem",
                   lineHeight: 1.7,
-                  color: "oklch(0.72 0.14 75)",
+                  color: "var(--accent)",
                   margin: 0,
                 }}
               >

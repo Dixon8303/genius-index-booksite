@@ -33,7 +33,7 @@ function BraidCard({ braid }: { braid: Braid }) {
           style={{ width: 72, height: 72, objectFit: "cover", borderRadius: 6, border: "1px solid var(--brass-deep)", flexShrink: 0 }}
         />
         <div>
-          <div style={{ fontFamily: "'Playfair Display',serif", fontWeight: 700, fontSize: 18, color: "var(--paper)" }}>
+          <div style={{ fontFamily: "'Instrument Serif',serif", fontWeight: 700, fontSize: 18, color: "var(--paper)" }}>
             {braid.name}
           </div>
           <div className="small" style={{ margin: "2px 0" }}>

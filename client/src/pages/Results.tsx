@@ -68,12 +68,12 @@ function useWheelTooltip(containerRef: React.RefObject<HTMLDivElement | null>) {
     if (!root) return;
     const tip = document.createElement("div");
     tip.style.cssText =
-      "position:fixed;z-index:60;max-width:240px;background:#FFFDF8;border:1px solid #B4832E;border-radius:7px;padding:9px 11px;font-family:'Lato',sans-serif;font-size:12.5px;color:#2A2118;box-shadow:0 6px 18px rgba(42,33,24,.25);pointer-events:none;display:none";
+      "position:fixed;z-index:60;max-width:240px;background:#FFFDF8;border:1px solid #B4832E;border-radius:7px;padding:9px 11px;font-family:'Newsreader',sans-serif;font-size:12.5px;color:#2A2118;box-shadow:0 6px 18px rgba(42,33,24,.25);pointer-events:none;display:none";
     document.body.appendChild(tip);
     const show = (el: Element, x: number, y: number) => {
       const name = el.getAttribute("data-name") || "";
       const body = el.getAttribute("data-body") || "";
-      tip.innerHTML = `<strong style="font-family:'Playfair Display',serif">${name}</strong><br>${body}`;
+      tip.innerHTML = `<strong style="font-family:'Instrument Serif',serif">${name}</strong><br>${body}`;
       tip.style.display = "block";
       tip.style.left = `${Math.min(x + 14, window.innerWidth - 260)}px`;
       tip.style.top = `${y + 14}px`;

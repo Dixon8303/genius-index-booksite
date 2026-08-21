@@ -37,7 +37,7 @@ export default function BuiltFromSection() {
     <section
       ref={sectionRef}
       style={{
-        background: "oklch(0.13 0.008 285)",
+        background: "var(--print-200)",
         padding: "6rem 2rem",
         position: "relative",
         overflow: "hidden",
@@ -54,11 +54,11 @@ export default function BuiltFromSection() {
           <h2
             aria-label="Six Disciplines, One Framework"
             style={{
-              fontFamily: "'Playfair Display', serif",
+              fontFamily: "'Instrument Serif', serif",
               fontWeight: 700,
               fontSize: "clamp(2rem, 4vw, 3.5rem)",
               lineHeight: 1.1,
-              color: "oklch(0.92 0.02 80)",
+              color: "var(--fg)",
               marginBottom: "1.25rem",
             }}
           >
@@ -77,10 +77,10 @@ export default function BuiltFromSection() {
             <p
               className="reveal"
               style={{
-                fontFamily: "'Lato', sans-serif",
+                fontFamily: "'Newsreader', sans-serif",
                 fontSize: "1rem",
                 lineHeight: 1.8,
-                color: "oklch(0.60 0.01 285)",
+                color: "var(--fg-muted)",
                 marginBottom: "2rem",
                 transitionDelay: "200ms",
               }}
@@ -91,8 +91,8 @@ export default function BuiltFromSection() {
             <div
               className="reveal"
               style={{
-                background: "oklch(0.10 0.008 285)",
-                border: "1px solid oklch(0.72 0.14 75 / 20%)",
+                background: "var(--bg)",
+                border: "1px solid rgb(194 122 12 / 20%)",
                 borderRadius: "3px",
                 padding: "2rem",
                 transitionDelay: "300ms",
@@ -100,11 +100,11 @@ export default function BuiltFromSection() {
             >
               <p
                 style={{
-                  fontFamily: "'Cormorant Garamond', serif",
+                  fontFamily: "'Instrument Serif', serif",
                   fontStyle: "italic",
                   fontSize: "1.05rem",
                   lineHeight: 1.7,
-                  color: "oklch(0.72 0.14 75)",
+                  color: "var(--accent)",
                   margin: 0,
                 }}
               >
@@ -127,9 +127,9 @@ export default function BuiltFromSection() {
               <div
                 key={discipline.name}
                 style={{
-                  background: "oklch(0.10 0.008 285)",
-                  border: "1px solid oklch(1 0 0 / 8%)",
-                  borderTop: "2px solid oklch(0.72 0.14 75)",
+                  background: "var(--bg)",
+                  border: "1px solid rgb(10 9 7 / 8%)",
+                  borderTop: "2px solid var(--accent)",
                   borderRadius: "2px",
                   padding: "1.5rem",
                   position: "relative",
@@ -138,10 +138,10 @@ export default function BuiltFromSection() {
                 {/* Index number */}
                 <div
                   style={{
-                    fontFamily: "'Playfair Display', serif",
+                    fontFamily: "'Instrument Serif', serif",
                     fontWeight: 900,
                     fontSize: "1.8rem",
-                    color: "oklch(0.72 0.14 75 / 12%)",
+                    color: "rgb(194 122 12 / 12%)",
                     lineHeight: 1,
                     marginBottom: "0.75rem",
                   }}
@@ -151,10 +151,10 @@ export default function BuiltFromSection() {
 
                 <h3
                   style={{
-                    fontFamily: "'Playfair Display', serif",
+                    fontFamily: "'Instrument Serif', serif",
                     fontWeight: 600,
                     fontSize: "0.95rem",
-                    color: "oklch(0.88 0.02 80)",
+                    color: "var(--fg)",
                     marginBottom: "0.5rem",
                     lineHeight: 1.2,
                   }}
@@ -164,10 +164,10 @@ export default function BuiltFromSection() {
 
                 <p
                   style={{
-                    fontFamily: "'Lato', sans-serif",
+                    fontFamily: "'Newsreader', sans-serif",
                     fontSize: "0.75rem",
                     lineHeight: 1.5,
-                    color: "oklch(0.55 0.01 285)",
+                    color: "var(--fg-muted)",
                     margin: 0,
                   }}
                 >

@@ -1,0 +1,168 @@
+/* ============================================================
+   VISUAL DESIGN CONSTITUTION v1.0 — token block (Appendix A)
+   E.A.T. Media · Reclaimed Amber
+   Profile in effect: VDC:INDEX (light-first, print-50 ground)
+   Amendment A1 (2026-08-21): --realm-* data-viz tokens added for
+   the Genius Index nine-domain taxonomy. See DESIGN.md §13.
+   ============================================================ */
+
+:root {
+  /* VAULT — dark grounds */
+  --vault-950:#0A0907; --vault-900:#12100C; --vault-850:#1A1712;
+  --vault-800:#241F18; --vault-700:#332C22;
+
+  /* PRINT — light grounds & neutrals */
+  --print-50:#EFF0EB;  --print-100:#E4E6DF; --print-200:#D2D5CB;
+  --print-300:#B4B8AC; --print-400:#8C9184; --print-500:#6B6F63;
+  --print-600:#4F5349; --print-700:#3A3E35;
+
+  /* AMBER — signal */
+  --amber-100:#FBE7C2; --amber-200:#F7D08A; --amber-300:#F2B44E;
+  --amber-400:#E39418; --amber-500:#C27A0C; --amber-600:#995D08;
+  --amber-700:#6E4206;
+
+  /* VERDIGRIS — time */
+  --verdigris-400:#4A8E88; --verdigris-500:#2F6F6A; --verdigris-600:#1F534F;
+
+  /* OXBLOOD — human cost */
+  --oxblood-300:#E08776; --oxblood-400:#B33A2C; --oxblood-500:#8E2B21;
+
+  /* AMENDMENT A1 — realm data-viz tokens (Genius Index taxonomy).
+     Reserved for domain/family coding in data visualization only;
+     never for text, never decorative. Values inherited from the
+     instrument so the wheel stays consistent with the book. */
+  --realm-soma:#8C3B2E; --realm-mind:#54687C; --realm-field:#4E6156;
+
+  /* TYPE */
+  --font-display:"Instrument Serif",Georgia,serif;
+  --font-body:"Newsreader",Georgia,serif;
+  --font-mono:"IBM Plex Mono",ui-monospace,monospace;
+
+  --t-caption:clamp(0.833rem,0.810rem + 0.10vw,0.900rem);
+  --t-body:clamp(1.000rem,0.956rem + 0.19vw,1.125rem);
+  --t-lead:clamp(1.200rem,1.127rem + 0.31vw,1.406rem);
+  --t-h4:clamp(1.440rem,1.328rem + 0.48vw,1.758rem);
+  --t-h3:clamp(1.728rem,1.563rem + 0.71vw,2.197rem);
+  --t-h2:clamp(2.074rem,1.837rem + 1.01vw,2.747rem);
+  --t-h1:clamp(2.488rem,2.155rem + 1.42vw,3.433rem);
+  --t-display:clamp(2.986rem,2.527rem + 1.96vw,4.291rem);
+  --t-hero:clamp(3.583rem,2.956rem + 2.68vw,5.364rem);
+
+  --lh-hero:1.02; --lh-head:1.12; --lh-lead:1.5; --lh-body:1.65; --lh-mono:1.4;
+  --measure:72ch;
+
+  /* SPACE */
+  --s1:.25rem; --s2:.5rem; --s3:.75rem; --s4:1rem;  --s5:1.5rem; --s6:2rem;
+  --s7:3rem;   --s8:4rem;  --s9:6rem;   --s10:8rem; --s11:12rem; --s12:16rem;
+
+  /* MOTION */
+  --dur-micro:140ms; --dur-element:380ms; --dur-section:620ms; --dur-ambient:7000ms;
+  --ease-out:cubic-bezier(.16,1,.30,1);
+  --ease-in:cubic-bezier(.70,0,.84,0);
+  --ease-inout:cubic-bezier(.65,0,.35,1);
+  --stagger:70ms;
+
+  /* SHAPE */
+  --radius:0; --radius-control:2px;
+  --shadow-modal:0 24px 64px -12px rgb(0 0 0 / .6);
+}
+
+/* DARK — vault theme */
+[data-theme="vault"]{
+  --bg:var(--vault-950); --bg-raised:var(--vault-850); --rule:var(--vault-700);
+  --fg:var(--print-50);  --fg-muted:var(--print-300);  --accent:var(--amber-300);
+  --accent-fill:var(--amber-400); --temporal:var(--verdigris-400); --marked:var(--oxblood-300);
+}
+
+/* LIGHT — print theme, default for INDEX */
+:root, [data-theme="print"]{
+  --bg:var(--print-50);  --bg-raised:var(--print-100); --rule:var(--print-200);
+  --fg:var(--vault-950); --fg-muted:var(--print-600);  --accent:var(--amber-700);
+  --accent-fill:var(--amber-600); --temporal:var(--verdigris-600); --marked:var(--oxblood-500);
+}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{
+    animation-duration:.01ms !important; animation-iteration-count:1 !important;
+    transition-duration:.01ms !important; scroll-behavior:auto !important;
+  }
+}
+
+/* ============================================================
+   SIGNATURE 1 — THE AMBER PASS (§6.1)
+   Scroll-driven light sweep across archival/cover imagery.
+   Pure CSS via animation-timeline: view(); zero JS. Browsers
+   without scroll-timeline support get the reduced-motion
+   fallback: sweep held mid-position at low opacity.
+   ============================================================ */
+.amber-pass{ position:relative; overflow:hidden; }
+.amber-pass::after{
+  content:""; position:absolute; inset:0; pointer-events:none;
+  background:linear-gradient(105deg,
+    transparent 0%, transparent 32.5%,
+    rgb(227 148 24 / 0.22) 50%,
+    transparent 67.5%, transparent 100%);
+  background-size:300% 100%;
+  background-position:100% 0;
+  mix-blend-mode:soft-light;
+}
+@supports (animation-timeline: view()){
+  .amber-pass::after{
+    animation:amber-sweep linear both;
+    animation-timeline:view();
+    animation-range:entry 60% cover 90%;
+  }
+}
+@supports not (animation-timeline: view()){
+  .amber-pass::after{ background-position:50% 0; opacity:.55; }
+}
+@keyframes amber-sweep{
+  from{ background-position:100% 0; }
+  to{ background-position:0% 0; }
+}
+@media (prefers-reduced-motion:reduce){
+  .amber-pass::after{
+    animation:none !important; background-position:50% 0; opacity:.55;
+  }
+}
+
+/* ============================================================
+   SIGNATURE 2 — THE FINDING AID (§6.3)
+   Mono metadata rail with epistemic status markers.
+   ============================================================ */
+.finding-aid{
+  font-family:var(--font-mono);
+  font-size:var(--t-caption);
+  line-height:var(--lh-mono);
+  letter-spacing:.04em;
+  text-transform:uppercase;
+  color:var(--fg-muted);
+  border-left:2px solid var(--rule);
+  padding:var(--s2) var(--s4);
+  margin:var(--s3) 0;
+  text-align:left;
+}
+.finding-aid .fa-row{ display:block; }
+.finding-aid .fa-status{ font-weight:600; }
+.finding-aid .fa-status.verified{ color:var(--temporal); }
+.finding-aid .fa-status.reasoned{ color:var(--fg-muted); }
+.finding-aid .fa-status.disputed{ color:var(--accent); }
+.finding-aid .fa-status.unknown{ color:var(--marked); }
+.finding-aid .fa-span{ color:var(--temporal); }
+
+/* ============================================================
+   Section reveal (Category C pacing). Entry ≤24px, settles,
+   ease-out, --dur-section. Content is visible by default and
+   only hidden when JS marks it revealable — reduced-motion and
+   no-JS paths always read.
+   ============================================================ */
+.vdc-reveal{ opacity:1; transform:none; }
+.js-reveal .vdc-reveal{
+  opacity:0; transform:translateY(24px);
+  transition:opacity var(--dur-section) var(--ease-out),
+             transform var(--dur-section) var(--ease-out);
+}
+.js-reveal .vdc-reveal.is-in{ opacity:1; transform:none; }
+@media (prefers-reduced-motion:reduce){
+  .js-reveal .vdc-reveal{ opacity:1 !important; transform:none !important; }
+}

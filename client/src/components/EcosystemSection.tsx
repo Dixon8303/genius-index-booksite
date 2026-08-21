@@ -40,7 +40,7 @@ export default function EcosystemSection() {
     <section
       ref={sectionRef}
       style={{
-        background: "oklch(0.10 0.008 285)",
+        background: "var(--bg)",
         padding: "6rem 0",
         position: "relative",
         overflow: "hidden",
@@ -55,7 +55,7 @@ export default function EcosystemSection() {
           transform: "translate(-50%, -50%)",
           width: "600px",
           height: "400px",
-          background: "radial-gradient(ellipse at center, oklch(0.72 0.14 75 / 4%) 0%, transparent 70%)",
+          background: "radial-gradient(ellipse at center, rgb(194 122 12 / 4%) 0%, transparent 70%)",
           pointerEvents: "none",
         }}
       />
@@ -71,11 +71,11 @@ export default function EcosystemSection() {
           <h2
             className="reveal"
             style={{
-              fontFamily: "'Playfair Display', serif",
+              fontFamily: "'Instrument Serif', serif",
               fontWeight: 700,
               fontSize: "clamp(2rem, 4vw, 3.5rem)",
               lineHeight: 1.1,
-              color: "oklch(0.92 0.02 80)",
+              color: "var(--fg)",
               marginBottom: "1.25rem",
               transitionDelay: "100ms",
             }}
@@ -85,10 +85,10 @@ export default function EcosystemSection() {
           <p
             className="reveal"
             style={{
-              fontFamily: "'Lato', sans-serif",
+              fontFamily: "'Newsreader', sans-serif",
               fontSize: "1rem",
               lineHeight: 1.8,
-              color: "oklch(0.60 0.01 285)",
+              color: "var(--fg-muted)",
               maxWidth: "560px",
               transitionDelay: "200ms",
             }}
@@ -108,8 +108,8 @@ export default function EcosystemSection() {
               {...(item.href ? { href: item.href } : { "aria-disabled": "true" })}
               style={{
                 transitionDelay: `${300 + i * 80}ms`,
-                background: "oklch(0.13 0.008 285)",
-                border: "1px solid oklch(1 0 0 / 8%)",
+                background: "var(--print-200)",
+                border: "1px solid rgb(10 9 7 / 8%)",
                 borderRadius: "3px",
                 padding: "2rem",
                 position: "relative",
@@ -126,10 +126,10 @@ export default function EcosystemSection() {
               {...(item.href
                 ? {
                     onMouseEnter: (e: React.MouseEvent<HTMLElement>) => {
-                      (e.currentTarget as HTMLElement).style.borderColor = "oklch(0.72 0.14 75 / 40%)";
+                      (e.currentTarget as HTMLElement).style.borderColor = "rgb(194 122 12 / 40%)";
                     },
                     onMouseLeave: (e: React.MouseEvent<HTMLElement>) => {
-                      (e.currentTarget as HTMLElement).style.borderColor = "oklch(1 0 0 / 8%)";
+                      (e.currentTarget as HTMLElement).style.borderColor = "rgb(10 9 7 / 8%)";
                     },
                   }
                 : {})}
@@ -137,10 +137,10 @@ export default function EcosystemSection() {
               {/* Step number */}
               <div
                 style={{
-                  fontFamily: "'Playfair Display', serif",
+                  fontFamily: "'Instrument Serif', serif",
                   fontWeight: 900,
                   fontSize: "2.5rem",
-                  color: "oklch(0.72 0.14 75 / 12%)",
+                  color: "rgb(194 122 12 / 12%)",
                   lineHeight: 1,
                   marginBottom: "1rem",
                   letterSpacing: "-0.04em",
@@ -157,7 +157,7 @@ export default function EcosystemSection() {
                   left: 0,
                   right: 0,
                   height: "2px",
-                  background: "oklch(0.72 0.14 75)",
+                  background: "var(--accent)",
                   opacity: 0.4,
                 }}
               />
@@ -165,10 +165,10 @@ export default function EcosystemSection() {
               <div className="flex items-center gap-2 flex-wrap" style={{ marginBottom: "0.75rem" }}>
                 <h3
                   style={{
-                    fontFamily: "'Playfair Display', serif",
+                    fontFamily: "'Instrument Serif', serif",
                     fontWeight: 600,
                     fontSize: "1.05rem",
-                    color: "oklch(0.88 0.02 80)",
+                    color: "var(--fg)",
                     lineHeight: 1.3,
                   }}
                 >
@@ -177,13 +177,13 @@ export default function EcosystemSection() {
                 {!item.href && (
                   <span
                     style={{
-                      fontFamily: "'Lato', sans-serif",
+                      fontFamily: "'Newsreader', sans-serif",
                       fontWeight: 700,
                       fontSize: "0.55rem",
                       letterSpacing: "0.12em",
                       textTransform: "uppercase",
-                      color: "oklch(0.55 0.01 285)",
-                      border: "1px solid oklch(1 0 0 / 15%)",
+                      color: "var(--fg-muted)",
+                      border: "1px solid rgb(10 9 7 / 15%)",
                       padding: "2px 6px",
                       borderRadius: "2px",
                     }}
@@ -195,10 +195,10 @@ export default function EcosystemSection() {
 
               <p
                 style={{
-                  fontFamily: "'Lato', sans-serif",
+                  fontFamily: "'Newsreader', sans-serif",
                   fontSize: "0.85rem",
                   lineHeight: 1.6,
-                  color: "oklch(0.55 0.01 285)",
+                  color: "var(--fg-muted)",
                 }}
               >
                 {item.desc}
@@ -217,7 +217,7 @@ export default function EcosystemSection() {
                     transform: "translateX(-50%)",
                     width: "2px",
                     height: "24px",
-                    background: "linear-gradient(to bottom, oklch(0.72 0.14 75 / 30%), transparent)",
+                    background: "linear-gradient(to bottom, rgb(194 122 12 / 30%), transparent)",
                   }}
                 />
               )}

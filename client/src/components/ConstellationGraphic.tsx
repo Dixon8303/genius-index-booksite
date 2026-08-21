@@ -19,7 +19,7 @@ const DOMAINS = [
 ] as const;
 
 const REALM_HEX: Record<string, string> = { soma: "#8C3B2E", mind: "#54687C", field: "#4E6156" };
-const GOLD = "#CC9E3F";
+const GOLD = "#C27A0C";
 
 // The Canonical Ten (drawn in gold), from the book's Field Guide.
 const CANONICAL_TEN: Array<[string, string, string]> = [
@@ -76,9 +76,9 @@ export default function ConstellationGraphic() {
           const [fx, fy] = polar(Rr + 56, 270);
           return (
             <>
-              <text x={sx} y={sy + 5} textAnchor="middle" fontFamily="Lato, sans-serif" fontSize="13" fontWeight={700} letterSpacing="2.5" fill={REALM_HEX.soma}>SOMA</text>
-              <text x={mx} y={my + 5} textAnchor="middle" fontFamily="Lato, sans-serif" fontSize="13" fontWeight={700} letterSpacing="2.5" fill={REALM_HEX.mind}>MIND</text>
-              <text x={fx} y={fy + 5} textAnchor="middle" fontFamily="Lato, sans-serif" fontSize="13" fontWeight={700} letterSpacing="2.5" fill={REALM_HEX.field}>FIELD</text>
+              <text x={sx} y={sy + 5} textAnchor="middle" fontFamily="Newsreader, sans-serif" fontSize="13" fontWeight={700} letterSpacing="2.5" fill={REALM_HEX.soma}>SOMA</text>
+              <text x={mx} y={my + 5} textAnchor="middle" fontFamily="Newsreader, sans-serif" fontSize="13" fontWeight={700} letterSpacing="2.5" fill={REALM_HEX.mind}>MIND</text>
+              <text x={fx} y={fy + 5} textAnchor="middle" fontFamily="Newsreader, sans-serif" fontSize="13" fontWeight={700} letterSpacing="2.5" fill={REALM_HEX.field}>FIELD</text>
             </>
           );
         })()}
@@ -86,7 +86,7 @@ export default function ConstellationGraphic() {
         {/* Faint web: all 36 pairings */}
         {ALL_PAIRS.filter(([a, b]) => !CANON_KEYS.has([a, b].sort().join("|"))).map(([a, b]) => {
           const [x0, y0] = pos[a], [x1, y1] = pos[b];
-          return <line key={`${a}-${b}`} x1={x0} y1={y0} x2={x1} y2={y1} stroke="#8C7E69" strokeWidth={1} strokeOpacity={0.22} strokeLinecap="round" />;
+          return <line key={`${a}-${b}`} x1={x0} y1={y0} x2={x1} y2={y1} stroke="#8C9184" strokeWidth={1} strokeOpacity={0.22} strokeLinecap="round" />;
         })}
 
         {/* The Canonical Ten, bold gold */}
@@ -103,8 +103,8 @@ export default function ConstellationGraphic() {
           return (
             <g key={id}>
               <circle cx={x} cy={y} r={24} fill={col} fillOpacity={0.22} stroke={col} strokeWidth={1.5} />
-              <text x={x} y={y + 1} textAnchor="middle" fontFamily="Playfair Display, serif" fontWeight={700} fontSize="13" fill={col}>{d.code}</text>
-              <text x={x} y={y + 14} textAnchor="middle" fontFamily="Lato, sans-serif" fontSize="8" fontWeight={700} letterSpacing="0.5" fill="oklch(0.60 0.01 285)">{d.name.toUpperCase()}</text>
+              <text x={x} y={y + 1} textAnchor="middle" fontFamily="Instrument Serif, serif" fontWeight={700} fontSize="13" fill={col}>{d.code}</text>
+              <text x={x} y={y + 14} textAnchor="middle" fontFamily="Newsreader, sans-serif" fontSize="8" fontWeight={700} letterSpacing="0.5" fill="var(--fg-muted)">{d.name.toUpperCase()}</text>
             </g>
           );
         })}
@@ -112,12 +112,12 @@ export default function ConstellationGraphic() {
 
       {/* Legend */}
       <div style={{ display: "flex", justifyContent: "center", gap: "1.5rem", marginTop: "0.5rem", flexWrap: "wrap" }}>
-        <span style={{ display: "inline-flex", alignItems: "center", gap: "6px", fontFamily: "'Lato', sans-serif", fontSize: "0.7rem", letterSpacing: "0.04em", color: "oklch(0.60 0.01 285)" }}>
+        <span style={{ display: "inline-flex", alignItems: "center", gap: "6px", fontFamily: "'Newsreader', sans-serif", fontSize: "0.7rem", letterSpacing: "0.04em", color: "var(--fg-muted)" }}>
           <i style={{ width: 14, height: 3, background: GOLD, borderRadius: 2, display: "inline-block" }} />
           The Canonical Ten
         </span>
-        <span style={{ display: "inline-flex", alignItems: "center", gap: "6px", fontFamily: "'Lato', sans-serif", fontSize: "0.7rem", letterSpacing: "0.04em", color: "oklch(0.50 0.01 285)" }}>
-          <i style={{ width: 14, height: 1, background: "#8C7E69", opacity: 0.5, display: "inline-block" }} />
+        <span style={{ display: "inline-flex", alignItems: "center", gap: "6px", fontFamily: "'Newsreader', sans-serif", fontSize: "0.7rem", letterSpacing: "0.04em", color: "var(--print-500)" }}>
+          <i style={{ width: 14, height: 1, background: "#8C9184", opacity: 0.5, display: "inline-block" }} />
           The other twenty-six
         </span>
       </div>
