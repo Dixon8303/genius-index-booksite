@@ -72,7 +72,12 @@ const IMAGES_BASE = `${import.meta.env.BASE_URL}images/results/`;
 
 function pickResultImage(pool: string[] | undefined): string {
   const list = pool && pool.length ? pool : RESULT_IMAGES.fallback;
-  return IMAGES_BASE + list[Math.floor(Math.random() * list.length)];
+  // Served as WebP (resized + re-encoded from the commissioned JPGs) to hold
+  // the VDC §8 page-weight budget; the manifest keeps its original .jpg names.
+  return (
+    IMAGES_BASE +
+    list[Math.floor(Math.random() * list.length)].replace(/\.jpg$/, ".webp")
+  );
 }
 
 export function braidImage(name: string): string {

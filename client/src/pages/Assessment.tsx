@@ -461,7 +461,7 @@ export default function Assessment() {
               border: "1px solid var(--line)",
               borderRadius: 5,
               color: "var(--paper)",
-              fontFamily: "'Lato',sans-serif",
+              fontFamily: "'Newsreader',sans-serif",
               fontSize: 14,
             }}
           />

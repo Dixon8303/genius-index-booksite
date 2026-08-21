@@ -27,6 +27,27 @@ import { buildShapeDiagram, esc } from "./builders";
 
 export type HrefFor = (id: DomainId | "_stack") => string;
 
+/* VDC §6.3 — The Finding Aid: a mono metadata rail attached to claims,
+   with epistemic status markers mapped to how each claim is grounded. */
+export type FaStatus = "verified" | "reasoned" | "disputed" | "unknown";
+const FA_MARKER: Record<FaStatus, string> = {
+  verified: "●",
+  reasoned: "◐",
+  disputed: "○",
+  unknown: "▲",
+};
+export function findingAid(
+  lines: string[],
+  status: FaStatus,
+  statusLabel: string,
+): string {
+  return `<div class="finding-aid">${lines
+    .map((l) => `<span class="fa-row">${l}</span>`)
+    .join(
+      "",
+    )}<span class="fa-row fa-status ${status}">${FA_MARKER[status]} ${statusLabel}</span></div>`;
+}
+
 export function portraitHTML(m: Interpretation): string {
   const s0 = m.sorted[0].name;
   const supp = DOMAINS.filter((d) => m.band(d) === "Supporting")
@@ -135,11 +156,12 @@ export function bookModules(m: Interpretation, hrefFor: HrefFor): string {
     (ids.length > 1 ? "Chapters " : "Chapter ") + ids.join(" & ");
 
   const evidence = `<details class="ev"><summary><span class="ct" style="color:var(--gold-ink)">The evidence ledger</span></summary>
-   ${m.sig.map((d) => `<div class="evrow"><div class="evh"><span class="dot ${d.meta}"></span>${d.name}</div><p>${EVIDENCE[d.id]}</p></div>`).join("")}
+   ${m.sig.map((d) => `<div class="evrow"><div class="evh"><span class="dot ${d.meta}"></span>${d.name}</div><p>${EVIDENCE[d.id]}</p>${findingAid([`${d.name.toUpperCase()} · RESEARCH RECORD`, `THE GENIUS INDEX · CH ${chDom(d.id)}`], "verified", "VERIFIED · PUBLISHED RESEARCH SUMMARY")}</div>`).join("")}
    <p class="evfoot">The Index measures what folklore only asserts. ${chList(sigChapters)} carries each full ledger.</p></details>`;
 
   const careers = `<div class="callout callout--brass"><span class="ct">Where this pays</span>
    ${m.sig.map((d) => `<p style="margin:2px 0 8px"><strong>${d.name}.</strong> ${CAREERS[d.id]}</p>`).join("")}
+   ${findingAid(["CAREER MAPPING · FROM DOMAIN DEFINITIONS"], "reasoned", "REASONED · INTERPRETIVE, NOT MEASURED")}
    <p class="modfoot">None of these hire the marker — they hire it demonstrated. ${chList(sigChapters)} names the specific proof each field reads.</p></div>`;
 
   const hob = `<div class="callout callout--moss"><span class="ct">Where your genius comes alive</span>
@@ -245,6 +267,7 @@ export function profileSectionHTML(m: Interpretation): string {
   <div class="eyebrow-b">The reading</div>
   <h2 class="bt">Your Genius Profile</h2>
   <p class="btsub">How ${m.primary ? esc(m.primary.name) : "your pairing"} runs in daily life — thinking, leading, learning, and the rest. A reading of your two strands, not a verdict.</p>
+  ${findingAid([`COMPOSED FROM · ${p.name.toUpperCase()} × ${s.name.toUpperCase()}`, "SEVEN-LENS PROFILE LIBRARY"], "reasoned", "REASONED · A READING, NOT A MEASUREMENT")}
   <hr class="brule">
   <div class="profilegrid">
    ${card("cog", "Cognitive Profile")}

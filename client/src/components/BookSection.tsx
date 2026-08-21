@@ -57,7 +57,7 @@ export default function BookSection() {
     <section
       id="book"
       ref={sectionRef}
-      style={{ background: "oklch(0.12 0.008 285)", padding: "6rem 0" }}
+      style={{ background: "var(--bg-raised)", padding: "6rem 0" }}
     >
       <div className="container">
 
@@ -72,11 +72,11 @@ export default function BookSection() {
             <h2
               className="reveal"
               style={{
-                fontFamily: "'Playfair Display', serif",
+                fontFamily: "'Instrument Serif', serif",
                 fontWeight: 700,
                 fontSize: "clamp(2rem, 4vw, 3.5rem)",
                 lineHeight: 1.1,
-                color: "oklch(0.92 0.02 80)",
+                color: "var(--fg)",
                 marginBottom: "1.5rem",
                 transitionDelay: "100ms",
               }}
@@ -87,10 +87,10 @@ export default function BookSection() {
             <p
               className="reveal"
               style={{
-                fontFamily: "'Lato', sans-serif",
+                fontFamily: "'Newsreader', sans-serif",
                 fontSize: "1.05rem",
                 lineHeight: 1.85,
-                color: "oklch(0.65 0.01 285)",
+                color: "var(--fg-muted)",
                 marginBottom: "2.5rem",
                 transitionDelay: "200ms",
               }}
@@ -105,11 +105,11 @@ export default function BookSection() {
               </blockquote>
               <p
                 style={{
-                  fontFamily: "'Lato', sans-serif",
+                  fontFamily: "'Newsreader', sans-serif",
                   fontSize: "0.75rem",
                   letterSpacing: "0.12em",
                   textTransform: "uppercase",
-                  color: "oklch(0.50 0.01 285)",
+                  color: "var(--print-500)",
                   marginTop: "1rem",
                   paddingLeft: "1.5rem",
                 }}
@@ -130,11 +130,11 @@ export default function BookSection() {
             <p
               className="text-center"
               style={{
-                fontFamily: "'Cormorant Garamond', serif",
+                fontFamily: "'Instrument Serif', serif",
                 fontStyle: "italic",
                 fontSize: "0.95rem",
                 lineHeight: 1.6,
-                color: "oklch(0.55 0.01 285)",
+                color: "var(--fg-muted)",
                 maxWidth: "420px",
                 margin: "1rem auto 0",
               }}
@@ -159,7 +159,7 @@ export default function BookSection() {
               className="reveal"
               style={{
                 transitionDelay: `${450 + i * 80}ms`,
-                borderLeft: "1px solid oklch(1 0 0 / 8%)",
+                borderLeft: "1px solid rgb(10 9 7 / 8%)",
                 padding: "2rem 1.75rem",
                 position: "relative",
               }}
@@ -167,11 +167,11 @@ export default function BookSection() {
               {/* Step number */}
               <div
                 style={{
-                  fontFamily: "'Playfair Display', serif",
+                  fontFamily: "'Instrument Serif', serif",
                   fontWeight: 900,
                   fontSize: "3.5rem",
                   lineHeight: 1,
-                  color: "oklch(0.72 0.14 75 / 15%)",
+                  color: "rgb(194 122 12 / 15%)",
                   marginBottom: "1rem",
                   letterSpacing: "-0.04em",
                 }}
@@ -182,12 +182,12 @@ export default function BookSection() {
               {/* Label */}
               <div
                 style={{
-                  fontFamily: "'Lato', sans-serif",
+                  fontFamily: "'Newsreader', sans-serif",
                   fontWeight: 700,
                   fontSize: "0.65rem",
                   letterSpacing: "0.2em",
                   textTransform: "uppercase",
-                  color: "oklch(0.72 0.14 75)",
+                  color: "var(--accent)",
                   marginBottom: "0.75rem",
                 }}
               >
@@ -197,10 +197,10 @@ export default function BookSection() {
               {/* Title */}
               <h3
                 style={{
-                  fontFamily: "'Playfair Display', serif",
+                  fontFamily: "'Instrument Serif', serif",
                   fontWeight: 600,
                   fontSize: "1.2rem",
-                  color: "oklch(0.88 0.02 80)",
+                  color: "var(--fg)",
                   marginBottom: "0.875rem",
                   lineHeight: 1.3,
                 }}
@@ -211,10 +211,10 @@ export default function BookSection() {
               {/* Body */}
               <p
                 style={{
-                  fontFamily: "'Lato', sans-serif",
+                  fontFamily: "'Newsreader', sans-serif",
                   fontSize: "0.9rem",
                   lineHeight: 1.75,
-                  color: "oklch(0.58 0.01 285)",
+                  color: "var(--fg-muted)",
                 }}
               >
                 {movement.body}
@@ -227,8 +227,8 @@ export default function BookSection() {
                   style={{
                     width: "8px",
                     height: "8px",
-                    borderTop: "1px solid oklch(0.72 0.14 75 / 40%)",
-                    borderRight: "1px solid oklch(0.72 0.14 75 / 40%)",
+                    borderTop: "1px solid rgb(194 122 12 / 40%)",
+                    borderRight: "1px solid rgb(194 122 12 / 40%)",
                     transform: "translateY(-50%) rotate(45deg)",
                   }}
                 />
@@ -245,10 +245,10 @@ export default function BookSection() {
           <div className="gold-rule w-12" />
           <span
             style={{
-              fontFamily: "'Cormorant Garamond', serif",
+              fontFamily: "'Instrument Serif', serif",
               fontStyle: "italic",
               fontSize: "1.1rem",
-              color: "oklch(0.72 0.14 75)",
+              color: "var(--accent)",
               letterSpacing: "0.02em",
             }}
           >

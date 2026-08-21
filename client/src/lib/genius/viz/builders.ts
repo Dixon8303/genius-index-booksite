@@ -71,29 +71,29 @@ export function buildWheel(
   svg += `<path d="${arc(Rr + 40, 210, 330)}" fill="none" stroke="#4E6156" stroke-width="7" stroke-opacity=".75" stroke-linecap="round"/>`;
   const lbl = (txt: string, deg: number, col: string) => {
     const [x, y] = polar(Rr + 62, deg);
-    return `<text x="${x.toFixed(1)}" y="${(y + 5).toFixed(1)}" text-anchor="middle" font-family="Lato,sans-serif" font-size="15" font-weight="700" letter-spacing="3" fill="${col}">${txt}</text>`;
+    return `<text x="${x.toFixed(1)}" y="${(y + 5).toFixed(1)}" text-anchor="middle" font-family="Newsreader,sans-serif" font-size="15" font-weight="700" letter-spacing="3" fill="${col}">${txt}</text>`;
   };
   svg += lbl("SOMA", 30, "#8C3B2E") + lbl("MIND", 150, "#54687C") + lbl("FIELD", 270, "#4E6156");
   const chord = (k: string, br: Braid) => {
     const [a, b] = k.split("|");
     const [x0, y0] = pos[a],
       [x1, y1] = pos[b];
-    let stroke = "#8C7E69",
+    let stroke = "#8C9184",
       w = 1,
       op = 0.22;
     if (br.tier === "C") {
-      stroke = "#6E6150";
+      stroke = "#6B6F63";
       w = 1.5;
       op = 0.42;
     }
     if (adjKeys.has(k)) {
-      stroke = "#9A7440";
+      stroke = "#995D08";
       w = 2.4;
       op = 0.72;
     }
     const isPrimary = k === primaryKey;
     if (isPrimary) {
-      stroke = "#B4832E";
+      stroke = "#995D08";
       w = 4.5;
       op = 0.98;
     }
@@ -113,7 +113,7 @@ export function buildWheel(
     const mx = (pos[a][0] + pos[b][0]) / 2,
       my = (pos[a][1] + pos[b][1]) / 2;
     const w = primaryBraid.name.length * 7.2 + 16;
-    svg += `<g transform="translate(${mx.toFixed(1)} ${my.toFixed(1)})"><rect x="${(-w / 2).toFixed(1)}" y="-11" width="${w.toFixed(1)}" height="22" rx="5" fill="#EFE7D6" stroke="#B4832E" stroke-width="1.3"/><text x="0" y="4.5" text-anchor="middle" font-family="Playfair Display,serif" font-weight="700" font-size="12.5" fill="#7A5B31">${primaryBraid.name}</text></g>`;
+    svg += `<g transform="translate(${mx.toFixed(1)} ${my.toFixed(1)})"><rect x="${(-w / 2).toFixed(1)}" y="-11" width="${w.toFixed(1)}" height="22" rx="5" fill="#E4E6DF" stroke="#995D08" stroke-width="1.3"/><text x="0" y="4.5" text-anchor="middle" font-family="Instrument Serif,serif" font-weight="700" font-size="12.5" fill="#6E4206">${primaryBraid.name}</text></g>`;
   }
   order.forEach((id) => {
     const d = DOMAIN_BY_ID[id],
@@ -128,8 +128,8 @@ export function buildWheel(
     svg += `<g class="wnode" tabindex="0" role="button" aria-label="${tipName} — ${tipBody}" data-name="${tipName}" data-body="${tipBody}">`;
     svg += `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${(r + 8).toFixed(1)}" fill="transparent"/>`;
     svg += `<circle class="wdot" cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${r.toFixed(1)}" fill="${col}" fill-opacity="${op}" stroke="${col}" stroke-width="${isTop ? 3 : 1.5}"/>`;
-    svg += `<text x="${x.toFixed(1)}" y="${(y + 1).toFixed(1)}" text-anchor="middle" font-family="Playfair Display,serif" font-weight="700" font-size="13" fill="${col}" style="pointer-events:none">${d.code}</text>`;
-    svg += `<text x="${x.toFixed(1)}" y="${(y + 14).toFixed(1)}" text-anchor="middle" font-family="Lato,sans-serif" font-size="9" font-weight="700" fill="${col}" style="pointer-events:none">${sc}</text>`;
+    svg += `<text x="${x.toFixed(1)}" y="${(y + 1).toFixed(1)}" text-anchor="middle" font-family="Instrument Serif,serif" font-weight="700" font-size="13" fill="${col}" style="pointer-events:none">${d.code}</text>`;
+    svg += `<text x="${x.toFixed(1)}" y="${(y + 14).toFixed(1)}" text-anchor="middle" font-family="Newsreader,sans-serif" font-size="9" font-weight="700" fill="${col}" style="pointer-events:none">${sc}</text>`;
     svg += `</g>`;
   });
   svg += `</svg>`;
@@ -148,7 +148,7 @@ export function buildGrid(
     for (let c = 0; c <= r; c++) {
       if (c === r) {
         const d = DOMAINS[r];
-        cells += `<td><div class="gcell" style="background:${realmColor(d.meta)};color:#EDE4D4"><span class="gn" style="opacity:.85">${d.code}</span><span class="gs">${R[d.id].score}</span></div></td>`;
+        cells += `<td><div class="gcell" style="background:${realmColor(d.meta)};color:#EFF0EB"><span class="gn" style="opacity:.85">${d.code}</span><span class="gs">${R[d.id].score}</span></div></td>`;
       } else {
         const br = braidFor(DOMAINS[r].id, DOMAINS[c].id)!,
           k = braidKey(DOMAINS[r].id, DOMAINS[c].id);
@@ -156,12 +156,12 @@ export function buildGrid(
         const mine = k === primaryKey,
           adj = adjKeys.has(k);
         const bg = mine
-          ? "rgba(195,154,91,.35)"
+          ? "rgba(194,122,12,.35)"
           : canon
-            ? "rgba(195,154,91,.16)"
+            ? "rgba(194,122,12,.16)"
             : "rgba(0,0,0,.03)";
         const dotc =
-          br.tier === "C" ? "#B4832E" : br.tier === "S" ? "#4E6156" : br.tier === "R" ? "#8C3B2E" : "#54687C";
+          br.tier === "C" ? "#995D08" : br.tier === "S" ? "#4E6156" : br.tier === "R" ? "#8C3B2E" : "#54687C";
         cells += `<td><div class="gcell ${mine ? "mine" : adj ? "adj" : ""}" style="background:${bg}"><span class="gn" style="color:var(--book-ink)">${br.name.replace(/^The /, "")}</span><span class="gt" style="color:${dotc}">●</span></div></td>`;
       }
     }
@@ -184,7 +184,7 @@ export function buildGridAccordion(
         const mine = k === primaryKey,
           adj = adjKeys.has(k);
         const dotc =
-          br.tier === "C" ? "#B4832E" : br.tier === "S" ? "#4E6156" : br.tier === "R" ? "#8C3B2E" : "#54687C";
+          br.tier === "C" ? "#995D08" : br.tier === "S" ? "#4E6156" : br.tier === "R" ? "#8C3B2E" : "#54687C";
         return `<div class="gaRow ${mine ? "mine" : adj ? "adj" : ""}"><span class="gaDot" style="background:${dotc}"></span><span class="gaOther">${o.name}</span><span class="gaBraid">${br.name}</span></div>`;
       })
       .join("");
@@ -230,7 +230,7 @@ export function buildHeroGlyph(braidDoms: Domain[]): string {
   const lit = braidDoms.map((d) => d.id);
   const cells = [...DOMAINS].sort((a, b) => a.cell - b.cell);
   const defs = `<defs><linearGradient id="litCell" x1="0" y1="0" x2="0" y2="1">
-    <stop offset="0%" stop-color="#E3BE7C"/><stop offset="100%" stop-color="#B4832E"/>
+    <stop offset="0%" stop-color="#F2B44E"/><stop offset="100%" stop-color="#995D08"/>
    </linearGradient></defs>`;
   const cellSvg = cells
     .map((d, i) => {
@@ -241,9 +241,9 @@ export function buildHeroGlyph(braidDoms: Domain[]): string {
         cy = 30 + y * 62,
         on = lit.includes(d.id);
       const box = on
-        ? `<rect x="${cx - 26}" y="${cy - 26}" width="52" height="52" rx="9" fill="url(#litCell)" stroke="#8A652E" stroke-width="1.5"/>`
+        ? `<rect x="${cx - 26}" y="${cy - 26}" width="52" height="52" rx="9" fill="url(#litCell)" stroke="#995D08" stroke-width="1.5"/>`
         : `<rect x="${cx - 26}" y="${cy - 26}" width="52" height="52" rx="9" fill="${col}" fill-opacity="0.05" stroke="${col}" stroke-opacity="0.28" stroke-width="1.3"/>`;
-      const txt = `<text x="${cx}" y="${cy + 5}" text-anchor="middle" font-family="Playfair Display,serif" font-weight="700" font-size="15" fill="${on ? "#2A2118" : col}" fill-opacity="${on ? 1 : 0.72}">${d.code}</text>`;
+      const txt = `<text x="${cx}" y="${cy + 5}" text-anchor="middle" font-family="Instrument Serif,serif" font-weight="700" font-size="15" fill="${on ? "#0A0907" : col}" fill-opacity="${on ? 1 : 0.72}">${d.code}</text>`;
       return box + txt;
     })
     .join("");
@@ -253,7 +253,7 @@ export function buildHeroGlyph(braidDoms: Domain[]): string {
   });
   const thread =
     p.length === 2
-      ? `<line x1="${p[0][0]}" y1="${p[0][1]}" x2="${p[1][0]}" y2="${p[1][1]}" stroke="#B4832E" stroke-width="3" stroke-linecap="round" stroke-opacity="0.9" class="braid-draw" pathLength="1"/>`
+      ? `<line x1="${p[0][0]}" y1="${p[0][1]}" x2="${p[1][0]}" y2="${p[1][1]}" stroke="#995D08" stroke-width="3" stroke-linecap="round" stroke-opacity="0.9" class="braid-draw" pathLength="1"/>`
       : "";
   return `<div class="heroglyph"><svg viewBox="0 0 184 184" aria-hidden="true">${defs}${thread}${cellSvg}</svg></div>`;
 }

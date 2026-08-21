@@ -56,7 +56,7 @@ export default function FAQSection() {
     <section
       id="faq"
       ref={sectionRef}
-      style={{ background: "oklch(0.13 0.008 285)", padding: "6rem 0" }}
+      style={{ background: "var(--print-200)", padding: "6rem 0" }}
     >
       <div className="container">
         <div className="grid lg:grid-cols-3 gap-16">
@@ -70,11 +70,11 @@ export default function FAQSection() {
             <h2
               className="reveal"
               style={{
-                fontFamily: "'Playfair Display', serif",
+                fontFamily: "'Instrument Serif', serif",
                 fontWeight: 700,
                 fontSize: "clamp(1.8rem, 3vw, 2.8rem)",
                 lineHeight: 1.1,
-                color: "oklch(0.92 0.02 80)",
+                color: "var(--fg)",
                 marginBottom: "1.25rem",
                 transitionDelay: "100ms",
               }}
@@ -84,10 +84,10 @@ export default function FAQSection() {
             <p
               className="reveal"
               style={{
-                fontFamily: "'Lato', sans-serif",
+                fontFamily: "'Newsreader', sans-serif",
                 fontSize: "0.9rem",
                 lineHeight: 1.8,
-                color: "oklch(0.55 0.01 285)",
+                color: "var(--fg-muted)",
                 transitionDelay: "200ms",
               }}
             >
@@ -103,7 +103,7 @@ export default function FAQSection() {
                 className="reveal"
                 style={{
                   transitionDelay: `${300 + i * 60}ms`,
-                  borderBottom: "1px solid oklch(1 0 0 / 8%)",
+                  borderBottom: "1px solid rgb(10 9 7 / 8%)",
                 }}
               >
                 <button
@@ -123,10 +123,10 @@ export default function FAQSection() {
                 >
                   <span
                     style={{
-                      fontFamily: "'Playfair Display', serif",
+                      fontFamily: "'Instrument Serif', serif",
                       fontWeight: 600,
                       fontSize: "1rem",
-                      color: openIndex === i ? "oklch(0.72 0.14 75)" : "oklch(0.85 0.02 80)",
+                      color: openIndex === i ? "var(--accent)" : "var(--print-700)",
                       lineHeight: 1.4,
                       transition: "color 200ms ease",
                     }}
@@ -141,15 +141,15 @@ export default function FAQSection() {
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
-                      border: "1px solid oklch(0.72 0.14 75 / 40%)",
+                      border: "1px solid rgb(194 122 12 / 40%)",
                       borderRadius: "50%",
                       transition: "all 200ms ease",
                       transform: openIndex === i ? "rotate(45deg)" : "none",
                     }}
                   >
                     <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
-                      <line x1="5" y1="1" x2="5" y2="9" stroke="oklch(0.72 0.14 75)" strokeWidth="1.5" strokeLinecap="round" />
-                      <line x1="1" y1="5" x2="9" y2="5" stroke="oklch(0.72 0.14 75)" strokeWidth="1.5" strokeLinecap="round" />
+                      <line x1="5" y1="1" x2="5" y2="9" stroke="var(--accent)" strokeWidth="1.5" strokeLinecap="round" />
+                      <line x1="1" y1="5" x2="9" y2="5" stroke="var(--accent)" strokeWidth="1.5" strokeLinecap="round" />
                     </svg>
                   </div>
                 </button>
@@ -163,10 +163,10 @@ export default function FAQSection() {
                 >
                   <p
                     style={{
-                      fontFamily: "'Lato', sans-serif",
+                      fontFamily: "'Newsreader', sans-serif",
                       fontSize: "0.9rem",
                       lineHeight: 1.8,
-                      color: "oklch(0.60 0.01 285)",
+                      color: "var(--fg-muted)",
                       paddingBottom: "1.5rem",
                     }}
                   >

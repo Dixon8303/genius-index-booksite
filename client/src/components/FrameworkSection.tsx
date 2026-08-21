@@ -45,7 +45,7 @@ export default function FrameworkSection() {
     <section
       id="framework"
       ref={sectionRef}
-      style={{ background: "oklch(0.13 0.008 285)", padding: "6rem 0" }}
+      style={{ background: "var(--print-200)", padding: "6rem 0" }}
     >
       <div className="container">
 
@@ -58,11 +58,11 @@ export default function FrameworkSection() {
           <h2
             className="reveal"
             style={{
-              fontFamily: "'Playfair Display', serif",
+              fontFamily: "'Instrument Serif', serif",
               fontWeight: 700,
               fontSize: "clamp(2rem, 4vw, 3.5rem)",
               lineHeight: 1.1,
-              color: "oklch(0.92 0.02 80)",
+              color: "var(--fg)",
               marginBottom: "1.25rem",
               transitionDelay: "100ms",
             }}
@@ -72,10 +72,10 @@ export default function FrameworkSection() {
           <p
             className="reveal"
             style={{
-              fontFamily: "'Lato', sans-serif",
+              fontFamily: "'Newsreader', sans-serif",
               fontSize: "1rem",
               lineHeight: 1.8,
-              color: "oklch(0.60 0.01 285)",
+              color: "var(--fg-muted)",
               maxWidth: "560px",
               transitionDelay: "200ms",
             }}
@@ -114,8 +114,8 @@ export default function FrameworkSection() {
               className="reveal"
               style={{
                 transitionDelay: stream.delay,
-                background: "oklch(0.10 0.008 285)",
-                border: "1px solid oklch(1 0 0 / 8%)",
+                background: "var(--bg)",
+                border: "1px solid rgb(10 9 7 / 8%)",
                 borderRadius: "3px",
                 padding: "2rem",
                 position: "relative",
@@ -129,7 +129,7 @@ export default function FrameworkSection() {
                   left: 0,
                   right: 0,
                   height: "2px",
-                  background: "oklch(0.72 0.14 75)",
+                  background: "var(--accent)",
                   opacity: 0.6,
                 }}
               />
@@ -137,10 +137,10 @@ export default function FrameworkSection() {
                 <span className="section-label">{stream.label}</span>
                 <span
                   style={{
-                    fontFamily: "'Playfair Display', serif",
+                    fontFamily: "'Instrument Serif', serif",
                     fontWeight: 700,
                     fontSize: "1.4rem",
-                    color: "oklch(0.72 0.14 75 / 40%)",
+                    color: "rgb(194 122 12 / 40%)",
                   }}
                 >
                   {stream.weight}
@@ -148,10 +148,10 @@ export default function FrameworkSection() {
               </div>
               <h4
                 style={{
-                  fontFamily: "'Playfair Display', serif",
+                  fontFamily: "'Instrument Serif', serif",
                   fontWeight: 600,
                   fontSize: "1.15rem",
-                  color: "oklch(0.88 0.02 80)",
+                  color: "var(--fg)",
                   marginBottom: "0.875rem",
                 }}
               >
@@ -159,10 +159,10 @@ export default function FrameworkSection() {
               </h4>
               <p
                 style={{
-                  fontFamily: "'Lato', sans-serif",
+                  fontFamily: "'Newsreader', sans-serif",
                   fontSize: "0.88rem",
                   lineHeight: 1.75,
-                  color: "oklch(0.55 0.01 285)",
+                  color: "var(--fg-muted)",
                 }}
               >
                 {stream.desc}
@@ -183,10 +183,10 @@ export default function FrameworkSection() {
             <h3
               className="reveal"
               style={{
-                fontFamily: "'Playfair Display', serif",
+                fontFamily: "'Instrument Serif', serif",
                 fontWeight: 700,
                 fontSize: "clamp(1.5rem, 3vw, 2.5rem)",
-                color: "oklch(0.92 0.02 80)",
+                color: "var(--fg)",
                 marginBottom: "1rem",
                 transitionDelay: "600ms",
               }}
@@ -196,10 +196,10 @@ export default function FrameworkSection() {
             <p
               className="reveal"
               style={{
-                fontFamily: "'Lato', sans-serif",
+                fontFamily: "'Newsreader', sans-serif",
                 fontSize: "0.95rem",
                 lineHeight: 1.8,
-                color: "oklch(0.60 0.01 285)",
+                color: "var(--fg-muted)",
                 marginBottom: "2rem",
                 transitionDelay: "650ms",
               }}
@@ -229,8 +229,8 @@ export default function FrameworkSection() {
                           height: "20px",
                           borderRadius: "2px",
                           background: bar <= band.indicator
-                            ? "oklch(0.72 0.14 75)"
-                            : "oklch(0.25 0.008 285)",
+                            ? "var(--accent)"
+                            : "var(--rule)",
                         }}
                       />
                     ))}
@@ -238,12 +238,12 @@ export default function FrameworkSection() {
                   <div>
                     <span
                       style={{
-                        fontFamily: "'Lato', sans-serif",
+                        fontFamily: "'Newsreader', sans-serif",
                         fontWeight: 700,
                         fontSize: "0.8rem",
                         letterSpacing: "0.1em",
                         textTransform: "uppercase",
-                        color: band.indicator === 4 ? "oklch(0.72 0.14 75)" : "oklch(0.75 0.01 285)",
+                        color: band.indicator === 4 ? "var(--accent)" : "var(--fg-muted)",
                         display: "block",
                         marginBottom: "0.25rem",
                       }}
@@ -252,10 +252,10 @@ export default function FrameworkSection() {
                     </span>
                     <p
                       style={{
-                        fontFamily: "'Lato', sans-serif",
+                        fontFamily: "'Newsreader', sans-serif",
                         fontSize: "0.83rem",
                         lineHeight: 1.6,
-                        color: "oklch(0.55 0.01 285)",
+                        color: "var(--fg-muted)",
                       }}
                     >
                       {band.description}
@@ -274,10 +274,10 @@ export default function FrameworkSection() {
             <h3
               className="reveal"
               style={{
-                fontFamily: "'Playfair Display', serif",
+                fontFamily: "'Instrument Serif', serif",
                 fontWeight: 700,
                 fontSize: "clamp(1.5rem, 3vw, 2.5rem)",
-                color: "oklch(0.92 0.02 80)",
+                color: "var(--fg)",
                 marginBottom: "1rem",
                 transitionDelay: "600ms",
               }}
@@ -287,10 +287,10 @@ export default function FrameworkSection() {
             <p
               className="reveal"
               style={{
-                fontFamily: "'Lato', sans-serif",
+                fontFamily: "'Newsreader', sans-serif",
                 fontSize: "0.95rem",
                 lineHeight: 1.8,
-                color: "oklch(0.60 0.01 285)",
+                color: "var(--fg-muted)",
                 marginBottom: "2rem",
                 transitionDelay: "650ms",
               }}
@@ -305,8 +305,8 @@ export default function FrameworkSection() {
                   className="reveal"
                   style={{
                     transitionDelay: `${700 + i * 60}ms`,
-                    background: "oklch(0.10 0.008 285)",
-                    border: "1px solid oklch(1 0 0 / 8%)",
+                    background: "var(--bg)",
+                    border: "1px solid rgb(10 9 7 / 8%)",
                     borderRadius: "3px",
                     padding: "0.875rem 1.25rem",
                     display: "flex",
@@ -315,19 +315,19 @@ export default function FrameworkSection() {
                     transition: "all 200ms ease",
                   }}
                   onMouseEnter={e => {
-                    (e.currentTarget as HTMLElement).style.borderColor = "oklch(0.72 0.14 75 / 30%)";
+                    (e.currentTarget as HTMLElement).style.borderColor = "rgb(194 122 12 / 30%)";
                   }}
                   onMouseLeave={e => {
-                    (e.currentTarget as HTMLElement).style.borderColor = "oklch(1 0 0 / 8%)";
+                    (e.currentTarget as HTMLElement).style.borderColor = "rgb(10 9 7 / 8%)";
                   }}
                 >
                   <div style={{ flexShrink: 0 }}>
                     <span
                       style={{
-                        fontFamily: "'Playfair Display', serif",
+                        fontFamily: "'Instrument Serif', serif",
                         fontWeight: 700,
                         fontSize: "0.95rem",
-                        color: "oklch(0.88 0.02 80)",
+                        color: "var(--fg)",
                         display: "block",
                       }}
                     >
@@ -335,9 +335,9 @@ export default function FrameworkSection() {
                     </span>
                     <span
                       style={{
-                        fontFamily: "'Lato', sans-serif",
+                        fontFamily: "'Newsreader', sans-serif",
                         fontSize: "0.65rem",
-                        color: "oklch(0.72 0.14 75)",
+                        color: "var(--accent)",
                         letterSpacing: "0.08em",
                       }}
                     >
@@ -348,16 +348,16 @@ export default function FrameworkSection() {
                     style={{
                       width: "1px",
                       height: "30px",
-                      background: "oklch(1 0 0 / 8%)",
+                      background: "rgb(10 9 7 / 8%)",
                       flexShrink: 0,
                     }}
                   />
                   <p
                     style={{
-                      fontFamily: "'Lato', sans-serif",
+                      fontFamily: "'Newsreader', sans-serif",
                       fontSize: "0.82rem",
                       lineHeight: 1.5,
-                      color: "oklch(0.55 0.01 285)",
+                      color: "var(--fg-muted)",
                     }}
                   >
                     {braid.what}
@@ -372,13 +372,13 @@ export default function FrameworkSection() {
                       display: "flex",
                       alignItems: "center",
                       gap: "0.4rem",
-                      color: "oklch(0.72 0.14 75)",
+                      color: "var(--accent)",
                       opacity: 0.75,
                     }}
                     aria-hidden="true"
                   >
                     <DomainGlyph domain={braid.glyphs[0]} size={20} />
-                    <span style={{ fontFamily: "'Playfair Display', serif", fontSize: "0.85rem", color: "oklch(0.55 0.01 285)" }}>+</span>
+                    <span style={{ fontFamily: "'Instrument Serif', serif", fontSize: "0.85rem", color: "var(--fg-muted)" }}>+</span>
                     <DomainGlyph domain={braid.glyphs[1]} size={20} />
                   </div>
                 </div>
@@ -392,8 +392,8 @@ export default function FrameworkSection() {
           className="reveal"
           style={{
             transitionDelay: "1000ms",
-            background: "oklch(0.10 0.008 285)",
-            border: "1px solid oklch(0.72 0.14 75 / 20%)",
+            background: "var(--bg)",
+            border: "1px solid rgb(194 122 12 / 20%)",
             borderRadius: "3px",
             padding: "2.5rem",
             maxWidth: "800px",
@@ -402,22 +402,22 @@ export default function FrameworkSection() {
           <span className="section-label block mb-3">Not a Horoscope</span>
           <p
             style={{
-              fontFamily: "'Cormorant Garamond', serif",
+              fontFamily: "'Instrument Serif', serif",
               fontStyle: "italic",
               fontSize: "1.2rem",
               lineHeight: 1.7,
-              color: "oklch(0.80 0.02 80)",
+              color: "var(--print-700)",
             }}
           >
             "A profile in which everything is a strength isn't a profile. It's a horoscope. The Index is built specifically to defeat that — with behavioral items anchored in real events, reverse-keyed items to catch autopilot answering, and a standing instruction to keep the top of the scale scarce."
           </p>
           <p
             style={{
-              fontFamily: "'Lato', sans-serif",
+              fontFamily: "'Newsreader', sans-serif",
               fontSize: "0.75rem",
               letterSpacing: "0.1em",
               textTransform: "uppercase",
-              color: "oklch(0.50 0.01 285)",
+              color: "var(--print-500)",
               marginTop: "1rem",
             }}
           >

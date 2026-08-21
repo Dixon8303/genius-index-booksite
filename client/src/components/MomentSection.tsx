@@ -43,7 +43,7 @@ export default function MomentSection() {
     <section
       ref={sectionRef}
       style={{
-        background: "oklch(0.08 0.008 285)",
+        background: "var(--print-100)",
         padding: "8rem 0",
         position: "relative",
         overflow: "hidden",
@@ -63,8 +63,8 @@ export default function MomentSection() {
           width: "500px",
           height: "500px",
           background: allLit
-            ? "radial-gradient(ellipse at center, oklch(0.72 0.14 75 / 12%) 0%, transparent 70%)"
-            : "radial-gradient(ellipse at center, oklch(0.72 0.14 75 / 4%) 0%, transparent 70%)",
+            ? "radial-gradient(ellipse at center, rgb(194 122 12 / 12%) 0%, transparent 70%)"
+            : "radial-gradient(ellipse at center, rgb(194 122 12 / 4%) 0%, transparent 70%)",
           transition: "all 2s cubic-bezier(0.23, 1, 0.32, 1)",
           pointerEvents: "none",
         }}
@@ -93,27 +93,27 @@ export default function MomentSection() {
                   key={i}
                   style={{
                     aspectRatio: "1",
-                    background: shouldLight ? "oklch(0.72 0.14 75)" : "oklch(0.15 0.008 285)",
+                    background: shouldLight ? "var(--accent)" : "var(--bg-raised)",
                     border: shouldLight
-                      ? "1px solid oklch(0.72 0.14 75)"
-                      : "1px solid oklch(1 0 0 / 10%)",
+                      ? "1px solid var(--accent)"
+                      : "1px solid rgb(10 9 7 / 10%)",
                     borderRadius: "4px",
                     transition: allLit
                       ? `all 300ms cubic-bezier(0.23, 1, 0.32, 1) ${i * 100}ms`
                       : "all 600ms cubic-bezier(0.23, 1, 0.32, 1)",
                     boxShadow: shouldLight
-                      ? `0 0 30px oklch(0.72 0.14 75 / 50%), inset 0 0 20px oklch(0.72 0.14 75 / 20%)`
+                      ? `0 0 30px rgb(194 122 12 / 50%), inset 0 0 20px rgb(194 122 12 / 20%)`
                       : "none",
                     cursor: "pointer",
                   }}
                   onMouseEnter={e => {
                     if (!shouldLight) {
-                      (e.currentTarget as HTMLElement).style.borderColor = "oklch(0.72 0.14 75 / 30%)";
+                      (e.currentTarget as HTMLElement).style.borderColor = "rgb(194 122 12 / 30%)";
                     }
                   }}
                   onMouseLeave={e => {
                     if (!shouldLight) {
-                      (e.currentTarget as HTMLElement).style.borderColor = "oklch(1 0 0 / 10%)";
+                      (e.currentTarget as HTMLElement).style.borderColor = "rgb(10 9 7 / 10%)";
                     }
                   }}
                 />
@@ -132,11 +132,11 @@ export default function MomentSection() {
             <h2
               aria-label="Genius Was Never Rare. Recognition Was."
               style={{
-                fontFamily: "'Playfair Display', serif",
+                fontFamily: "'Instrument Serif', serif",
                 fontWeight: 900,
                 fontSize: "clamp(2.2rem, 5vw, 4rem)",
                 lineHeight: 1.05,
-                color: "oklch(0.92 0.02 80)",
+                color: "var(--fg)",
                 marginBottom: "1.5rem",
                 letterSpacing: "-0.03em",
               }}
@@ -144,7 +144,7 @@ export default function MomentSection() {
               <span aria-hidden="true">
                 Genius Was Never Rare.
                 <br />
-                <em style={{ color: "oklch(0.72 0.14 75)", fontStyle: "italic" }}>
+                <em style={{ color: "var(--accent)", fontStyle: "italic" }}>
                   Recognition
                 </em>{" "}
                 Was.
@@ -155,11 +155,11 @@ export default function MomentSection() {
 
             <p
               style={{
-                fontFamily: "'Cormorant Garamond', serif",
+                fontFamily: "'Instrument Serif', serif",
                 fontStyle: "italic",
                 fontSize: "1.2rem",
                 lineHeight: 1.7,
-                color: "oklch(0.75 0.015 285)",
+                color: "var(--fg-muted)",
                 maxWidth: "600px",
                 margin: "0 auto",
               }}
@@ -178,11 +178,11 @@ export default function MomentSection() {
           >
             <p
               style={{
-                fontFamily: "'Lato', sans-serif",
+                fontFamily: "'Newsreader', sans-serif",
                 fontSize: "0.8rem",
                 letterSpacing: "0.15em",
                 textTransform: "uppercase",
-                color: "oklch(0.50 0.01 285)",
+                color: "var(--print-500)",
               }}
             >
               Watch the grid illuminate

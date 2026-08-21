@@ -10,6 +10,8 @@ import GiShell, {
   EcosystemFooter,
   LegalFootnote,
 } from "@/components/genius/GiShell";
+import ResultsSpine from "@/components/genius/ResultsSpine";
+import SaidVsDid from "@/components/genius/SaidVsDid";
 import RawHtml from "@/components/genius/RawHtml";
 import { TIER_META } from "@/lib/genius/data/braids";
 import { DOMAINS, DOMAIN_BY_ID, type DomainId } from "@/lib/genius/data/domains";
@@ -42,6 +44,7 @@ import {
 } from "@/lib/genius/viz/builders";
 import {
   bookModules,
+  findingAid,
   gindexStripHTML,
   interpTop,
   profileSectionHTML,
@@ -68,12 +71,12 @@ function useWheelTooltip(containerRef: React.RefObject<HTMLDivElement | null>) {
     if (!root) return;
     const tip = document.createElement("div");
     tip.style.cssText =
-      "position:fixed;z-index:60;max-width:240px;background:#FFFDF8;border:1px solid #B4832E;border-radius:7px;padding:9px 11px;font-family:'Lato',sans-serif;font-size:12.5px;color:#2A2118;box-shadow:0 6px 18px rgba(42,33,24,.25);pointer-events:none;display:none";
+      "position:fixed;z-index:60;max-width:240px;background:#FFFDF8;border:1px solid #B4832E;border-radius:7px;padding:9px 11px;font-family:'Newsreader',sans-serif;font-size:12.5px;color:#2A2118;box-shadow:0 6px 18px rgba(42,33,24,.25);pointer-events:none;display:none";
     document.body.appendChild(tip);
     const show = (el: Element, x: number, y: number) => {
       const name = el.getAttribute("data-name") || "";
       const body = el.getAttribute("data-body") || "";
-      tip.innerHTML = `<strong style="font-family:'Playfair Display',serif">${name}</strong><br>${body}`;
+      tip.innerHTML = `<strong style="font-family:'Instrument Serif',serif">${name}</strong><br>${body}`;
       tip.style.display = "block";
       tip.style.left = `${Math.min(x + 14, window.innerWidth - 260)}px`;
       tip.style.top = `${y + 14}px`;
@@ -161,6 +164,7 @@ export default function Results() {
   const canNativeShare =
     typeof navigator !== "undefined" && typeof navigator.share === "function";
   const wheelRef = useRef<HTMLDivElement | null>(null);
+  const contentRef = useRef<HTMLDivElement | null>(null);
   useWheelTooltip(wheelRef);
 
   // Legacy #view= hash support (old share links / sheet rows).
@@ -235,6 +239,9 @@ export default function Results() {
   const d1 = DOMAIN_BY_ID[m.braidDoms[1].id];
   const heroArt = art!.hero;
   const collageArt = art!;
+  const personalMedian = [...DOMAINS.map((d) => m.R[d.id].score)].sort(
+    (a, b) => a - b,
+  )[4];
 
   const copyShareLink = async () => {
     const url =
@@ -259,6 +266,8 @@ export default function Results() {
 
   return (
     <GiShell nav progress={1} litCells={9}>
+      <div ref={contentRef}>
+      <ResultsSpine containerRef={contentRef} />
       {(sharedPayload || stored?.source === "shared") && (
         <div className="archivedbanner">
           Shared result{exportObj.ts ? ` · submitted ${new Date(exportObj.ts).toLocaleString()}` : ""}{" "}
@@ -287,7 +296,7 @@ export default function Results() {
         <div className="braidcard">
           <div className="yb">Your braid</div>
           {primary && (
-            <div className="resultart heroart">
+            <div className="resultart heroart amber-pass">
               <img src={heroArt} alt={primary.name} loading="lazy" />
             </div>
           )}
@@ -394,6 +403,18 @@ export default function Results() {
                     background: realmHex(d.meta),
                   }}
                 />
+                {/* your personal median — the line the Signature rule reads against */}
+                <b
+                  style={{
+                    position: "absolute",
+                    left: `${personalMedian}%`,
+                    top: 0,
+                    bottom: 0,
+                    width: 2,
+                    background: "rgb(10 9 7 / 45%)",
+                  }}
+                  title={`Your median · ${personalMedian}`}
+                />
               </span>
               <span className="val">{m.R[d.id].score}</span>
               <span
@@ -432,6 +453,30 @@ export default function Results() {
             to the other streams.
           </p>
         </details>
+        <RawHtml
+          html={findingAid(
+            [
+              "COMPOSITE · 0.5·REPORT + 0.3·PERFORMANCE + 0.2·DISPOSITION",
+              "BANDS · IPSATIVE, VS YOUR OWN MEDIAN",
+            ],
+            "verified",
+            "VERIFIED · COMPUTED FROM YOUR RESPONSES",
+          )}
+        />
+        {DOMAINS.some((d) => m.R[d.id].skipped) && (
+          <RawHtml
+            html={findingAid(
+              [
+                `STATION SKIPPED · ${DOMAINS.filter((d) => m.R[d.id].skipped)
+                  .map((d) => d.name.toUpperCase())
+                  .join(", ")}`,
+                "PERFORMANCE STREAM ABSENT · SELF-REPORT ONLY",
+              ],
+              "unknown",
+              "UNKNOWN · GAP MARKED, NOT HIDDEN",
+            )}
+          />
+        )}
         {flagSdr && (
           <div className="callout callout--oxblood">
             <span className="ct">Honesty check</span>
@@ -439,8 +484,28 @@ export default function Results() {
             usually means the whole profile is inflated. The bands still hold
             <em> relative to each other</em>, but treat the absolute numbers
             with suspicion, and consider a retake on a harsher setting.
+            <RawHtml
+              html={findingAid(
+                ["HIGH-RATER PATTERN · BOTH CATCH ITEMS AT CEILING"],
+                "disputed",
+                "DISPUTED · SELF-REPORT AND CHECKS DISAGREE",
+              )}
+            />
           </div>
         )}
+      </div>
+
+      {/* The unclaimed gap — self-report vs measured performance */}
+      <div className="book">
+        <div className="eyebrow-b">The honest chart</div>
+        <h2 className="bt">You said · you did</h2>
+        <p className="btsub">
+          Your self-report (Stream A) against your measured performance
+          (Stream B), domain by domain. Where the amber dot runs ahead of the
+          grey one by 30 or more, you're carrying ability you haven't claimed.
+        </p>
+        <hr className="brule" />
+        <SaidVsDid m={m} />
       </div>
 
       {stored && previous && <DeltaTable current={m} previous={previous} />}
@@ -613,6 +678,7 @@ export default function Results() {
         <EcosystemFooter />
       </div>
       <LegalFootnote />
+      </div>
     </GiShell>
   );
 }

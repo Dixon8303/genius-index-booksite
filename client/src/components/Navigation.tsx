@@ -31,7 +31,7 @@ function GeniusGridLogo({ size = 28 }: { size?: number }) {
               y={y}
               width={10}
               height={10}
-              fill={isGold ? "oklch(0.72 0.14 75)" : "oklch(0.25 0.008 285)"}
+              fill={isGold ? "var(--accent)" : "var(--rule)"}
               rx={1}
             />
           );
@@ -67,10 +67,10 @@ export default function Navigation() {
       className="fixed top-0 left-0 right-0 z-50 transition-all duration-500"
       style={{
         background: scrolled
-          ? "oklch(0.10 0.008 285 / 92%)"
+          ? "rgb(239 240 235 / 92%)"
           : "transparent",
         backdropFilter: scrolled ? "blur(16px)" : "none",
-        borderBottom: scrolled ? "1px solid oklch(1 0 0 / 8%)" : "1px solid transparent",
+        borderBottom: scrolled ? "1px solid rgb(10 9 7 / 8%)" : "1px solid transparent",
       }}
     >
       <div className="container">
@@ -84,11 +84,11 @@ export default function Navigation() {
             <GeniusGridLogo size={28} />
             <span
               style={{
-                fontFamily: "'Playfair Display', serif",
+                fontFamily: "'Instrument Serif', serif",
                 fontWeight: 700,
                 fontSize: "0.95rem",
                 letterSpacing: "0.08em",
-                color: "oklch(0.92 0.02 80)",
+                color: "var(--fg)",
                 textTransform: "uppercase",
               }}
             >
@@ -104,18 +104,18 @@ export default function Navigation() {
                 href={link.href}
                 onClick={e => handleNavClick(e, link.href)}
                 style={{
-                  fontFamily: "'Lato', sans-serif",
+                  fontFamily: "'Newsreader', sans-serif",
                   fontWeight: 400,
                   fontSize: "0.8rem",
                   letterSpacing: "0.12em",
                   textTransform: "uppercase",
-                  color: "oklch(0.70 0.01 285)",
+                  color: "var(--fg-muted)",
                   transition: "color 200ms ease",
                   textDecoration: "none",
                   padding: "0.25rem 0",
                 }}
-                onMouseEnter={e => (e.currentTarget.style.color = "oklch(0.72 0.14 75)")}
-                onMouseLeave={e => (e.currentTarget.style.color = "oklch(0.70 0.01 285)")}
+                onMouseEnter={e => (e.currentTarget.style.color = "var(--accent)")}
+                onMouseLeave={e => (e.currentTarget.style.color = "var(--fg-muted)")}
               >
                 {link.label}
               </a>
@@ -139,21 +139,21 @@ export default function Navigation() {
             <span
               className="block w-6 h-0.5 transition-all duration-300"
               style={{
-                background: "oklch(0.92 0.02 80)",
+                background: "var(--fg)",
                 transform: menuOpen ? "rotate(45deg) translate(4px, 4px)" : "none",
               }}
             />
             <span
               className="block w-6 h-0.5 transition-all duration-300"
               style={{
-                background: "oklch(0.92 0.02 80)",
+                background: "var(--fg)",
                 opacity: menuOpen ? 0 : 1,
               }}
             />
             <span
               className="block w-6 h-0.5 transition-all duration-300"
               style={{
-                background: "oklch(0.92 0.02 80)",
+                background: "var(--fg)",
                 transform: menuOpen ? "rotate(-45deg) translate(4px, -4px)" : "none",
               }}
             />
@@ -166,9 +166,9 @@ export default function Navigation() {
         className="md:hidden overflow-hidden transition-all duration-300"
         style={{
           maxHeight: menuOpen ? "400px" : "0",
-          background: "oklch(0.10 0.008 285 / 96%)",
+          background: "rgb(239 240 235 / 96%)",
           backdropFilter: "blur(16px)",
-          borderBottom: menuOpen ? "1px solid oklch(1 0 0 / 8%)" : "none",
+          borderBottom: menuOpen ? "1px solid rgb(10 9 7 / 8%)" : "none",
         }}
       >
         <div className="container py-6 flex flex-col gap-4">
@@ -178,12 +178,12 @@ export default function Navigation() {
               href={link.href}
               onClick={e => handleNavClick(e, link.href)}
               style={{
-                fontFamily: "'Lato', sans-serif",
+                fontFamily: "'Newsreader', sans-serif",
                 fontWeight: 400,
                 fontSize: "0.85rem",
                 letterSpacing: "0.12em",
                 textTransform: "uppercase",
-                color: "oklch(0.70 0.01 285)",
+                color: "var(--fg-muted)",
                 textAlign: "left",
                 textDecoration: "none",
                 padding: "0.5rem 0",

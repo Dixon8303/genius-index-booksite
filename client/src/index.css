@@ -6,7 +6,7 @@
 /* ============================================================
    THE GENIUS INDEX — DARK ALCHEMY DESIGN SYSTEM
    Palette: Obsidian black + Warm amber gold + Cream
-   Fonts: Playfair Display (display) + Lato (body) + Cormorant Garamond (accent)
+   Fonts: Instrument Serif (display) + Newsreader (body) + Instrument Serif (accent)
    ============================================================ */
 
 @theme inline {
@@ -42,51 +42,51 @@
 
 :root {
   /* Core palette */
-  --gold: oklch(0.72 0.14 75);
-  --gold-dim: oklch(0.60 0.10 75);
-  --gold-glow: oklch(0.78 0.16 75);
-  --cream: oklch(0.92 0.02 80);
-  --obsidian: oklch(0.10 0.008 285);
-  --surface: oklch(0.15 0.008 285);
-  --surface-elevated: oklch(0.18 0.010 285);
+  --gold: var(--accent);
+  --gold-dim: var(--accent-fill);
+  --gold-glow: var(--amber-400);
+  --cream: var(--fg);
+  --obsidian: var(--bg);
+  --surface: var(--bg-raised);
+  --surface-elevated: var(--print-200);
 
   /* Semantic tokens */
-  --primary: oklch(0.72 0.14 75);
-  --primary-foreground: oklch(0.10 0.008 285);
-  --secondary: oklch(0.18 0.010 285);
-  --secondary-foreground: oklch(0.92 0.02 80);
-  --background: oklch(0.10 0.008 285);
-  --foreground: oklch(0.92 0.02 80);
-  --card: oklch(0.15 0.008 285);
-  --card-foreground: oklch(0.92 0.02 80);
-  --popover: oklch(0.15 0.008 285);
-  --popover-foreground: oklch(0.92 0.02 80);
-  --muted: oklch(0.20 0.008 285);
-  --muted-foreground: oklch(0.60 0.01 285);
-  --accent: oklch(0.72 0.14 75);
-  --accent-foreground: oklch(0.10 0.008 285);
+  --primary: var(--accent);
+  --primary-foreground: var(--bg);
+  --secondary: var(--print-200);
+  --secondary-foreground: var(--fg);
+  --background: var(--bg);
+  --foreground: var(--fg);
+  --card: var(--bg-raised);
+  --card-foreground: var(--fg);
+  --popover: var(--bg-raised);
+  --popover-foreground: var(--fg);
+  --muted: var(--print-200);
+  --muted-foreground: var(--fg-muted);
+  --accent: var(--amber-700);
+  --accent-foreground: var(--bg);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.985 0 0);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 12%);
-  --ring: oklch(0.72 0.14 75);
-  --radius: 0.25rem;
+  --border: rgb(10 9 7 / 10%);
+  --input: rgb(10 9 7 / 12%);
+  --ring: var(--accent);
+  --radius: 0; --radius-control: 2px;
 
   /* Sidebar (unused but required) */
-  --sidebar: oklch(0.12 0.008 285);
-  --sidebar-foreground: oklch(0.92 0.02 80);
-  --sidebar-primary: oklch(0.72 0.14 75);
-  --sidebar-primary-foreground: oklch(0.10 0.008 285);
-  --sidebar-accent: oklch(0.18 0.010 285);
-  --sidebar-accent-foreground: oklch(0.92 0.02 80);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.72 0.14 75);
+  --sidebar: var(--bg-raised);
+  --sidebar-foreground: var(--fg);
+  --sidebar-primary: var(--accent);
+  --sidebar-primary-foreground: var(--bg);
+  --sidebar-accent: var(--print-200);
+  --sidebar-accent-foreground: var(--fg);
+  --sidebar-border: rgb(10 9 7 / 10%);
+  --sidebar-ring: var(--accent);
 
   /* Chart colors */
-  --chart-1: oklch(0.72 0.14 75);
-  --chart-2: oklch(0.60 0.10 75);
-  --chart-3: oklch(0.50 0.08 75);
-  --chart-4: oklch(0.40 0.06 75);
+  --chart-1: var(--accent);
+  --chart-2: var(--accent-fill);
+  --chart-3: var(--amber-700);
+  --chart-4: var(--amber-700);
   --chart-5: oklch(0.30 0.04 75);
 }
 
@@ -104,7 +104,7 @@
   }
   body {
     @apply bg-background text-foreground;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Newsreader', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -118,7 +118,7 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Instrument Serif', serif;
     line-height: 1.15;
     letter-spacing: -0.02em;
   }
@@ -156,17 +156,17 @@
   /* Gold rule separator */
   .gold-rule {
     height: 1px;
-    background: linear-gradient(90deg, transparent, oklch(0.72 0.14 75), transparent);
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
     opacity: 0.6;
   }
 
   /* Gold text */
   .text-gold {
-    color: oklch(0.72 0.14 75);
+    color: var(--accent);
   }
 
   .text-gold-dim {
-    color: oklch(0.60 0.10 75);
+    color: var(--accent-fill);
   }
 
   /* Genius Grid motif */
@@ -178,15 +178,15 @@
 
   .genius-grid-cell {
     aspect-ratio: 1;
-    background: oklch(0.20 0.008 285);
-    border: 1px solid oklch(1 0 0 / 8%);
+    background: var(--print-200);
+    border: 1px solid rgb(10 9 7 / 8%);
     transition: all 300ms cubic-bezier(0.23, 1, 0.32, 1);
   }
 
   .genius-grid-cell.active {
-    background: oklch(0.72 0.14 75);
-    box-shadow: 0 0 20px oklch(0.72 0.14 75 / 60%);
-    border-color: oklch(0.72 0.14 75);
+    background: var(--accent);
+    box-shadow: 0 0 20px rgb(194 122 12 / 60%);
+    border-color: var(--accent);
   }
 
   /* Scroll reveal animation */
@@ -204,9 +204,9 @@
 
   /* Gold CTA button */
   .btn-gold {
-    background: oklch(0.72 0.14 75);
-    color: oklch(0.10 0.008 285);
-    font-family: 'Lato', sans-serif;
+    background: var(--accent);
+    color: var(--bg);
+    font-family: 'Newsreader', sans-serif;
     font-weight: 700;
     letter-spacing: 0.08em;
     text-transform: uppercase;
@@ -217,9 +217,9 @@
   }
 
   .btn-gold:hover {
-    background: oklch(0.78 0.16 75);
+    background: var(--amber-400);
     transform: translateY(-1px);
-    box-shadow: 0 8px 24px oklch(0.72 0.14 75 / 30%);
+    box-shadow: 0 8px 24px rgb(194 122 12 / 30%);
   }
 
   .btn-gold:active {
@@ -229,38 +229,38 @@
   /* Outline gold button */
   .btn-outline-gold {
     background: transparent;
-    color: oklch(0.72 0.14 75);
-    font-family: 'Lato', sans-serif;
+    color: var(--accent);
+    font-family: 'Newsreader', sans-serif;
     font-weight: 700;
     letter-spacing: 0.08em;
     text-transform: uppercase;
     font-size: 0.75rem;
     padding: 0.875rem 2.5rem;
-    border: 1px solid oklch(0.72 0.14 75 / 60%);
+    border: 1px solid rgb(194 122 12 / 60%);
     transition: all 200ms cubic-bezier(0.23, 1, 0.32, 1);
   }
 
   .btn-outline-gold:hover {
-    border-color: oklch(0.72 0.14 75);
-    background: oklch(0.72 0.14 75 / 10%);
+    border-color: var(--accent);
+    background: rgb(194 122 12 / 10%);
     transform: translateY(-1px);
   }
 
   /* Pull quote style */
   .pull-quote {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Instrument Serif', serif;
     font-style: italic;
     font-size: 1.5rem;
     line-height: 1.6;
-    color: oklch(0.92 0.02 80);
-    border-left: 2px solid oklch(0.72 0.14 75);
+    color: var(--fg);
+    border-left: 2px solid var(--accent);
     padding-left: 1.5rem;
   }
 
   /* Domain card */
   .domain-card {
-    background: oklch(0.15 0.008 285);
-    border: 1px solid oklch(1 0 0 / 8%);
+    background: var(--bg-raised);
+    border: 1px solid rgb(10 9 7 / 8%);
     transition: all 300ms cubic-bezier(0.23, 1, 0.32, 1);
     position: relative;
     overflow: hidden;
@@ -270,13 +270,13 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, oklch(0.72 0.14 75 / 0%) 0%, oklch(0.72 0.14 75 / 5%) 100%);
+    background: linear-gradient(135deg, rgb(194 122 12 / 0%) 0%, rgb(194 122 12 / 5%) 100%);
     opacity: 0;
     transition: opacity 300ms ease;
   }
 
   .domain-card:hover {
-    border-color: oklch(0.72 0.14 75 / 40%);
+    border-color: rgb(194 122 12 / 40%);
     transform: translateY(-2px);
     box-shadow: 0 12px 40px oklch(0 0 0 / 40%);
   }
@@ -287,12 +287,12 @@
 
   /* Section label */
   .section-label {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Newsreader', sans-serif;
     font-weight: 700;
     letter-spacing: 0.2em;
     text-transform: uppercase;
     font-size: 0.65rem;
-    color: oklch(0.72 0.14 75);
+    color: var(--accent);
   }
 
   /* Progress bar */
@@ -301,7 +301,7 @@
     top: 0;
     left: 0;
     height: 2px;
-    background: oklch(0.72 0.14 75);
+    background: var(--accent);
     z-index: 9999;
     transition: width 100ms linear;
   }
@@ -337,7 +337,7 @@
 }
 
 .animate-shimmer {
-  background: linear-gradient(90deg, oklch(0.72 0.14 75 / 0%) 0%, oklch(0.72 0.14 75 / 30%) 50%, oklch(0.72 0.14 75 / 0%) 100%);
+  background: linear-gradient(90deg, rgb(194 122 12 / 0%) 0%, rgb(194 122 12 / 30%) 50%, rgb(194 122 12 / 0%) 100%);
   background-size: 200% auto;
   animation: shimmer 3s linear infinite;
 }

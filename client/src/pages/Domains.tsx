@@ -173,9 +173,9 @@ export default function Domains() {
                   <DomainGlyph domain={d.id} size={36} />
                 </span>
                 <div>
-                  <div style={{ fontFamily: "'Playfair Display',serif", fontWeight: 700, fontSize: 18, color: "var(--paper)" }}>
+                  <div style={{ fontFamily: "'Instrument Serif',serif", fontWeight: 700, fontSize: 18, color: "var(--paper)" }}>
                     {d.name}{" "}
-                    <span className="small dim" style={{ fontFamily: "'Lato',sans-serif", fontWeight: 400 }}>
+                    <span className="small dim" style={{ fontFamily: "'Newsreader',sans-serif", fontWeight: 400 }}>
                       · {d.tagline}
                     </span>
                   </div>

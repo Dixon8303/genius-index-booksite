@@ -40,7 +40,7 @@ export default function HeroSection() {
       id="hero"
       className="relative min-h-screen flex items-center overflow-hidden"
       style={{
-        background: "oklch(0.10 0.008 285)",
+        background: "var(--bg)",
       }}
     >
       {/* Background: layered radial glows standing in for a photographic hero image */}
@@ -48,9 +48,9 @@ export default function HeroSection() {
         className="absolute inset-0"
         style={{
           background: `
-            radial-gradient(ellipse 900px 600px at 15% 15%, oklch(0.72 0.14 75 / 10%) 0%, transparent 60%),
-            radial-gradient(ellipse 700px 900px at 90% 60%, oklch(0.72 0.14 75 / 7%) 0%, transparent 65%),
-            linear-gradient(135deg, oklch(0.08 0.008 285) 0%, oklch(0.11 0.008 285) 50%, oklch(0.08 0.008 285) 100%)
+            radial-gradient(ellipse 900px 600px at 15% 15%, rgb(194 122 12 / 10%) 0%, transparent 60%),
+            radial-gradient(ellipse 700px 900px at 90% 60%, rgb(194 122 12 / 7%) 0%, transparent 65%),
+            linear-gradient(135deg, var(--print-100) 0%, var(--bg-raised) 50%, var(--print-100) 100%)
           `,
         }}
       />
@@ -60,8 +60,8 @@ export default function HeroSection() {
         className="absolute inset-0 opacity-10"
         style={{
           backgroundImage: `
-            linear-gradient(oklch(0.72 0.14 75 / 15%) 1px, transparent 1px),
-            linear-gradient(90deg, oklch(0.72 0.14 75 / 15%) 1px, transparent 1px)
+            linear-gradient(rgb(194 122 12 / 15%) 1px, transparent 1px),
+            linear-gradient(90deg, rgb(194 122 12 / 15%) 1px, transparent 1px)
           `,
           backgroundSize: "80px 80px",
         }}
@@ -90,12 +90,12 @@ export default function HeroSection() {
               className="reveal"
               aria-label="Everything You Believe About Genius Is Wrong."
               style={{
-                fontFamily: "'Playfair Display', serif",
+                fontFamily: "'Instrument Serif', serif",
                 fontWeight: 900,
                 fontSize: "clamp(2.8rem, 6vw, 5.5rem)",
                 lineHeight: 1.05,
                 letterSpacing: "-0.03em",
-                color: "oklch(0.92 0.02 80)",
+                color: "var(--fg)",
                 marginBottom: "1.5rem",
                 transitionDelay: "200ms",
               }}
@@ -107,7 +107,7 @@ export default function HeroSection() {
                 <em
                   style={{
                     fontStyle: "italic",
-                    color: "oklch(0.72 0.14 75)",
+                    color: "var(--accent)",
                   }}
                 >
                   Genius
@@ -121,11 +121,11 @@ export default function HeroSection() {
             <p
               className="reveal"
               style={{
-                fontFamily: "'Cormorant Garamond', serif",
+                fontFamily: "'Instrument Serif', serif",
                 fontStyle: "italic",
                 fontSize: "clamp(1.1rem, 2vw, 1.4rem)",
                 lineHeight: 1.7,
-                color: "oklch(0.75 0.015 285)",
+                color: "var(--fg-muted)",
                 marginBottom: "2.5rem",
                 maxWidth: "480px",
                 transitionDelay: "300ms",
@@ -138,10 +138,10 @@ export default function HeroSection() {
             <p
               className="reveal"
               style={{
-                fontFamily: "'Lato', sans-serif",
+                fontFamily: "'Newsreader', sans-serif",
                 fontSize: "1rem",
                 lineHeight: 1.8,
-                color: "oklch(0.65 0.01 285)",
+                color: "var(--fg-muted)",
                 marginBottom: "3rem",
                 maxWidth: "440px",
                 transitionDelay: "400ms",
@@ -181,10 +181,10 @@ export default function HeroSection() {
               <div className="gold-rule w-8" />
               <p
                 style={{
-                  fontFamily: "'Lato', sans-serif",
+                  fontFamily: "'Newsreader', sans-serif",
                   fontSize: "0.75rem",
                   letterSpacing: "0.1em",
-                  color: "oklch(0.50 0.01 285)",
+                  color: "var(--print-500)",
                   textTransform: "uppercase",
                 }}
               >
@@ -207,7 +207,7 @@ export default function HeroSection() {
               <div
                 className="absolute inset-0 animate-gold-pulse"
                 style={{
-                  background: "radial-gradient(ellipse at center, oklch(0.72 0.14 75 / 20%) 0%, transparent 70%)",
+                  background: "radial-gradient(ellipse at center, rgb(194 122 12 / 20%) 0%, transparent 70%)",
                   transform: "scale(1.3)",
                   filter: "blur(30px)",
                 }}
@@ -228,7 +228,7 @@ export default function HeroSection() {
                     width: "clamp(220px, 30vw, 340px)",
                     height: "auto",
                     borderRadius: "2px",
-                    boxShadow: "0 40px 80px oklch(0 0 0 / 70%), 0 0 0 1px oklch(1 0 0 / 5%)",
+                    boxShadow: "0 40px 80px oklch(0 0 0 / 70%), 0 0 0 1px rgb(10 9 7 / 5%)",
                     display: "block",
                   }}
                 />
@@ -257,11 +257,11 @@ export default function HeroSection() {
       >
         <span
           style={{
-            fontFamily: "'Lato', sans-serif",
+            fontFamily: "'Newsreader', sans-serif",
             fontSize: "0.65rem",
             letterSpacing: "0.2em",
             textTransform: "uppercase",
-            color: "oklch(0.72 0.14 75)",
+            color: "var(--accent)",
           }}
         >
           Scroll
@@ -270,7 +270,7 @@ export default function HeroSection() {
           style={{
             width: "1px",
             height: "40px",
-            background: "linear-gradient(to bottom, oklch(0.72 0.14 75), transparent)",
+            background: "linear-gradient(to bottom, var(--accent), transparent)",
           }}
         />
       </div>

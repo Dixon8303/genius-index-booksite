@@ -30,7 +30,7 @@ export default function AuthorSection() {
     <section
       id="author"
       ref={sectionRef}
-      style={{ background: "oklch(0.12 0.008 285)", padding: "6rem 0" }}
+      style={{ background: "var(--bg-raised)", padding: "6rem 0" }}
     >
       <div className="container">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -50,7 +50,7 @@ export default function AuthorSection() {
                   left: "-12px",
                   right: "-12px",
                   bottom: "-12px",
-                  border: "1px solid oklch(0.72 0.14 75 / 25%)",
+                  border: "1px solid rgb(194 122 12 / 25%)",
                   borderRadius: "3px",
                   zIndex: 0,
                 }}
@@ -78,7 +78,7 @@ export default function AuthorSection() {
                   left: 0,
                   right: 0,
                   height: "30%",
-                  background: "linear-gradient(to top, oklch(0.12 0.008 285), transparent)",
+                  background: "linear-gradient(to top, var(--bg-raised), transparent)",
                   zIndex: 2,
                   borderRadius: "0 0 3px 3px",
                 }}
@@ -96,11 +96,11 @@ export default function AuthorSection() {
             <h2
               className="reveal"
               style={{
-                fontFamily: "'Playfair Display', serif",
+                fontFamily: "'Instrument Serif', serif",
                 fontWeight: 700,
                 fontSize: "clamp(2rem, 4vw, 3rem)",
                 lineHeight: 1.1,
-                color: "oklch(0.92 0.02 80)",
+                color: "var(--fg)",
                 marginBottom: "0.5rem",
                 transitionDelay: "100ms",
               }}
@@ -111,10 +111,10 @@ export default function AuthorSection() {
             <p
               className="reveal"
               style={{
-                fontFamily: "'Cormorant Garamond', serif",
+                fontFamily: "'Instrument Serif', serif",
                 fontStyle: "italic",
                 fontSize: "1.1rem",
-                color: "oklch(0.72 0.14 75)",
+                color: "var(--accent)",
                 marginBottom: "2rem",
                 transitionDelay: "150ms",
               }}
@@ -127,10 +127,10 @@ export default function AuthorSection() {
             <p
               className="reveal"
               style={{
-                fontFamily: "'Lato', sans-serif",
+                fontFamily: "'Newsreader', sans-serif",
                 fontSize: "1rem",
                 lineHeight: 1.85,
-                color: "oklch(0.65 0.01 285)",
+                color: "var(--fg-muted)",
                 marginBottom: "1.5rem",
                 transitionDelay: "250ms",
               }}
@@ -141,10 +141,10 @@ export default function AuthorSection() {
             <p
               className="reveal"
               style={{
-                fontFamily: "'Lato', sans-serif",
+                fontFamily: "'Newsreader', sans-serif",
                 fontSize: "1rem",
                 lineHeight: 1.85,
-                color: "oklch(0.65 0.01 285)",
+                color: "var(--fg-muted)",
                 marginBottom: "1.5rem",
                 transitionDelay: "300ms",
               }}
@@ -155,10 +155,10 @@ export default function AuthorSection() {
             <p
               className="reveal"
               style={{
-                fontFamily: "'Lato', sans-serif",
+                fontFamily: "'Newsreader', sans-serif",
                 fontSize: "1rem",
                 lineHeight: 1.85,
-                color: "oklch(0.65 0.01 285)",
+                color: "var(--fg-muted)",
                 marginBottom: "2.5rem",
                 transitionDelay: "350ms",
               }}
@@ -171,18 +171,18 @@ export default function AuthorSection() {
               className="reveal"
               style={{
                 transitionDelay: "400ms",
-                borderLeft: "2px solid oklch(0.72 0.14 75)",
+                borderLeft: "2px solid var(--accent)",
                 paddingLeft: "1.5rem",
                 marginBottom: "2.5rem",
               }}
             >
               <p
                 style={{
-                  fontFamily: "'Cormorant Garamond', serif",
+                  fontFamily: "'Instrument Serif', serif",
                   fontStyle: "italic",
                   fontSize: "1.15rem",
                   lineHeight: 1.65,
-                  color: "oklch(0.80 0.02 80)",
+                  color: "var(--print-700)",
                 }}
               >
                 "What comes easy to you, you tend not to see. You have spent years looking straight past your gift on your way to some goal you were told mattered more."
@@ -196,8 +196,8 @@ export default function AuthorSection() {
             >
               <div
                 style={{
-                  background: "oklch(0.10 0.008 285)",
-                  border: "1px solid oklch(1 0 0 / 10%)",
+                  background: "var(--bg)",
+                  border: "1px solid rgb(10 9 7 / 10%)",
                   borderRadius: "3px",
                   padding: "0.75rem 1.25rem",
                   display: "flex",
@@ -207,22 +207,22 @@ export default function AuthorSection() {
               >
                 <span
                   style={{
-                    fontFamily: "'Lato', sans-serif",
+                    fontFamily: "'Newsreader', sans-serif",
                     fontWeight: 700,
                     fontSize: "0.6rem",
                     letterSpacing: "0.2em",
                     textTransform: "uppercase",
-                    color: "oklch(0.50 0.01 285)",
+                    color: "var(--print-500)",
                   }}
                 >
                   Published by
                 </span>
                 <span
                   style={{
-                    fontFamily: "'Playfair Display', serif",
+                    fontFamily: "'Instrument Serif', serif",
                     fontWeight: 600,
                     fontSize: "0.95rem",
-                    color: "oklch(0.72 0.14 75)",
+                    color: "var(--accent)",
                     letterSpacing: "0.05em",
                   }}
                 >
@@ -231,20 +231,20 @@ export default function AuthorSection() {
               </div>
               <div
                 style={{
-                  background: "oklch(0.10 0.008 285)",
-                  border: "1px solid oklch(1 0 0 / 10%)",
+                  background: "var(--bg)",
+                  border: "1px solid rgb(10 9 7 / 10%)",
                   borderRadius: "3px",
                   padding: "0.75rem 1.25rem",
                 }}
               >
                 <span
                   style={{
-                    fontFamily: "'Lato', sans-serif",
+                    fontFamily: "'Newsreader', sans-serif",
                     fontWeight: 700,
                     fontSize: "0.6rem",
                     letterSpacing: "0.2em",
                     textTransform: "uppercase",
-                    color: "oklch(0.50 0.01 285)",
+                    color: "var(--print-500)",
                     display: "block",
                     marginBottom: "2px",
                   }}
@@ -253,10 +253,10 @@ export default function AuthorSection() {
                 </span>
                 <span
                   style={{
-                    fontFamily: "'Playfair Display', serif",
+                    fontFamily: "'Instrument Serif', serif",
                     fontWeight: 600,
                     fontSize: "0.95rem",
-                    color: "oklch(0.72 0.14 75)",
+                    color: "var(--accent)",
                   }}
                 >
                   2026

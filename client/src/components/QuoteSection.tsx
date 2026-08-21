@@ -31,7 +31,7 @@ export default function QuoteSection() {
         position: "relative",
         padding: "8rem 0",
         overflow: "hidden",
-        background: "oklch(0.08 0.008 285)",
+        background: "var(--print-100)",
       }}
     >
       {/* Background texture: the Genius Grid rendered as a repeating CSS pattern */}
@@ -39,8 +39,8 @@ export default function QuoteSection() {
         className="absolute inset-0"
         style={{
           backgroundImage: `
-            linear-gradient(oklch(0.72 0.14 75 / 20%) 1px, transparent 1px),
-            linear-gradient(90deg, oklch(0.72 0.14 75 / 20%) 1px, transparent 1px)
+            linear-gradient(rgb(194 122 12 / 20%) 1px, transparent 1px),
+            linear-gradient(90deg, rgb(194 122 12 / 20%) 1px, transparent 1px)
           `,
           backgroundSize: "60px 60px",
           opacity: 0.15,
@@ -50,7 +50,7 @@ export default function QuoteSection() {
       <div
         className="absolute inset-0"
         style={{
-          background: "oklch(0.08 0.008 285 / 80%)",
+          background: "rgb(239 240 235 / 80%)",
         }}
       />
 
@@ -74,7 +74,7 @@ export default function QuoteSection() {
                 key={i}
                 style={{
                   aspectRatio: "1",
-                  background: i === 2 ? "oklch(0.72 0.14 75)" : "oklch(0.25 0.008 285)",
+                  background: i === 2 ? "var(--accent)" : "var(--rule)",
                   borderRadius: "1px",
                 }}
               />
@@ -85,19 +85,19 @@ export default function QuoteSection() {
         <blockquote
           className="reveal"
           style={{
-            fontFamily: "'Playfair Display', serif",
+            fontFamily: "'Instrument Serif', serif",
             fontStyle: "italic",
             fontWeight: 400,
             fontSize: "clamp(1.4rem, 3.5vw, 2.8rem)",
             lineHeight: 1.4,
-            color: "oklch(0.92 0.02 80)",
+            color: "var(--fg)",
             maxWidth: "800px",
             margin: "0 auto 2rem",
             transitionDelay: "200ms",
           }}
         >
           "The secret waits for eyes unclouded by longing;{" "}
-          <em style={{ color: "oklch(0.72 0.14 75)" }}>
+          <em style={{ color: "var(--accent)" }}>
             those bound by desire see only what the hands can hold.
           </em>"
         </blockquote>
@@ -105,12 +105,12 @@ export default function QuoteSection() {
         <p
           className="reveal"
           style={{
-            fontFamily: "'Lato', sans-serif",
+            fontFamily: "'Newsreader', sans-serif",
             fontWeight: 700,
             fontSize: "0.7rem",
             letterSpacing: "0.2em",
             textTransform: "uppercase",
-            color: "oklch(0.50 0.01 285)",
+            color: "var(--print-500)",
             transitionDelay: "350ms",
           }}
         >

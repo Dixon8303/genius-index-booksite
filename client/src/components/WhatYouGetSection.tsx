@@ -60,7 +60,7 @@ export default function WhatYouGetSection() {
   return (
     <section
       ref={sectionRef}
-      style={{ background: "oklch(0.11 0.008 285)", padding: "6rem 0" }}
+      style={{ background: "var(--bg-raised)", padding: "6rem 0" }}
     >
       <div className="container">
 
@@ -74,11 +74,11 @@ export default function WhatYouGetSection() {
             className="reveal"
             aria-label="A Book You Do, Not Only a Book You Read"
             style={{
-              fontFamily: "'Playfair Display', serif",
+              fontFamily: "'Instrument Serif', serif",
               fontWeight: 700,
               fontSize: "clamp(2rem, 4vw, 3.5rem)",
               lineHeight: 1.1,
-              color: "oklch(0.92 0.02 80)",
+              color: "var(--fg)",
               transitionDelay: "100ms",
             }}
           >
@@ -91,7 +91,7 @@ export default function WhatYouGetSection() {
 
         {/* Feature grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px"
-          style={{ background: "oklch(1 0 0 / 5%)" }}
+          style={{ background: "rgb(10 9 7 / 5%)" }}
         >
           {FEATURES.map((feature, i) => (
             <div
@@ -99,7 +99,7 @@ export default function WhatYouGetSection() {
               className="reveal"
               style={{
                 transitionDelay: `${200 + i * 80}ms`,
-                background: "oklch(0.11 0.008 285)",
+                background: "var(--bg-raised)",
                 padding: "2.5rem 2rem",
                 position: "relative",
                 transition: "background 200ms ease",
@@ -108,16 +108,16 @@ export default function WhatYouGetSection() {
                 (e.currentTarget as HTMLElement).style.background = "oklch(0.14 0.008 285)";
               }}
               onMouseLeave={e => {
-                (e.currentTarget as HTMLElement).style.background = "oklch(0.11 0.008 285)";
+                (e.currentTarget as HTMLElement).style.background = "var(--bg-raised)";
               }}
             >
               {/* Number */}
               <div
                 style={{
-                  fontFamily: "'Playfair Display', serif",
+                  fontFamily: "'Instrument Serif', serif",
                   fontWeight: 900,
                   fontSize: "3rem",
-                  color: "oklch(0.72 0.14 75 / 12%)",
+                  color: "rgb(194 122 12 / 12%)",
                   lineHeight: 1,
                   marginBottom: "1.25rem",
                   letterSpacing: "-0.04em",
@@ -131,17 +131,17 @@ export default function WhatYouGetSection() {
                 style={{
                   width: "24px",
                   height: "2px",
-                  background: "oklch(0.72 0.14 75)",
+                  background: "var(--accent)",
                   marginBottom: "1rem",
                 }}
               />
 
               <h3
                 style={{
-                  fontFamily: "'Playfair Display', serif",
+                  fontFamily: "'Instrument Serif', serif",
                   fontWeight: 600,
                   fontSize: "1.1rem",
-                  color: "oklch(0.88 0.02 80)",
+                  color: "var(--fg)",
                   marginBottom: "0.875rem",
                   lineHeight: 1.3,
                 }}
@@ -151,10 +151,10 @@ export default function WhatYouGetSection() {
 
               <p
                 style={{
-                  fontFamily: "'Lato', sans-serif",
+                  fontFamily: "'Newsreader', sans-serif",
                   fontSize: "0.875rem",
                   lineHeight: 1.75,
-                  color: "oklch(0.55 0.01 285)",
+                  color: "var(--fg-muted)",
                 }}
               >
                 {feature.description}

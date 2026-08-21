@@ -34,7 +34,7 @@ export default function DiagramsSection() {
   return (
     <section
       ref={sectionRef}
-      style={{ background: "oklch(0.12 0.008 285)", padding: "6rem 0" }}
+      style={{ background: "var(--bg-raised)", padding: "6rem 0" }}
     >
       <div className="container">
 
@@ -47,11 +47,11 @@ export default function DiagramsSection() {
           <h2
             className="reveal"
             style={{
-              fontFamily: "'Playfair Display', serif",
+              fontFamily: "'Instrument Serif', serif",
               fontWeight: 700,
               fontSize: "clamp(2rem, 4vw, 3.5rem)",
               lineHeight: 1.1,
-              color: "oklch(0.92 0.02 80)",
+              color: "var(--fg)",
               marginBottom: "1.25rem",
               transitionDelay: "100ms",
             }}
@@ -61,10 +61,10 @@ export default function DiagramsSection() {
           <p
             className="reveal"
             style={{
-              fontFamily: "'Lato', sans-serif",
+              fontFamily: "'Newsreader', sans-serif",
               fontSize: "1rem",
               lineHeight: 1.8,
-              color: "oklch(0.60 0.01 285)",
+              color: "var(--fg-muted)",
               maxWidth: "560px",
               transitionDelay: "200ms",
             }}
@@ -81,25 +81,25 @@ export default function DiagramsSection() {
               className="reveal"
               style={{
                 transitionDelay: `${300 + i * 100}ms`,
-                background: "oklch(0.10 0.008 285)",
-                border: "1px solid oklch(1 0 0 / 8%)",
+                background: "var(--bg)",
+                border: "1px solid rgb(10 9 7 / 8%)",
                 borderRadius: "3px",
                 overflow: "hidden",
                 transition: "all 300ms ease",
               }}
               onMouseEnter={e => {
-                (e.currentTarget as HTMLElement).style.borderColor = "oklch(0.72 0.14 75 / 30%)";
+                (e.currentTarget as HTMLElement).style.borderColor = "rgb(194 122 12 / 30%)";
                 (e.currentTarget as HTMLElement).style.boxShadow = "0 12px 40px oklch(0 0 0 / 40%)";
               }}
               onMouseLeave={e => {
-                (e.currentTarget as HTMLElement).style.borderColor = "oklch(1 0 0 / 8%)";
+                (e.currentTarget as HTMLElement).style.borderColor = "rgb(10 9 7 / 8%)";
                 (e.currentTarget as HTMLElement).style.boxShadow = "none";
               }}
             >
               {/* Diagram image */}
               <div
                 style={{
-                  background: "oklch(0.08 0.008 285)",
+                  background: "var(--print-100)",
                   padding: "2rem",
                   display: "flex",
                   alignItems: "center",
@@ -122,10 +122,10 @@ export default function DiagramsSection() {
               <div style={{ padding: "1.5rem" }}>
                 <h3
                   style={{
-                    fontFamily: "'Playfair Display', serif",
+                    fontFamily: "'Instrument Serif', serif",
                     fontWeight: 600,
                     fontSize: "1.1rem",
-                    color: "oklch(0.88 0.02 80)",
+                    color: "var(--fg)",
                     marginBottom: "0.5rem",
                   }}
                 >
@@ -133,10 +133,10 @@ export default function DiagramsSection() {
                 </h3>
                 <p
                   style={{
-                    fontFamily: "'Lato', sans-serif",
+                    fontFamily: "'Newsreader', sans-serif",
                     fontSize: "0.85rem",
                     lineHeight: 1.6,
-                    color: "oklch(0.55 0.01 285)",
+                    color: "var(--fg-muted)",
                   }}
                 >
                   {diagram.desc}
@@ -153,11 +153,11 @@ export default function DiagramsSection() {
         >
           <p
             style={{
-              fontFamily: "'Lato', sans-serif",
+              fontFamily: "'Newsreader', sans-serif",
               fontSize: "0.8rem",
               letterSpacing: "0.1em",
               textTransform: "uppercase",
-              color: "oklch(0.50 0.01 285)",
+              color: "var(--print-500)",
             }}
           >
             Each diagram is included in the book and available as high-resolution prints

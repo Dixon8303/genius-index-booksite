@@ -15,7 +15,7 @@ const DOMAINS = [
     tagline: "Movement",
     description: "Learns, keeps, and reproduces movement faster and cleaner than baseline. The body that owns a motion after one glance.",
     sign: "Picks up any physical skill faster than the room",
-    color: "oklch(0.72 0.14 75)",
+    color: "var(--accent)",
   },
   {
     id: 2,
@@ -25,7 +25,7 @@ const DOMAINS = [
     tagline: "Signal",
     description: "Perceptual acuity — the ear, eye, palate, nose that resolves what others cannot. Detects and discriminates signal at high resolution.",
     sign: "Catches the flat note, the missing ingredient, the wrong shade",
-    color: "oklch(0.72 0.14 75)",
+    color: "var(--accent)",
   },
   {
     id: 3,
@@ -35,7 +35,7 @@ const DOMAINS = [
     tagline: "Capacity",
     description: "Outlier physiological capacity — range, endurance, recovery, tolerance in the body's hardware itself.",
     sign: "Outlasts, outranges, or outrecovers the room",
-    color: "oklch(0.72 0.14 75)",
+    color: "var(--accent)",
   },
   {
     id: 4,
@@ -45,7 +45,7 @@ const DOMAINS = [
     tagline: "Pattern",
     description: "Pattern extraction and system decomposition — the mind that finds structure in complexity. A head for numbers, systems, and logic.",
     sign: "Sees the structure others miss; solves by decomposing",
-    color: "oklch(0.72 0.14 75)",
+    color: "var(--accent)",
   },
   {
     id: 5,
@@ -55,7 +55,7 @@ const DOMAINS = [
     tagline: "Retention",
     description: "Retention and retrieval — the memory that holds and returns what others lose. The mind that never forgets a face, a fact, a feeling.",
     sign: "Recalls details others lost before they left the room",
-    color: "oklch(0.72 0.14 75)",
+    color: "var(--accent)",
   },
   {
     id: 6,
@@ -65,7 +65,7 @@ const DOMAINS = [
     tagline: "Combination",
     description: "Novel combination — the mind that produces ideas in quantity and range. A fountain of ideas, connections, and creative leaps.",
     sign: "Produces more ideas in ten minutes than the group does in an hour",
-    color: "oklch(0.72 0.14 75)",
+    color: "var(--accent)",
   },
   {
     id: 7,
@@ -75,7 +75,7 @@ const DOMAINS = [
     tagline: "People",
     description: "Reading and moving people — the accurate, rapid read of another's state and want. Good with people is an understatement.",
     sign: "Reads the room before a word is spoken",
-    color: "oklch(0.72 0.14 75)",
+    color: "var(--accent)",
   },
   {
     id: 8,
@@ -85,7 +85,7 @@ const DOMAINS = [
     tagline: "Voice",
     description: "Expression and transmission — the voice, the pen, the body that carries an idea and makes it land. The speaker, the writer, the performer.",
     sign: "Makes the complex simple; makes the simple matter",
-    color: "oklch(0.72 0.14 75)",
+    color: "var(--accent)",
   },
   {
     id: 9,
@@ -95,7 +95,7 @@ const DOMAINS = [
     tagline: "Meaning",
     description: "Meaning-making and interpretation — the mind that finds significance in pattern and symbol. Sees what things mean before others see what they are.",
     sign: "Understands the subtext before the text is done",
-    color: "oklch(0.72 0.14 75)",
+    color: "var(--accent)",
   },
 ];
 
@@ -124,7 +124,7 @@ export default function DomainsSection() {
       id="domains"
       ref={sectionRef}
       style={{
-        background: "oklch(0.11 0.008 285)",
+        background: "var(--bg-raised)",
         padding: "6rem 0",
         position: "relative",
         overflow: "hidden",
@@ -139,7 +139,7 @@ export default function DomainsSection() {
           transform: "translateX(-50%)",
           width: "800px",
           height: "600px",
-          background: "radial-gradient(ellipse at center, oklch(0.72 0.14 75 / 5%) 0%, transparent 70%)",
+          background: "radial-gradient(ellipse at center, rgb(194 122 12 / 5%) 0%, transparent 70%)",
           pointerEvents: "none",
         }}
       />
@@ -155,11 +155,11 @@ export default function DomainsSection() {
           <h2
             className="reveal"
             style={{
-              fontFamily: "'Playfair Display', serif",
+              fontFamily: "'Instrument Serif', serif",
               fontWeight: 700,
               fontSize: "clamp(2rem, 4vw, 3.5rem)",
               lineHeight: 1.1,
-              color: "oklch(0.92 0.02 80)",
+              color: "var(--fg)",
               marginBottom: "1.25rem",
               transitionDelay: "100ms",
             }}
@@ -169,10 +169,10 @@ export default function DomainsSection() {
           <p
             className="reveal"
             style={{
-              fontFamily: "'Lato', sans-serif",
+              fontFamily: "'Newsreader', sans-serif",
               fontSize: "1rem",
               lineHeight: 1.8,
-              color: "oklch(0.60 0.01 285)",
+              color: "var(--fg-muted)",
               maxWidth: "560px",
               transitionDelay: "200ms",
             }}
@@ -205,10 +205,10 @@ export default function DomainsSection() {
               aria-label={`${domain.name} — ${domain.familyLabel}`}
               style={{
                 aspectRatio: "1",
-                background: hoveredId === domain.id ? "oklch(0.72 0.14 75)" : "oklch(0.13 0.008 285)",
+                background: hoveredId === domain.id ? "var(--accent)" : "var(--print-200)",
                 border: hoveredId === domain.id
-                  ? "2px solid oklch(0.72 0.14 75)"
-                  : "1px solid oklch(1 0 0 / 10%)",
+                  ? "2px solid var(--accent)"
+                  : "1px solid rgb(10 9 7 / 10%)",
                 borderRadius: "4px",
                 cursor: "pointer",
                 display: "flex",
@@ -216,7 +216,7 @@ export default function DomainsSection() {
                 justifyContent: "center",
                 transition: "all 300ms cubic-bezier(0.23, 1, 0.32, 1)",
                 boxShadow: hoveredId === domain.id
-                  ? `0 0 40px oklch(0.72 0.14 75 / 40%), inset 0 0 30px oklch(0.72 0.14 75 / 15%)`
+                  ? `0 0 40px rgb(194 122 12 / 40%), inset 0 0 30px rgb(194 122 12 / 15%)`
                   : "none",
                 position: "relative",
                 overflow: "hidden",
@@ -233,7 +233,7 @@ export default function DomainsSection() {
                   position: "absolute",
                   inset: 0,
                   background: hoveredId === domain.id
-                    ? "radial-gradient(ellipse at center, oklch(0.72 0.14 75 / 20%) 0%, transparent 70%)"
+                    ? "radial-gradient(ellipse at center, rgb(194 122 12 / 20%) 0%, transparent 70%)"
                     : "transparent",
                   transition: "all 300ms ease",
                   pointerEvents: "none",
@@ -252,10 +252,10 @@ export default function DomainsSection() {
               >
                 <div
                   style={{
-                    fontFamily: "'Playfair Display', serif",
+                    fontFamily: "'Instrument Serif', serif",
                     fontWeight: 700,
                     fontSize: "1.3rem",
-                    color: hoveredId === domain.id ? "oklch(0.10 0.008 285)" : "oklch(0.88 0.02 80)",
+                    color: hoveredId === domain.id ? "var(--bg)" : "var(--fg)",
                     marginBottom: "0.25rem",
                     transition: "color 300ms ease",
                   }}
@@ -264,11 +264,11 @@ export default function DomainsSection() {
                 </div>
                 <div
                   style={{
-                    fontFamily: "'Lato', sans-serif",
+                    fontFamily: "'Newsreader', sans-serif",
                     fontSize: "0.7rem",
                     letterSpacing: "0.1em",
                     textTransform: "uppercase",
-                    color: hoveredId === domain.id ? "oklch(0.15 0.008 285 / 70%)" : "oklch(0.50 0.01 285)",
+                    color: hoveredId === domain.id ? "oklch(0.15 0.008 285 / 70%)" : "var(--print-500)",
                     transition: "color 300ms ease",
                   }}
                 >
@@ -284,8 +284,8 @@ export default function DomainsSection() {
         {hoveredId ? (
           <div
             style={{
-              background: "oklch(0.13 0.008 285)",
-              border: "1px solid oklch(0.72 0.14 75 / 30%)",
+              background: "var(--print-200)",
+              border: "1px solid rgb(194 122 12 / 30%)",
               borderRadius: "3px",
               padding: "2.5rem",
               animation: "slideIn 300ms cubic-bezier(0.23, 1, 0.32, 1)",
@@ -303,17 +303,17 @@ export default function DomainsSection() {
                         style={{
                           width: "40px",
                           height: "40px",
-                          background: "oklch(0.72 0.14 75)",
+                          background: "var(--accent)",
                           borderRadius: "3px",
                         }}
                       />
                       <div>
                         <h3
                           style={{
-                            fontFamily: "'Playfair Display', serif",
+                            fontFamily: "'Instrument Serif', serif",
                             fontWeight: 700,
                             fontSize: "1.4rem",
-                            color: "oklch(0.92 0.02 80)",
+                            color: "var(--fg)",
                             lineHeight: 1,
                           }}
                         >
@@ -321,11 +321,11 @@ export default function DomainsSection() {
                         </h3>
                         <p
                           style={{
-                            fontFamily: "'Lato', sans-serif",
+                            fontFamily: "'Newsreader', sans-serif",
                             fontSize: "0.75rem",
                             letterSpacing: "0.15em",
                             textTransform: "uppercase",
-                            color: "oklch(0.72 0.14 75)",
+                            color: "var(--accent)",
                           }}
                         >
                           {domain.familyLabel}
@@ -338,10 +338,10 @@ export default function DomainsSection() {
 
                   <p
                     style={{
-                      fontFamily: "'Lato', sans-serif",
+                      fontFamily: "'Newsreader', sans-serif",
                       fontSize: "0.95rem",
                       lineHeight: 1.8,
-                      color: "oklch(0.65 0.01 285)",
+                      color: "var(--fg-muted)",
                       marginBottom: "1.5rem",
                     }}
                   >
@@ -350,19 +350,19 @@ export default function DomainsSection() {
 
                   <div
                     style={{
-                      background: "oklch(0.10 0.008 285)",
-                      borderLeft: "3px solid oklch(0.72 0.14 75)",
+                      background: "var(--bg)",
+                      borderLeft: "3px solid var(--accent)",
                       padding: "1rem 1.25rem",
                       borderRadius: "2px",
                     }}
                   >
                     <p
                       style={{
-                        fontFamily: "'Cormorant Garamond', serif",
+                        fontFamily: "'Instrument Serif', serif",
                         fontStyle: "italic",
                         fontSize: "0.95rem",
                         lineHeight: 1.6,
-                        color: "oklch(0.72 0.14 75)",
+                        color: "var(--accent)",
                       }}
                     >
                       "{domain.sign}"
@@ -375,8 +375,8 @@ export default function DomainsSection() {
         ) : (
           <div
             style={{
-              background: "oklch(0.10 0.008 285)",
-              border: "1px dashed oklch(1 0 0 / 12%)",
+              background: "var(--bg)",
+              border: "1px dashed rgb(10 9 7 / 12%)",
               borderRadius: "3px",
               padding: "2.5rem",
               display: "flex",
@@ -388,10 +388,10 @@ export default function DomainsSection() {
           >
             <p
               style={{
-                fontFamily: "'Cormorant Garamond', serif",
+                fontFamily: "'Instrument Serif', serif",
                 fontStyle: "italic",
                 fontSize: "1.1rem",
-                color: "oklch(0.50 0.01 285)",
+                color: "var(--print-500)",
               }}
             >
               Hover — or tab to — a domain to explore it.
@@ -408,11 +408,11 @@ export default function DomainsSection() {
         >
           <p
             style={{
-              fontFamily: "'Lato', sans-serif",
+              fontFamily: "'Newsreader', sans-serif",
               fontSize: "0.8rem",
               letterSpacing: "0.1em",
               textTransform: "uppercase",
-              color: "oklch(0.50 0.01 285)",
+              color: "var(--print-500)",
             }}
           >
             Explore each domain — your genius is here
