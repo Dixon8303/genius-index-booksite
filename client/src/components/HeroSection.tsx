@@ -139,7 +139,7 @@ export default function HeroSection() {
               className="reveal"
               style={{
                 fontFamily: "'Newsreader', sans-serif",
-                fontSize: "1rem",
+                fontSize: "1.125rem",
                 lineHeight: 1.8,
                 color: "var(--fg-muted)",
                 marginBottom: "3rem",
@@ -182,7 +182,7 @@ export default function HeroSection() {
               <p
                 style={{
                   fontFamily: "'Newsreader', sans-serif",
-                  fontSize: "0.75rem",
+                  fontSize: "0.85rem",
                   letterSpacing: "0.1em",
                   color: "var(--print-500)",
                   textTransform: "uppercase",
@@ -258,7 +258,7 @@ export default function HeroSection() {
         <span
           style={{
             fontFamily: "'Newsreader', sans-serif",
-            fontSize: "0.65rem",
+            fontSize: "0.75rem",
             letterSpacing: "0.2em",
             textTransform: "uppercase",
             color: "var(--accent)",

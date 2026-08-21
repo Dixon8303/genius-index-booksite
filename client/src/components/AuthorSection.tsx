@@ -113,7 +113,7 @@ export default function AuthorSection() {
               style={{
                 fontFamily: "'Instrument Serif', serif",
                 fontStyle: "italic",
-                fontSize: "1.1rem",
+                fontSize: "1.25rem",
                 color: "var(--accent)",
                 marginBottom: "2rem",
                 transitionDelay: "150ms",
@@ -128,7 +128,7 @@ export default function AuthorSection() {
               className="reveal"
               style={{
                 fontFamily: "'Newsreader', sans-serif",
-                fontSize: "1rem",
+                fontSize: "1.125rem",
                 lineHeight: 1.85,
                 color: "var(--fg-muted)",
                 marginBottom: "1.5rem",
@@ -142,7 +142,7 @@ export default function AuthorSection() {
               className="reveal"
               style={{
                 fontFamily: "'Newsreader', sans-serif",
-                fontSize: "1rem",
+                fontSize: "1.125rem",
                 lineHeight: 1.85,
                 color: "var(--fg-muted)",
                 marginBottom: "1.5rem",
@@ -156,7 +156,7 @@ export default function AuthorSection() {
               className="reveal"
               style={{
                 fontFamily: "'Newsreader', sans-serif",
-                fontSize: "1rem",
+                fontSize: "1.125rem",
                 lineHeight: 1.85,
                 color: "var(--fg-muted)",
                 marginBottom: "2.5rem",
@@ -180,7 +180,7 @@ export default function AuthorSection() {
                 style={{
                   fontFamily: "'Instrument Serif', serif",
                   fontStyle: "italic",
-                  fontSize: "1.15rem",
+                  fontSize: "1.25rem",
                   lineHeight: 1.65,
                   color: "var(--print-700)",
                 }}
@@ -209,7 +209,7 @@ export default function AuthorSection() {
                   style={{
                     fontFamily: "'Newsreader', sans-serif",
                     fontWeight: 700,
-                    fontSize: "0.6rem",
+                    fontSize: "0.7rem",
                     letterSpacing: "0.2em",
                     textTransform: "uppercase",
                     color: "var(--print-500)",
@@ -221,7 +221,7 @@ export default function AuthorSection() {
                   style={{
                     fontFamily: "'Instrument Serif', serif",
                     fontWeight: 600,
-                    fontSize: "0.95rem",
+                    fontSize: "1.0625rem",
                     color: "var(--accent)",
                     letterSpacing: "0.05em",
                   }}
@@ -241,7 +241,7 @@ export default function AuthorSection() {
                   style={{
                     fontFamily: "'Newsreader', sans-serif",
                     fontWeight: 700,
-                    fontSize: "0.6rem",
+                    fontSize: "0.7rem",
                     letterSpacing: "0.2em",
                     textTransform: "uppercase",
                     color: "var(--print-500)",
@@ -255,7 +255,7 @@ export default function AuthorSection() {
                   style={{
                     fontFamily: "'Instrument Serif', serif",
                     fontWeight: 600,
-                    fontSize: "0.95rem",
+                    fontSize: "1.0625rem",
                     color: "var(--accent)",
                   }}
                 >

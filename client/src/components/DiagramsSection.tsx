@@ -62,7 +62,7 @@ export default function DiagramsSection() {
             className="reveal"
             style={{
               fontFamily: "'Newsreader', sans-serif",
-              fontSize: "1rem",
+              fontSize: "1.125rem",
               lineHeight: 1.8,
               color: "var(--fg-muted)",
               maxWidth: "560px",
@@ -124,7 +124,7 @@ export default function DiagramsSection() {
                   style={{
                     fontFamily: "'Instrument Serif', serif",
                     fontWeight: 600,
-                    fontSize: "1.1rem",
+                    fontSize: "1.25rem",
                     color: "var(--fg)",
                     marginBottom: "0.5rem",
                   }}
@@ -134,7 +134,7 @@ export default function DiagramsSection() {
                 <p
                   style={{
                     fontFamily: "'Newsreader', sans-serif",
-                    fontSize: "0.85rem",
+                    fontSize: "0.95rem",
                     lineHeight: 1.6,
                     color: "var(--fg-muted)",
                   }}
@@ -154,7 +154,7 @@ export default function DiagramsSection() {
           <p
             style={{
               fontFamily: "'Newsreader', sans-serif",
-              fontSize: "0.8rem",
+              fontSize: "0.9rem",
               letterSpacing: "0.1em",
               textTransform: "uppercase",
               color: "var(--print-500)",

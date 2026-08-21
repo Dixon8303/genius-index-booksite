@@ -88,7 +88,7 @@ export default function BookSection() {
               className="reveal"
               style={{
                 fontFamily: "'Newsreader', sans-serif",
-                fontSize: "1.05rem",
+                fontSize: "1.1875rem",
                 lineHeight: 1.85,
                 color: "var(--fg-muted)",
                 marginBottom: "2.5rem",
@@ -106,7 +106,7 @@ export default function BookSection() {
               <p
                 style={{
                   fontFamily: "'Newsreader', sans-serif",
-                  fontSize: "0.75rem",
+                  fontSize: "0.85rem",
                   letterSpacing: "0.12em",
                   textTransform: "uppercase",
                   color: "var(--print-500)",
@@ -132,7 +132,7 @@ export default function BookSection() {
               style={{
                 fontFamily: "'Instrument Serif', serif",
                 fontStyle: "italic",
-                fontSize: "0.95rem",
+                fontSize: "1.0625rem",
                 lineHeight: 1.6,
                 color: "var(--fg-muted)",
                 maxWidth: "420px",
@@ -171,7 +171,7 @@ export default function BookSection() {
                   fontWeight: 900,
                   fontSize: "3.5rem",
                   lineHeight: 1,
-                  color: "rgb(194 122 12 / 15%)",
+                  color: "var(--accent-fill)",
                   marginBottom: "1rem",
                   letterSpacing: "-0.04em",
                 }}
@@ -184,7 +184,7 @@ export default function BookSection() {
                 style={{
                   fontFamily: "'Newsreader', sans-serif",
                   fontWeight: 700,
-                  fontSize: "0.65rem",
+                  fontSize: "0.75rem",
                   letterSpacing: "0.2em",
                   textTransform: "uppercase",
                   color: "var(--accent)",
@@ -199,7 +199,7 @@ export default function BookSection() {
                 style={{
                   fontFamily: "'Instrument Serif', serif",
                   fontWeight: 600,
-                  fontSize: "1.2rem",
+                  fontSize: "1.3rem",
                   color: "var(--fg)",
                   marginBottom: "0.875rem",
                   lineHeight: 1.3,
@@ -212,7 +212,7 @@ export default function BookSection() {
               <p
                 style={{
                   fontFamily: "'Newsreader', sans-serif",
-                  fontSize: "0.9rem",
+                  fontSize: "1rem",
                   lineHeight: 1.75,
                   color: "var(--fg-muted)",
                 }}
@@ -247,7 +247,7 @@ export default function BookSection() {
             style={{
               fontFamily: "'Instrument Serif', serif",
               fontStyle: "italic",
-              fontSize: "1.1rem",
+              fontSize: "1.25rem",
               color: "var(--accent)",
               letterSpacing: "0.02em",
             }}

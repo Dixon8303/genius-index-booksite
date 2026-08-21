@@ -170,7 +170,7 @@ export default function DomainsSection() {
             className="reveal"
             style={{
               fontFamily: "'Newsreader', sans-serif",
-              fontSize: "1rem",
+              fontSize: "1.125rem",
               lineHeight: 1.8,
               color: "var(--fg-muted)",
               maxWidth: "560px",
@@ -265,7 +265,7 @@ export default function DomainsSection() {
                 <div
                   style={{
                     fontFamily: "'Newsreader', sans-serif",
-                    fontSize: "0.7rem",
+                    fontSize: "0.8rem",
                     letterSpacing: "0.1em",
                     textTransform: "uppercase",
                     color: hoveredId === domain.id ? "oklch(0.15 0.008 285 / 70%)" : "var(--print-500)",
@@ -322,7 +322,7 @@ export default function DomainsSection() {
                         <p
                           style={{
                             fontFamily: "'Newsreader', sans-serif",
-                            fontSize: "0.75rem",
+                            fontSize: "0.85rem",
                             letterSpacing: "0.15em",
                             textTransform: "uppercase",
                             color: "var(--accent)",
@@ -339,7 +339,7 @@ export default function DomainsSection() {
                   <p
                     style={{
                       fontFamily: "'Newsreader', sans-serif",
-                      fontSize: "0.95rem",
+                      fontSize: "1.0625rem",
                       lineHeight: 1.8,
                       color: "var(--fg-muted)",
                       marginBottom: "1.5rem",
@@ -360,7 +360,7 @@ export default function DomainsSection() {
                       style={{
                         fontFamily: "'Instrument Serif', serif",
                         fontStyle: "italic",
-                        fontSize: "0.95rem",
+                        fontSize: "1.0625rem",
                         lineHeight: 1.6,
                         color: "var(--accent)",
                       }}
@@ -390,7 +390,7 @@ export default function DomainsSection() {
               style={{
                 fontFamily: "'Instrument Serif', serif",
                 fontStyle: "italic",
-                fontSize: "1.1rem",
+                fontSize: "1.25rem",
                 color: "var(--print-500)",
               }}
             >
@@ -409,7 +409,7 @@ export default function DomainsSection() {
           <p
             style={{
               fontFamily: "'Newsreader', sans-serif",
-              fontSize: "0.8rem",
+              fontSize: "0.9rem",
               letterSpacing: "0.1em",
               textTransform: "uppercase",
               color: "var(--print-500)",
