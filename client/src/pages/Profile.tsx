@@ -3,17 +3,10 @@
    everything works signed out; sign-in adds backup and roaming. */
 
 import { useEffect, useMemo, useState } from "react";
-import {
-  CartesianGrid,
-  Legend,
-  Line,
-  LineChart,
-  ResponsiveContainer,
-  Tooltip,
-  XAxis,
-  YAxis,
-} from "recharts";
 import { Link } from "wouter";
+import TrendChart, {
+  type TrendPoint,
+} from "@/components/genius/TrendChart";
 import GiShell, { LegalFootnote } from "@/components/genius/GiShell";
 import RawHtml from "@/components/genius/RawHtml";
 import DomainGlyph from "@/components/DomainGlyph";
@@ -70,7 +63,7 @@ export default function Profile() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [latestM]);
 
-  const trendData = useMemo(() => {
+  const trendData = useMemo<TrendPoint[]>(() => {
     return history
       .map((r) => {
         const scores = scoresOf(r);
@@ -81,10 +74,10 @@ export default function Profile() {
             day: "numeric",
             year: "2-digit",
           }),
-          ...scores,
+          scores,
         };
       })
-      .filter(Boolean) as ({ date: string } & Record<DomainId, number>)[];
+      .filter(Boolean) as TrendPoint[];
   }, [history]);
 
   const protocol = activeRun();
@@ -257,36 +250,7 @@ export default function Profile() {
               );
             })}
           </div>
-          <div style={{ width: "100%", height: 280 }}>
-            <ResponsiveContainer>
-              <LineChart data={trendData} margin={{ top: 6, right: 12, bottom: 0, left: -18 }}>
-                <CartesianGrid stroke="rgba(42,33,24,.12)" strokeDasharray="3 3" />
-                <XAxis dataKey="date" tick={{ fontSize: 11, fill: "#6B6258" }} />
-                <YAxis domain={[0, 100]} tick={{ fontSize: 11, fill: "#6B6258" }} />
-                <Tooltip
-                  contentStyle={{
-                    background: "#FFFDF8",
-                    border: "1px solid #B4832E",
-                    borderRadius: 7,
-                    fontFamily: "'Newsreader',sans-serif",
-                    fontSize: 12,
-                  }}
-                />
-                <Legend wrapperStyle={{ fontSize: 12 }} />
-                {DOMAINS.filter((d) => selected.has(d.id)).map((d) => (
-                  <Line
-                    key={d.id}
-                    type="monotone"
-                    dataKey={d.id}
-                    name={d.name}
-                    stroke={realmHex(d.meta)}
-                    strokeWidth={2.5}
-                    dot={{ r: 3.5 }}
-                  />
-                ))}
-              </LineChart>
-            </ResponsiveContainer>
-          </div>
+          <TrendChart data={trendData} selected={selected} />
         </div>
       )}
 

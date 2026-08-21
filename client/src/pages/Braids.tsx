@@ -1,7 +1,7 @@
 /* Braid explorer: all thirty-six pairings, grouped by tier, each with its
    commissioned art, currency of proof, and strands. */
 
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import { Link, useParams } from "wouter";
 import GiShell, { LegalFootnote } from "@/components/genius/GiShell";
 import DomainGlyph from "@/components/DomainGlyph";
@@ -52,16 +52,27 @@ function BraidCard({ braid }: { braid: Braid }) {
 export default function Braids() {
   const params = useParams<{ slug?: string }>();
   const braid = params.slug ? BRAID_BY_SLUG[params.slug] : null;
+  /* Archive facets: tier and contains-domain (Category E collection browsing). */
+  const [tierFilter, setTierFilter] = useState<BraidTier | null>(null);
+  const [domainFilter, setDomainFilter] = useState<string | null>(null);
 
   const tiers = useMemo(
     () =>
-      (["C", "S", "R", "Q"] as BraidTier[]).map((t) => ({
-        tier: t,
-        meta: TIER_META[t],
-        braids: BRAIDS.filter((b) => b.tier === t),
-      })),
-    [],
+      (["C", "S", "R", "Q"] as BraidTier[])
+        .filter((t) => !tierFilter || t === tierFilter)
+        .map((t) => ({
+          tier: t,
+          meta: TIER_META[t],
+          braids: BRAIDS.filter(
+            (b) =>
+              b.tier === t &&
+              (!domainFilter || (b.pair as string[]).includes(domainFilter)),
+          ),
+        }))
+        .filter((g) => g.braids.length > 0),
+    [tierFilter, domainFilter],
   );
+  const shown = tiers.reduce((n, g) => n + g.braids.length, 0);
 
   if (params.slug && !braid) {
     return (
@@ -144,6 +155,48 @@ export default function Braids() {
         recognizable figure — the Craftsman, the Storyteller, the
         Diagnostician. Every pairing of the nine domains has a name; ten are
         distinct enough to be canonical.
+      </p>
+      {/* Facets */}
+      <div style={{ display: "flex", flexWrap: "wrap", gap: 6, margin: "10px 0 4px" }}>
+        <button
+          className={`demo-chip${tierFilter === null ? " sel" : ""}`}
+          onClick={() => setTierFilter(null)}
+        >
+          All tiers
+        </button>
+        {(["C", "S", "R", "Q"] as BraidTier[]).map((t) => (
+          <button
+            key={t}
+            className={`demo-chip${tierFilter === t ? " sel" : ""}`}
+            onClick={() => setTierFilter(tierFilter === t ? null : t)}
+          >
+            {TIER_META[t].label}
+          </button>
+        ))}
+      </div>
+      <div style={{ display: "flex", flexWrap: "wrap", gap: 6, margin: "4px 0 6px" }}>
+        <button
+          className={`demo-chip${domainFilter === null ? " sel" : ""}`}
+          onClick={() => setDomainFilter(null)}
+        >
+          Any domain
+        </button>
+        {Object.values(DOMAIN_BY_ID).map((d) => (
+          <button
+            key={d.id}
+            className={`demo-chip${domainFilter === d.id ? " sel" : ""}`}
+            style={domainFilter === d.id ? { borderColor: realmHex(d.meta), color: realmHex(d.meta) } : undefined}
+            onClick={() => setDomainFilter(domainFilter === d.id ? null : d.id)}
+          >
+            {d.name}
+          </button>
+        ))}
+      </div>
+      <p
+        className="small dim"
+        style={{ fontFamily: "var(--font-mono)", letterSpacing: ".04em", textTransform: "uppercase", fontSize: 11 }}
+      >
+        {shown} of 36 braids shown
       </p>
       {tiers.map(({ tier, meta, braids }) => (
         <section key={tier} style={{ marginTop: 26 }}>

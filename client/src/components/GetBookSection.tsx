@@ -166,7 +166,7 @@ export default function GetBookSection() {
             className="reveal lg:col-span-2 flex justify-center"
             style={{ transitionDelay: "300ms" }}
           >
-            <div className="relative">
+            <div className="relative amber-pass">
               <div
                 className="animate-gold-pulse absolute inset-0"
                 style={{

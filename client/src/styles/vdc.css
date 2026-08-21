@@ -166,3 +166,5 @@
 @media (prefers-reduced-motion:reduce){
   .js-reveal .vdc-reveal{ opacity:1 !important; transform:none !important; }
 }
+
+@media (max-width:1023px){ .results-spine{ display:none; } }
