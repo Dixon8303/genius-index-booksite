@@ -6,7 +6,12 @@
 
 import { useEffect, useMemo, useReducer, useState } from "react";
 import { useLocation } from "wouter";
-import GiShell, { LegalFootnote } from "@/components/genius/GiShell";
+import { Link } from "wouter";
+import GiShell, {
+  EcosystemFooter,
+  LegalFootnote,
+} from "@/components/genius/GiShell";
+import SampleBraidCarousel from "@/components/genius/SampleBraidCarousel";
 import {
   StationAdp,
   StationAnl,
@@ -360,6 +365,52 @@ export default function Assessment() {
           </p>
         </div>
         <div className="card">
+          <h3>Why a "braid"</h3>
+          <p className="small dim">
+            Genius is rarely a single gift — it's almost always two domains
+            standing out together. The book names all thirty-six of those
+            pairings <strong>braids</strong>, from The Craftsman (Kinetic ×
+            Sensory) to The Diplomat (Relational × Perceptive). This instrument
+            scores your nine domains from what you report and how you actually
+            perform, then resolves and explains your own braid — the same
+            material the book covers, personalized to your answers.
+          </p>
+          <SampleBraidCarousel />
+          <div
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
+              gap: 8,
+              justifyContent: "center",
+              marginTop: 6,
+            }}
+          >
+            <Link href="/" className="btn ghost" style={{ textDecoration: "none", textAlign: "center" }}>
+              Get the book →
+            </Link>
+            <a className="btn ghost" href="https://dixon8303.github.io/ImaginariumOzone/book/" target="_blank" rel="noopener" style={{ textDecoration: "none", textAlign: "center" }}>
+              Read What History Buried →
+            </a>
+            <a className="btn ghost" href="https://dixon8303.github.io/black-genius-files/" target="_blank" rel="noopener" style={{ textDecoration: "none", textAlign: "center" }}>
+              The Black Genius Files →
+            </a>
+            <a className="btn ghost" href="https://eatmediatv.com/" target="_blank" rel="noopener" style={{ textDecoration: "none", textAlign: "center" }}>
+              E.A.T. Media →
+            </a>
+          </div>
+        </div>
+        <div className="card">
+          <h3>Save your results (optional)</h3>
+          <p className="small dim">
+            Sign in with Google on your profile page to keep a private history
+            of your results across retakes and devices. Skip this and the
+            assessment still works exactly the same, on this device only.
+          </p>
+          <Link href="/profile" className="btn ghost" style={{ display: "block", textDecoration: "none", textAlign: "center" }}>
+            Go to my profile →
+          </Link>
+        </div>
+        <div className="card">
           <h3>Three parts</h3>
           <p className="small dim">
             <strong>Part 1 · The inventory.</strong> 74 concrete items about
@@ -377,6 +428,22 @@ export default function Assessment() {
           </p>
         </div>
         <div className="card">
+          <h3>How to take it honestly</h3>
+          <p className="small">
+            1 · Answer for how things <strong>actually happen</strong>, not how
+            you'd like them to.
+            <br />
+            2 · “Almost always” should be rare. If everything is a strength,
+            nothing is.
+            <br />
+            3 · The stations check your answers against performance. Gaps
+            aren't failure — they're findings.
+            <br />
+            4 · There are no good or bad domains. There is only yours, named or
+            unnamed.
+          </p>
+        </div>
+        <div className="card">
           <p className="small dim">
             Taking the assessment contributes your anonymized answers to the
             ongoing validation study — no name, account, or identifying data
@@ -385,7 +452,7 @@ export default function Assessment() {
           <input
             value={code}
             onChange={(e) => setCode(e.target.value)}
-            placeholder="Study code (optional)"
+            placeholder="Participant code (optional — e.g., ABE-014)"
             style={{
               width: "100%",
               marginTop: 10,
@@ -400,8 +467,18 @@ export default function Assessment() {
           />
         </div>
         <button className="btn primary" onClick={() => start(null)}>
-          {savedRun ? "Start a fresh run" : "Begin · Part 1"}
+          {savedRun ? "Start a fresh run" : "Begin Part 1 · The Inventory"}
         </button>
+        <p className="small dim" style={{ marginTop: 14 }}>
+          Free and anonymous. Your responses stay on this device and are added
+          anonymously to the study — no name, email, or account is collected.
+          You'll get your full results chart at the end.
+        </p>
+        <p className="consentnote">
+          By taking this assessment, you agree to the anonymous, no-account use
+          of your answers described above.
+        </p>
+        <EcosystemFooter />
         <LegalFootnote />
       </GiShell>
     );

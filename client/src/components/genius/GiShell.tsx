@@ -101,6 +101,28 @@ export default function GiShell({
   );
 }
 
+/* "More from the author" link row, same as the original assessment's footer. */
+export function EcosystemFooter() {
+  const link = (href: string, label: string, external = true) => (
+    <a
+      href={href}
+      {...(external ? { target: "_blank", rel: "noopener" } : {})}
+      style={{ color: "inherit", textDecoration: "underline" }}
+    >
+      {label}
+    </a>
+  );
+  return (
+    <p className="small dim" style={{ textAlign: "center", marginTop: 14 }}>
+      More from D. Antione Dixon / E.A.T. Media —{" "}
+      {link(import.meta.env.BASE_URL, "The Genius Index", false)} ·{" "}
+      {link("https://dixon8303.github.io/ImaginariumOzone/book/", "What History Buried")} ·{" "}
+      {link("https://dixon8303.github.io/black-genius-files/", "The Black Genius Files")} ·{" "}
+      {link("https://eatmediatv.com/", "E.A.T. Media")}
+    </p>
+  );
+}
+
 /* The standing legal line from the book site's footer, carried onto every
    product page. */
 export function LegalFootnote() {

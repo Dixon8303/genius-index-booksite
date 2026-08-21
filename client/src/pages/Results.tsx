@@ -6,11 +6,18 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Link, useLocation, useParams } from "wouter";
-import GiShell, { LegalFootnote } from "@/components/genius/GiShell";
+import GiShell, {
+  EcosystemFooter,
+  LegalFootnote,
+} from "@/components/genius/GiShell";
 import RawHtml from "@/components/genius/RawHtml";
 import { TIER_META } from "@/lib/genius/data/braids";
 import { DOMAINS, DOMAIN_BY_ID, type DomainId } from "@/lib/genius/data/domains";
-import { braidImage } from "@/lib/genius/data/images";
+import {
+  braidImage,
+  domainImage,
+  familyImage,
+} from "@/lib/genius/data/images";
 import {
   domainsFromPayload,
   gi10Schema,
@@ -39,6 +46,10 @@ import {
   interpTop,
   profileSectionHTML,
 } from "@/lib/genius/viz/prose";
+import {
+  downloadRetestReminder,
+  retestDate,
+} from "@/lib/genius/viz/retest";
 import {
   downloadShareCard,
   shareBraidCard,
@@ -145,6 +156,10 @@ export default function Results() {
   const [sharedPayload, setSharedPayload] = useState<GI10Export | null>(null);
   const [sharedSaved, setSharedSaved] = useState(false);
   const [shareMsg, setShareMsg] = useState("");
+  const [shareStatus, setShareStatus] = useState("");
+  const [reminderAdded, setReminderAdded] = useState(false);
+  const canNativeShare =
+    typeof navigator !== "undefined" && typeof navigator.share === "function";
   const wheelRef = useRef<HTMLDivElement | null>(null);
   useWheelTooltip(wheelRef);
 
@@ -185,6 +200,18 @@ export default function Results() {
     return idx > 0 ? all[idx - 1] : null;
   }, [stored]);
 
+  // Pick the collage art once per result — the pools hold several
+  // interchangeable pieces and shouldn't reshuffle on unrelated re-renders.
+  const art = useMemo(() => {
+    if (!m) return null;
+    return {
+      hero: m.primary ? braidImage(m.primary.name) : "",
+      d0: domainImage(m.braidDoms[0].id),
+      d1: domainImage(m.braidDoms[1].id),
+      family: familyImage(m.leadingFamily),
+    };
+  }, [m]);
+
   if (!exportObj || !m) {
     return (
       <GiShell nav>
@@ -206,6 +233,8 @@ export default function Results() {
   const tierMeta = primary ? TIER_META[primary.tier] : null;
   const d0 = DOMAIN_BY_ID[m.braidDoms[0].id];
   const d1 = DOMAIN_BY_ID[m.braidDoms[1].id];
+  const heroArt = art!.hero;
+  const collageArt = art!;
 
   const copyShareLink = async () => {
     const url =
@@ -250,24 +279,31 @@ export default function Results() {
         </div>
       )}
 
-      {/* Hero: the braid */}
-      <div className="book" style={{ textAlign: "center" }}>
+      {/* Hero: the braid — same structure as the original braidcard */}
+      <div className="stagecount" style={{ marginTop: 8 }}>
+        Your result · complete
+      </div>
+      <div className="book book--hero">
         <div className="braidcard">
           <div className="yb">Your braid</div>
+          {primary && (
+            <div className="resultart heroart">
+              <img src={heroArt} alt={primary.name} loading="lazy" />
+            </div>
+          )}
           <RawHtml html={buildHeroGlyph(m.braidDoms)} />
-          <h1 style={{ color: "var(--book-ink)" }}>
-            {primary ? primary.name : "An unnamed pairing"}
-          </h1>
-          <div
-            className="bpair"
-            style={{ display: "flex", gap: 8, justifyContent: "center", flexWrap: "wrap", margin: "10px 0" }}
-          >
-            <span className="domchip" style={{ color: realmHex(d0.meta), fontWeight: 700 }}>
-              ● {d0.name} {m.R[d0.id].score}
+          <div className="bname">
+            {primary ? primary.name : exportObj.signature || "An unnamed pairing"}
+          </div>
+          <div className="bpair">
+            <span className={`domchip ${d0.meta}`}>
+              <span className="dot"></span>
+              {d0.name}
             </span>
-            <span style={{ color: "var(--book-dim)" }}>×</span>
-            <span className="domchip" style={{ color: realmHex(d1.meta), fontWeight: 700 }}>
-              ● {d1.name} {m.R[d1.id].score}
+            <span className="amp">×</span>
+            <span className={`domchip ${d1.meta}`}>
+              <span className="dot"></span>
+              {d1.name}
             </span>
           </div>
           {tierMeta && (
@@ -279,19 +315,50 @@ export default function Results() {
               <div className="tiersub">{tierMeta.sub}</div>
             </>
           )}
-          {primary && (
-            <div className="resultart heroart" style={{ margin: "14px auto" }}>
-              <img src={braidImage(primary.name)} alt={primary.name} loading="lazy" />
-            </div>
-          )}
-          {primary && <p className="braiddesc">{primary.desc}</p>}
+          {primary && <div className="braiddesc">{primary.desc}</div>}
           <p className="small" style={{ color: "var(--book-dim)" }}>
             Signature code · <strong>{exportObj.signature || "—"}</strong>
           </p>
         </div>
+        <div className="bfoot">
+          Rarity comes from combination. Genius is rarely a single gift — it is
+          almost always two of the nine domains braided together, and the
+          pairing, not either strand alone, is what makes a person rare.
+        </div>
       </div>
 
       <RawHtml html={gindexStripHTML(m)} />
+
+      {/* The art collage — braid, both strands, leading family */}
+      <div className="book" style={{ textAlign: "center" }}>
+        <div className="artcollage">
+          {primary && (
+            <div className="resultart" tabIndex={0}>
+              <img src={heroArt} alt={primary.name} loading="lazy" />
+              <div className="resultart-cap">
+                {primary.name.replace(/^The /, "")}
+              </div>
+            </div>
+          )}
+          <div className="resultart" tabIndex={0}>
+            <img src={collageArt.d0} alt={d0.name} loading="lazy" />
+            <div className="resultart-cap">{d0.name}</div>
+          </div>
+          <div className="resultart" tabIndex={0}>
+            <img src={collageArt.d1} alt={d1.name} loading="lazy" />
+            <div className="resultart-cap">{d1.name}</div>
+          </div>
+          <div className="resultart" tabIndex={0}>
+            <img
+              src={collageArt.family}
+              alt={m.leadingFamily.toUpperCase()}
+              loading="lazy"
+            />
+            <div className="resultart-cap">{m.leadingFamily.toUpperCase()}</div>
+          </div>
+        </div>
+      </div>
+
       <RawHtml html={interpTop(m)} />
 
       {/* The wheel */}
@@ -392,34 +459,108 @@ export default function Results() {
         <hr className="brule" />
         <RawHtml html={buildGrid(m.R, m.primaryKey, m.adjKeys)} />
         <RawHtml html={buildFieldGuide(m.R, m.primaryKey, m.adjKeys)} />
-        <p className="small" style={{ textAlign: "center", marginTop: 10 }}>
-          <Link href="/braids" style={{ color: "var(--gold-ink)" }}>
-            Browse all 36 braids in the explorer →
-          </Link>
+        <Link
+          href="/braids"
+          className="btn book-primary"
+          style={{ maxWidth: 340, margin: "12px auto 0", textDecoration: "none", display: "block", textAlign: "center" }}
+        >
+          Explore all 36 braids →
+        </Link>
+      </div>
+
+      {/* The free companion */}
+      <div className="book" style={{ textAlign: "center" }}>
+        <div className="eyebrow-b">A gift, to keep</div>
+        <h2 className="bt">The Free Braid Companion</h2>
+        <p className="btsub">
+          "The Thirty-Six Braids" — an eleven-page field guide to every
+          pairing, yours to download and keep. No purchase required.
         </p>
+        <a
+          className="btn book-primary"
+          style={{ maxWidth: 340, margin: "6px auto 0", textDecoration: "none", display: "inline-block", textAlign: "center" }}
+          href={`${import.meta.env.BASE_URL}downloads/the-thirty-six-braids-companion.pdf`}
+          download
+        >
+          Download the Companion (PDF) →
+        </a>
       </div>
 
       {/* Actions */}
       <div className="book" style={{ textAlign: "center" }}>
         <div className="eyebrow-b">Keep it · share it · test it again</div>
         <hr className="brule" />
+        {shareStatus && <p className="submitstatus ok">{shareStatus}</p>}
         <div className="btnrow" style={{ flexWrap: "wrap" }}>
-          <button className="btn book-primary" onClick={() => void shareBraidCard(m)}>
-            Share my braid card
+          <button
+            className="btn book-primary"
+            onClick={async () => {
+              setShareStatus("Generating your share card…");
+              try {
+                await downloadShareCard(m);
+                setShareStatus("✓ Downloaded. Share it anywhere.");
+              } catch {
+                setShareStatus(
+                  "Couldn't generate the image in this browser — try Save/Print instead.",
+                );
+              }
+            }}
+          >
+            Share your braid card! #GeniusIndex
           </button>
-          <button className="btn book-ghost" onClick={() => void downloadShareCard(m)}>
-            Download card (PNG)
-          </button>
+          {canNativeShare && (
+            <button
+              className="btn book-primary"
+              onClick={async () => {
+                setShareStatus("Preparing your card…");
+                try {
+                  const result = await shareBraidCard(m);
+                  setShareStatus(
+                    result === "shared"
+                      ? "✓ Shared!"
+                      : result === "cancelled"
+                        ? ""
+                        : "✓ Downloaded. Share it anywhere.",
+                  );
+                } catch {
+                  setShareStatus(
+                    "Couldn't generate the image in this browser — try Save/Print instead.",
+                  );
+                }
+              }}
+            >
+              Share to Instagram →
+            </button>
+          )}
         </div>
         <div className="btnrow" style={{ flexWrap: "wrap" }}>
           <button className="btn book-ghost" onClick={copyShareLink}>
             Copy share link
           </button>
-          <button className="btn book-ghost" onClick={exportJson}>
-            Export data (JSON)
-          </button>
           <button className="btn book-ghost" onClick={() => window.print()}>
-            Print
+            Save / print my chart
+          </button>
+          <Link
+            href="/assessment"
+            className="btn book-ghost"
+            style={{ textDecoration: "none", textAlign: "center" }}
+          >
+            Take it again →
+          </Link>
+        </div>
+        <div className="btnrow" style={{ marginTop: 8 }}>
+          <button
+            className="btn book-ghost"
+            style={{ maxWidth: 340, margin: "0 auto" }}
+            disabled={reminderAdded}
+            onClick={() => {
+              downloadRetestReminder(m);
+              setReminderAdded(true);
+            }}
+          >
+            {reminderAdded
+              ? "✓ Added to calendar"
+              : `↺ Remind me to retake this on ${retestDate().toLocaleDateString(undefined, { month: "long", day: "numeric" })}`}
           </button>
         </div>
         {shareMsg && (
@@ -427,17 +568,49 @@ export default function Results() {
             {shareMsg}
           </p>
         )}
+        <details className="pilot">
+          <summary>Raw result data</summary>
+          <p className="small" style={{ color: "var(--book-dim)", margin: "8px 0" }}>
+            The exact GI-1.0 record behind this page — copy it, or download it
+            as a file.
+          </p>
+          <textarea
+            className="export"
+            readOnly
+            value={JSON.stringify(exportObj)}
+            rows={5}
+            style={{ width: "100%" }}
+          />
+          <div className="btnrow" style={{ marginTop: 8 }}>
+            <button
+              className="btn book-ghost"
+              onClick={async () => {
+                try {
+                  await navigator.clipboard.writeText(JSON.stringify(exportObj));
+                  setShareStatus("✓ Results block copied.");
+                } catch {
+                  setShareStatus("Couldn't copy — select the block and copy manually.");
+                }
+              }}
+            >
+              Copy results block
+            </button>
+            <button className="btn book-ghost" onClick={exportJson}>
+              Download (JSON)
+            </button>
+          </div>
+        </details>
         <p className="small" style={{ color: "var(--book-dim)", marginTop: 14 }}>
-          Genius grows — retake in about 90 days and the app shows you the
-          delta.{" "}
-          <Link href="/assessment" style={{ color: "var(--gold-ink)" }}>
-            Retake now →
-          </Link>{" "}
-          ·{" "}
           <Link href="/protocol" style={{ color: "var(--gold-ink)" }}>
-            Start the 30-day protocol →
+            Start the 30-day protocol on your Signature →
           </Link>
         </p>
+        <div className="bfoot" style={{ textAlign: "center" }}>
+          The Genius Index is a reflective and developmental tool. It is not a
+          test, a diagnosis, or a measure of intelligence.{" "}
+          <em>Identify to amplify.</em>
+        </div>
+        <EcosystemFooter />
       </div>
       <LegalFootnote />
     </GiShell>
