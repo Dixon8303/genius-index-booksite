@@ -179,7 +179,7 @@ export default function EcosystemSection() {
                     style={{
                       fontFamily: "'Newsreader', sans-serif",
                       fontWeight: 700,
-                      fontSize: "0.65rem",
+                      fontSize: "0.8rem",
                       letterSpacing: "0.12em",
                       textTransform: "uppercase",
                       color: "var(--fg-muted)",
@@ -196,7 +196,7 @@ export default function EcosystemSection() {
               <p
                 style={{
                   fontFamily: "'Newsreader', sans-serif",
-                  fontSize: "0.95rem",
+                  fontSize: "1.0625rem",
                   lineHeight: 1.6,
                   color: "var(--fg-muted)",
                 }}

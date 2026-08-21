@@ -85,7 +85,7 @@ export default function FAQSection() {
               className="reveal"
               style={{
                 fontFamily: "'Newsreader', sans-serif",
-                fontSize: "1rem",
+                fontSize: "1.0625rem",
                 lineHeight: 1.8,
                 color: "var(--fg-muted)",
                 transitionDelay: "200ms",
@@ -164,7 +164,7 @@ export default function FAQSection() {
                   <p
                     style={{
                       fontFamily: "'Newsreader', sans-serif",
-                      fontSize: "1rem",
+                      fontSize: "1.0625rem",
                       lineHeight: 1.8,
                       color: "var(--fg-muted)",
                       paddingBottom: "1.5rem",

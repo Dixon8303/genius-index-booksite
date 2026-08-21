@@ -106,7 +106,7 @@ export default function Navigation() {
                 style={{
                   fontFamily: "'Newsreader', sans-serif",
                   fontWeight: 400,
-                  fontSize: "0.9rem",
+                  fontSize: "1rem",
                   letterSpacing: "0.12em",
                   textTransform: "uppercase",
                   color: "var(--fg-muted)",
@@ -124,7 +124,7 @@ export default function Navigation() {
               href="#get-book"
               onClick={e => handleNavClick(e, "#get-book")}
               className="btn-gold"
-              style={{ padding: "0.5rem 1.5rem", fontSize: "0.8rem", textDecoration: "none" }}
+              style={{ padding: "0.5rem 1.5rem", fontSize: "0.95rem", textDecoration: "none" }}
             >
               Get the Book
             </a>
@@ -180,7 +180,7 @@ export default function Navigation() {
               style={{
                 fontFamily: "'Newsreader', sans-serif",
                 fontWeight: 400,
-                fontSize: "0.95rem",
+                fontSize: "1.0625rem",
                 letterSpacing: "0.12em",
                 textTransform: "uppercase",
                 color: "var(--fg-muted)",

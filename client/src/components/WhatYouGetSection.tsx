@@ -152,7 +152,7 @@ export default function WhatYouGetSection() {
               <p
                 style={{
                   fontFamily: "'Newsreader', sans-serif",
-                  fontSize: "1rem",
+                  fontSize: "1.0625rem",
                   lineHeight: 1.75,
                   color: "var(--fg-muted)",
                 }}

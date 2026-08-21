@@ -165,7 +165,7 @@ export default function BuiltFromSection() {
                 <p
                   style={{
                     fontFamily: "'Newsreader', sans-serif",
-                    fontSize: "0.85rem",
+                    fontSize: "1rem",
                     lineHeight: 1.5,
                     color: "var(--fg-muted)",
                     margin: 0,

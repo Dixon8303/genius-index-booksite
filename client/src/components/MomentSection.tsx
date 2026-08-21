@@ -179,7 +179,7 @@ export default function MomentSection() {
             <p
               style={{
                 fontFamily: "'Newsreader', sans-serif",
-                fontSize: "0.9rem",
+                fontSize: "1rem",
                 letterSpacing: "0.15em",
                 textTransform: "uppercase",
                 color: "var(--print-500)",

@@ -106,7 +106,7 @@ export default function BookSection() {
               <p
                 style={{
                   fontFamily: "'Newsreader', sans-serif",
-                  fontSize: "0.85rem",
+                  fontSize: "1rem",
                   letterSpacing: "0.12em",
                   textTransform: "uppercase",
                   color: "var(--print-500)",
@@ -184,7 +184,7 @@ export default function BookSection() {
                 style={{
                   fontFamily: "'Newsreader', sans-serif",
                   fontWeight: 700,
-                  fontSize: "0.75rem",
+                  fontSize: "0.85rem",
                   letterSpacing: "0.2em",
                   textTransform: "uppercase",
                   color: "var(--accent)",
@@ -212,7 +212,7 @@ export default function BookSection() {
               <p
                 style={{
                   fontFamily: "'Newsreader', sans-serif",
-                  fontSize: "1rem",
+                  fontSize: "1.0625rem",
                   lineHeight: 1.75,
                   color: "var(--fg-muted)",
                 }}
