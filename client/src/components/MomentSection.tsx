@@ -157,7 +157,7 @@ export default function MomentSection() {
               style={{
                 fontFamily: "'Instrument Serif', serif",
                 fontStyle: "italic",
-                fontSize: "1.2rem",
+                fontSize: "1.3rem",
                 lineHeight: 1.7,
                 color: "var(--fg-muted)",
                 maxWidth: "600px",
@@ -179,7 +179,7 @@ export default function MomentSection() {
             <p
               style={{
                 fontFamily: "'Newsreader', sans-serif",
-                fontSize: "0.8rem",
+                fontSize: "0.9rem",
                 letterSpacing: "0.15em",
                 textTransform: "uppercase",
                 color: "var(--print-500)",

@@ -117,7 +117,7 @@ export default function WhatYouGetSection() {
                   fontFamily: "'Instrument Serif', serif",
                   fontWeight: 900,
                   fontSize: "3rem",
-                  color: "rgb(194 122 12 / 12%)",
+                  color: "var(--accent-fill)",
                   lineHeight: 1,
                   marginBottom: "1.25rem",
                   letterSpacing: "-0.04em",
@@ -140,7 +140,7 @@ export default function WhatYouGetSection() {
                 style={{
                   fontFamily: "'Instrument Serif', serif",
                   fontWeight: 600,
-                  fontSize: "1.1rem",
+                  fontSize: "1.25rem",
                   color: "var(--fg)",
                   marginBottom: "0.875rem",
                   lineHeight: 1.3,
@@ -152,7 +152,7 @@ export default function WhatYouGetSection() {
               <p
                 style={{
                   fontFamily: "'Newsreader', sans-serif",
-                  fontSize: "0.875rem",
+                  fontSize: "1rem",
                   lineHeight: 1.75,
                   color: "var(--fg-muted)",
                 }}

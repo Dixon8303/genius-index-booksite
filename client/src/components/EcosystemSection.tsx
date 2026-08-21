@@ -86,7 +86,7 @@ export default function EcosystemSection() {
             className="reveal"
             style={{
               fontFamily: "'Newsreader', sans-serif",
-              fontSize: "1rem",
+              fontSize: "1.125rem",
               lineHeight: 1.8,
               color: "var(--fg-muted)",
               maxWidth: "560px",
@@ -140,7 +140,7 @@ export default function EcosystemSection() {
                   fontFamily: "'Instrument Serif', serif",
                   fontWeight: 900,
                   fontSize: "2.5rem",
-                  color: "rgb(194 122 12 / 12%)",
+                  color: "var(--accent-fill)",
                   lineHeight: 1,
                   marginBottom: "1rem",
                   letterSpacing: "-0.04em",
@@ -167,7 +167,7 @@ export default function EcosystemSection() {
                   style={{
                     fontFamily: "'Instrument Serif', serif",
                     fontWeight: 600,
-                    fontSize: "1.05rem",
+                    fontSize: "1.1875rem",
                     color: "var(--fg)",
                     lineHeight: 1.3,
                   }}
@@ -179,7 +179,7 @@ export default function EcosystemSection() {
                     style={{
                       fontFamily: "'Newsreader', sans-serif",
                       fontWeight: 700,
-                      fontSize: "0.55rem",
+                      fontSize: "0.65rem",
                       letterSpacing: "0.12em",
                       textTransform: "uppercase",
                       color: "var(--fg-muted)",
@@ -196,7 +196,7 @@ export default function EcosystemSection() {
               <p
                 style={{
                   fontFamily: "'Newsreader', sans-serif",
-                  fontSize: "0.85rem",
+                  fontSize: "0.95rem",
                   lineHeight: 1.6,
                   color: "var(--fg-muted)",
                 }}

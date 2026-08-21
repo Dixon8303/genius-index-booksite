@@ -78,7 +78,7 @@ export default function BuiltFromSection() {
               className="reveal"
               style={{
                 fontFamily: "'Newsreader', sans-serif",
-                fontSize: "1rem",
+                fontSize: "1.125rem",
                 lineHeight: 1.8,
                 color: "var(--fg-muted)",
                 marginBottom: "2rem",
@@ -102,7 +102,7 @@ export default function BuiltFromSection() {
                 style={{
                   fontFamily: "'Instrument Serif', serif",
                   fontStyle: "italic",
-                  fontSize: "1.05rem",
+                  fontSize: "1.1875rem",
                   lineHeight: 1.7,
                   color: "var(--accent)",
                   margin: 0,
@@ -141,7 +141,7 @@ export default function BuiltFromSection() {
                     fontFamily: "'Instrument Serif', serif",
                     fontWeight: 900,
                     fontSize: "1.8rem",
-                    color: "rgb(194 122 12 / 12%)",
+                    color: "var(--accent-fill)",
                     lineHeight: 1,
                     marginBottom: "0.75rem",
                   }}
@@ -153,7 +153,7 @@ export default function BuiltFromSection() {
                   style={{
                     fontFamily: "'Instrument Serif', serif",
                     fontWeight: 600,
-                    fontSize: "0.95rem",
+                    fontSize: "1.0625rem",
                     color: "var(--fg)",
                     marginBottom: "0.5rem",
                     lineHeight: 1.2,
@@ -165,7 +165,7 @@ export default function BuiltFromSection() {
                 <p
                   style={{
                     fontFamily: "'Newsreader', sans-serif",
-                    fontSize: "0.75rem",
+                    fontSize: "0.85rem",
                     lineHeight: 1.5,
                     color: "var(--fg-muted)",
                     margin: 0,

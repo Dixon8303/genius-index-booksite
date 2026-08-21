@@ -72,7 +72,7 @@ export default function ProblemSection() {
               <p
                 style={{
                   fontFamily: "'Newsreader', sans-serif",
-                  fontSize: "0.75rem",
+                  fontSize: "0.85rem",
                   letterSpacing: "0.2em",
                   textTransform: "uppercase",
                   color: "var(--accent)",
@@ -143,7 +143,7 @@ export default function ProblemSection() {
                       fontFamily: "'Instrument Serif', serif",
                       fontWeight: 900,
                       fontSize: "1.8rem",
-                      color: "rgb(194 122 12 / 20%)",
+                      color: "var(--accent-fill)",
                       lineHeight: 1,
                       minWidth: "50px",
                     }}
@@ -155,7 +155,7 @@ export default function ProblemSection() {
                       style={{
                         fontFamily: "'Instrument Serif', serif",
                         fontWeight: 600,
-                        fontSize: "1rem",
+                        fontSize: "1.125rem",
                         color: "var(--fg)",
                         marginBottom: "0.5rem",
                         lineHeight: 1.2,
@@ -166,7 +166,7 @@ export default function ProblemSection() {
                     <p
                       style={{
                         fontFamily: "'Newsreader', sans-serif",
-                        fontSize: "0.85rem",
+                        fontSize: "0.95rem",
                         lineHeight: 1.6,
                         color: "var(--fg-muted)",
                         margin: 0,
@@ -232,7 +232,7 @@ export default function ProblemSection() {
                 style={{
                   fontFamily: "'Newsreader', sans-serif",
                   fontWeight: 700,
-                  fontSize: "0.65rem",
+                  fontSize: "0.75rem",
                   letterSpacing: "0.2em",
                   textTransform: "uppercase",
                   color: "var(--accent)",
@@ -245,7 +245,7 @@ export default function ProblemSection() {
                 style={{
                   fontFamily: "'Instrument Serif', serif",
                   fontStyle: "italic",
-                  fontSize: "1.1rem",
+                  fontSize: "1.25rem",
                   lineHeight: 1.6,
                   color: "var(--fg)",
                   margin: 0,
@@ -267,7 +267,7 @@ export default function ProblemSection() {
               <p
                 style={{
                   fontFamily: "'Newsreader', sans-serif",
-                  fontSize: "0.85rem",
+                  fontSize: "0.95rem",
                   lineHeight: 1.7,
                   color: "var(--accent)",
                   margin: 0,

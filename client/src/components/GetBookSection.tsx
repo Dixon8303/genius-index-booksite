@@ -148,7 +148,7 @@ export default function GetBookSection() {
             style={{
               fontFamily: "'Instrument Serif', serif",
               fontStyle: "italic",
-              fontSize: "1.2rem",
+              fontSize: "1.3rem",
               lineHeight: 1.7,
               color: "var(--fg-muted)",
               transitionDelay: "200ms",
@@ -226,7 +226,7 @@ export default function GetBookSection() {
                       style={{
                         fontFamily: "'Instrument Serif', serif",
                         fontWeight: 600,
-                        fontSize: "1.05rem",
+                        fontSize: "1.1875rem",
                         color: "var(--fg)",
                       }}
                     >
@@ -237,7 +237,7 @@ export default function GetBookSection() {
                         style={{
                           fontFamily: "'Newsreader', sans-serif",
                           fontWeight: 700,
-                          fontSize: "0.55rem",
+                          fontSize: "0.65rem",
                           letterSpacing: "0.15em",
                           textTransform: "uppercase",
                           color: format.comingSoon ? "var(--fg-muted)" : "var(--bg)",
@@ -253,7 +253,7 @@ export default function GetBookSection() {
                   <p
                     style={{
                       fontFamily: "'Newsreader', sans-serif",
-                      fontSize: "0.85rem",
+                      fontSize: "0.95rem",
                       lineHeight: 1.65,
                       color: "var(--fg-muted)",
                     }}
@@ -273,7 +273,7 @@ export default function GetBookSection() {
                     style={{
                       flexShrink: 0,
                       whiteSpace: "nowrap",
-                      fontSize: "0.65rem",
+                      fontSize: "0.75rem",
                       padding: "0.625rem 1.25rem",
                       fontFamily: "'Newsreader', sans-serif",
                       fontWeight: 700,
@@ -299,7 +299,7 @@ export default function GetBookSection() {
                       flexShrink: 0,
                       textDecoration: "none",
                       whiteSpace: "nowrap",
-                      fontSize: "0.65rem",
+                      fontSize: "0.75rem",
                       padding: "0.625rem 1.25rem",
                     }}
                   >
@@ -343,7 +343,7 @@ export default function GetBookSection() {
             <p
               style={{
                 fontFamily: "'Newsreader', sans-serif",
-                fontSize: "0.9rem",
+                fontSize: "1rem",
                 lineHeight: 1.75,
                 color: "var(--fg-muted)",
               }}

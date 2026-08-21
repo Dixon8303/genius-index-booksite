@@ -85,7 +85,7 @@ export default function FAQSection() {
               className="reveal"
               style={{
                 fontFamily: "'Newsreader', sans-serif",
-                fontSize: "0.9rem",
+                fontSize: "1rem",
                 lineHeight: 1.8,
                 color: "var(--fg-muted)",
                 transitionDelay: "200ms",
@@ -125,7 +125,7 @@ export default function FAQSection() {
                     style={{
                       fontFamily: "'Instrument Serif', serif",
                       fontWeight: 600,
-                      fontSize: "1rem",
+                      fontSize: "1.125rem",
                       color: openIndex === i ? "var(--accent)" : "var(--print-700)",
                       lineHeight: 1.4,
                       transition: "color 200ms ease",
@@ -164,7 +164,7 @@ export default function FAQSection() {
                   <p
                     style={{
                       fontFamily: "'Newsreader', sans-serif",
-                      fontSize: "0.9rem",
+                      fontSize: "1rem",
                       lineHeight: 1.8,
                       color: "var(--fg-muted)",
                       paddingBottom: "1.5rem",

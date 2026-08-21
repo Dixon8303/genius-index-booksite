@@ -107,7 +107,7 @@ export default function QuoteSection() {
           style={{
             fontFamily: "'Newsreader', sans-serif",
             fontWeight: 700,
-            fontSize: "0.7rem",
+            fontSize: "0.8rem",
             letterSpacing: "0.2em",
             textTransform: "uppercase",
             color: "var(--print-500)",

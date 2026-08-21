@@ -64,7 +64,7 @@ export default function Footer() {
                 style={{
                   fontFamily: "'Instrument Serif', serif",
                   fontWeight: 700,
-                  fontSize: "0.9rem",
+                  fontSize: "1rem",
                   letterSpacing: "0.08em",
                   color: "var(--fg)",
                   textTransform: "uppercase",
@@ -77,7 +77,7 @@ export default function Footer() {
               style={{
                 fontFamily: "'Instrument Serif', serif",
                 fontStyle: "italic",
-                fontSize: "0.95rem",
+                fontSize: "1.0625rem",
                 lineHeight: 1.7,
                 color: "var(--print-500)",
               }}
@@ -87,7 +87,7 @@ export default function Footer() {
             <p
               style={{
                 fontFamily: "'Newsreader', sans-serif",
-                fontSize: "0.75rem",
+                fontSize: "0.85rem",
                 color: "var(--print-400)",
                 marginTop: "0.75rem",
               }}
@@ -103,7 +103,7 @@ export default function Footer() {
                 style={{
                   fontFamily: "'Newsreader', sans-serif",
                   fontWeight: 700,
-                  fontSize: "0.65rem",
+                  fontSize: "0.75rem",
                   letterSpacing: "0.2em",
                   textTransform: "uppercase",
                   color: "var(--accent)",
@@ -126,7 +126,7 @@ export default function Footer() {
                     onClick={e => handleNavClick(e, link.href)}
                     style={{
                       fontFamily: "'Newsreader', sans-serif",
-                      fontSize: "0.85rem",
+                      fontSize: "0.95rem",
                       color: "var(--fg-muted)",
                       textAlign: "left",
                       textDecoration: "none",
@@ -146,7 +146,7 @@ export default function Footer() {
                 style={{
                   fontFamily: "'Newsreader', sans-serif",
                   fontWeight: 700,
-                  fontSize: "0.65rem",
+                  fontSize: "0.75rem",
                   letterSpacing: "0.2em",
                   textTransform: "uppercase",
                   color: "var(--accent)",
@@ -167,7 +167,7 @@ export default function Footer() {
                     onClick={e => handleNavClick(e, link.href)}
                     style={{
                       fontFamily: "'Newsreader', sans-serif",
-                      fontSize: "0.85rem",
+                      fontSize: "0.95rem",
                       color: "var(--fg-muted)",
                       textAlign: "left",
                       textDecoration: "none",
@@ -187,7 +187,7 @@ export default function Footer() {
                 style={{
                   fontFamily: "'Newsreader', sans-serif",
                   fontWeight: 700,
-                  fontSize: "0.65rem",
+                  fontSize: "0.75rem",
                   letterSpacing: "0.2em",
                   textTransform: "uppercase",
                   color: "var(--accent)",
@@ -209,7 +209,7 @@ export default function Footer() {
                     rel="noopener"
                     style={{
                       fontFamily: "'Newsreader', sans-serif",
-                      fontSize: "0.85rem",
+                      fontSize: "0.95rem",
                       color: "var(--fg-muted)",
                       textAlign: "left",
                       textDecoration: "none",
@@ -234,7 +234,7 @@ export default function Footer() {
           <p
             style={{
               fontFamily: "'Newsreader', sans-serif",
-              fontSize: "0.75rem",
+              fontSize: "0.85rem",
               color: "var(--fg-muted)",
             }}
           >
@@ -243,7 +243,7 @@ export default function Footer() {
           <p
             style={{
               fontFamily: "'Newsreader', sans-serif",
-              fontSize: "0.72rem",
+              fontSize: "0.8rem",
               color: "var(--fg-muted)",
               maxWidth: "420px",
               lineHeight: 1.6,

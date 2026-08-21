@@ -73,7 +73,7 @@ export default function FrameworkSection() {
             className="reveal"
             style={{
               fontFamily: "'Newsreader', sans-serif",
-              fontSize: "1rem",
+              fontSize: "1.125rem",
               lineHeight: 1.8,
               color: "var(--fg-muted)",
               maxWidth: "560px",
@@ -140,7 +140,7 @@ export default function FrameworkSection() {
                     fontFamily: "'Instrument Serif', serif",
                     fontWeight: 700,
                     fontSize: "1.4rem",
-                    color: "rgb(194 122 12 / 40%)",
+                    color: "var(--accent)",
                   }}
                 >
                   {stream.weight}
@@ -150,7 +150,7 @@ export default function FrameworkSection() {
                 style={{
                   fontFamily: "'Instrument Serif', serif",
                   fontWeight: 600,
-                  fontSize: "1.15rem",
+                  fontSize: "1.25rem",
                   color: "var(--fg)",
                   marginBottom: "0.875rem",
                 }}
@@ -160,7 +160,7 @@ export default function FrameworkSection() {
               <p
                 style={{
                   fontFamily: "'Newsreader', sans-serif",
-                  fontSize: "0.88rem",
+                  fontSize: "1rem",
                   lineHeight: 1.75,
                   color: "var(--fg-muted)",
                 }}
@@ -197,7 +197,7 @@ export default function FrameworkSection() {
               className="reveal"
               style={{
                 fontFamily: "'Newsreader', sans-serif",
-                fontSize: "0.95rem",
+                fontSize: "1.0625rem",
                 lineHeight: 1.8,
                 color: "var(--fg-muted)",
                 marginBottom: "2rem",
@@ -240,7 +240,7 @@ export default function FrameworkSection() {
                       style={{
                         fontFamily: "'Newsreader', sans-serif",
                         fontWeight: 700,
-                        fontSize: "0.8rem",
+                        fontSize: "0.9rem",
                         letterSpacing: "0.1em",
                         textTransform: "uppercase",
                         color: band.indicator === 4 ? "var(--accent)" : "var(--fg-muted)",
@@ -253,7 +253,7 @@ export default function FrameworkSection() {
                     <p
                       style={{
                         fontFamily: "'Newsreader', sans-serif",
-                        fontSize: "0.83rem",
+                        fontSize: "0.9rem",
                         lineHeight: 1.6,
                         color: "var(--fg-muted)",
                       }}
@@ -288,7 +288,7 @@ export default function FrameworkSection() {
               className="reveal"
               style={{
                 fontFamily: "'Newsreader', sans-serif",
-                fontSize: "0.95rem",
+                fontSize: "1.0625rem",
                 lineHeight: 1.8,
                 color: "var(--fg-muted)",
                 marginBottom: "2rem",
@@ -326,7 +326,7 @@ export default function FrameworkSection() {
                       style={{
                         fontFamily: "'Instrument Serif', serif",
                         fontWeight: 700,
-                        fontSize: "0.95rem",
+                        fontSize: "1.0625rem",
                         color: "var(--fg)",
                         display: "block",
                       }}
@@ -336,7 +336,7 @@ export default function FrameworkSection() {
                     <span
                       style={{
                         fontFamily: "'Newsreader', sans-serif",
-                        fontSize: "0.65rem",
+                        fontSize: "0.75rem",
                         color: "var(--accent)",
                         letterSpacing: "0.08em",
                       }}
@@ -355,7 +355,7 @@ export default function FrameworkSection() {
                   <p
                     style={{
                       fontFamily: "'Newsreader', sans-serif",
-                      fontSize: "0.82rem",
+                      fontSize: "0.9rem",
                       lineHeight: 1.5,
                       color: "var(--fg-muted)",
                     }}
@@ -378,7 +378,7 @@ export default function FrameworkSection() {
                     aria-hidden="true"
                   >
                     <DomainGlyph domain={braid.glyphs[0]} size={20} />
-                    <span style={{ fontFamily: "'Instrument Serif', serif", fontSize: "0.85rem", color: "var(--fg-muted)" }}>+</span>
+                    <span style={{ fontFamily: "'Instrument Serif', serif", fontSize: "0.95rem", color: "var(--fg-muted)" }}>+</span>
                     <DomainGlyph domain={braid.glyphs[1]} size={20} />
                   </div>
                 </div>
@@ -404,7 +404,7 @@ export default function FrameworkSection() {
             style={{
               fontFamily: "'Instrument Serif', serif",
               fontStyle: "italic",
-              fontSize: "1.2rem",
+              fontSize: "1.3rem",
               lineHeight: 1.7,
               color: "var(--print-700)",
             }}
@@ -414,7 +414,7 @@ export default function FrameworkSection() {
           <p
             style={{
               fontFamily: "'Newsreader', sans-serif",
-              fontSize: "0.75rem",
+              fontSize: "0.85rem",
               letterSpacing: "0.1em",
               textTransform: "uppercase",
               color: "var(--print-500)",
