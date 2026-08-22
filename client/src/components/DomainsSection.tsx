@@ -265,7 +265,7 @@ export default function DomainsSection() {
                 <div
                   style={{
                     fontFamily: "'Newsreader', sans-serif",
-                    fontSize: "0.8rem",
+                    fontSize: "0.95rem",
                     letterSpacing: "0.1em",
                     textTransform: "uppercase",
                     color: hoveredId === domain.id ? "oklch(0.15 0.008 285 / 70%)" : "var(--print-500)",
@@ -322,7 +322,7 @@ export default function DomainsSection() {
                         <p
                           style={{
                             fontFamily: "'Newsreader', sans-serif",
-                            fontSize: "0.85rem",
+                            fontSize: "1rem",
                             letterSpacing: "0.15em",
                             textTransform: "uppercase",
                             color: "var(--accent)",
@@ -409,7 +409,7 @@ export default function DomainsSection() {
           <p
             style={{
               fontFamily: "'Newsreader', sans-serif",
-              fontSize: "0.9rem",
+              fontSize: "1rem",
               letterSpacing: "0.1em",
               textTransform: "uppercase",
               color: "var(--print-500)",

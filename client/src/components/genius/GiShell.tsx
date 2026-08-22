@@ -67,7 +67,7 @@ export default function GiShell({
               flexWrap: "wrap",
               gap: "14px",
               margin: "0 0 22px",
-              fontSize: 11,
+              fontSize: 13,
               letterSpacing: "0.14em",
               textTransform: "uppercase",
             }}

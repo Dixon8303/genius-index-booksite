@@ -165,7 +165,7 @@ export default function Profile() {
 
       {/* Latest result card */}
       <div className="book" style={{ textAlign: "center" }}>
-        <div className="yb" style={{ fontFamily: "'Newsreader',sans-serif", fontSize: 11, letterSpacing: ".3em", textTransform: "uppercase", color: "var(--gold-ink)" }}>
+        <div className="yb" style={{ fontFamily: "'Newsreader',sans-serif", fontSize: 13, letterSpacing: ".3em", textTransform: "uppercase", color: "var(--gold-ink)" }}>
           Latest result
         </div>
         <RawHtml html={buildHeroGlyph(latestM.braidDoms)} />

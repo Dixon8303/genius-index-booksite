@@ -134,7 +134,7 @@ export default function DiagramsSection() {
                 <p
                   style={{
                     fontFamily: "'Newsreader', sans-serif",
-                    fontSize: "0.95rem",
+                    fontSize: "1.0625rem",
                     lineHeight: 1.6,
                     color: "var(--fg-muted)",
                   }}
@@ -154,7 +154,7 @@ export default function DiagramsSection() {
           <p
             style={{
               fontFamily: "'Newsreader', sans-serif",
-              fontSize: "0.9rem",
+              fontSize: "1rem",
               letterSpacing: "0.1em",
               textTransform: "uppercase",
               color: "var(--print-500)",

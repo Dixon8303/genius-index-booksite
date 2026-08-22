@@ -160,7 +160,7 @@ export default function FrameworkSection() {
               <p
                 style={{
                   fontFamily: "'Newsreader', sans-serif",
-                  fontSize: "1rem",
+                  fontSize: "1.0625rem",
                   lineHeight: 1.75,
                   color: "var(--fg-muted)",
                 }}
@@ -240,7 +240,7 @@ export default function FrameworkSection() {
                       style={{
                         fontFamily: "'Newsreader', sans-serif",
                         fontWeight: 700,
-                        fontSize: "0.9rem",
+                        fontSize: "1rem",
                         letterSpacing: "0.1em",
                         textTransform: "uppercase",
                         color: band.indicator === 4 ? "var(--accent)" : "var(--fg-muted)",
@@ -253,7 +253,7 @@ export default function FrameworkSection() {
                     <p
                       style={{
                         fontFamily: "'Newsreader', sans-serif",
-                        fontSize: "0.9rem",
+                        fontSize: "1rem",
                         lineHeight: 1.6,
                         color: "var(--fg-muted)",
                       }}
@@ -336,7 +336,7 @@ export default function FrameworkSection() {
                     <span
                       style={{
                         fontFamily: "'Newsreader', sans-serif",
-                        fontSize: "0.75rem",
+                        fontSize: "0.85rem",
                         color: "var(--accent)",
                         letterSpacing: "0.08em",
                       }}
@@ -355,7 +355,7 @@ export default function FrameworkSection() {
                   <p
                     style={{
                       fontFamily: "'Newsreader', sans-serif",
-                      fontSize: "0.9rem",
+                      fontSize: "1rem",
                       lineHeight: 1.5,
                       color: "var(--fg-muted)",
                     }}
@@ -378,7 +378,7 @@ export default function FrameworkSection() {
                     aria-hidden="true"
                   >
                     <DomainGlyph domain={braid.glyphs[0]} size={20} />
-                    <span style={{ fontFamily: "'Instrument Serif', serif", fontSize: "0.95rem", color: "var(--fg-muted)" }}>+</span>
+                    <span style={{ fontFamily: "'Instrument Serif', serif", fontSize: "1.0625rem", color: "var(--fg-muted)" }}>+</span>
                     <DomainGlyph domain={braid.glyphs[1]} size={20} />
                   </div>
                 </div>
@@ -414,7 +414,7 @@ export default function FrameworkSection() {
           <p
             style={{
               fontFamily: "'Newsreader', sans-serif",
-              fontSize: "0.85rem",
+              fontSize: "1rem",
               letterSpacing: "0.1em",
               textTransform: "uppercase",
               color: "var(--print-500)",
